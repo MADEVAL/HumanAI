@@ -1,18 +1,18 @@
-# HUMAN-AI — Text Humanization Engine
+# HUMAN-AI - Text Humanization Engine
 
 \[ **English** | [Русский](README.ru.md) \]
 
 > **If the reader forgets a machine was involved, you won.**
 
-An AI skill system that rewrites machine-generated text to sound human-written — across 9 languages. Detects and removes AI fingerprints through a 5-stage pipeline.
+An AI skill system that rewrites machine-generated text to sound human-written - across 9 languages. Detects and removes AI fingerprints through a 5-stage pipeline.
 
 ---
 
 ## What is this?
 
-**HUMAN-AI** is a system prompt (skill) for any LLM — GPT, Claude, Gemini, DeepSeek, or any capable model. It transforms AI-generated text that "smells like AI" into text that reads like a competent human wrote it.
+**HUMAN-AI** is a system prompt (skill) for any LLM - GPT, Claude, Gemini, DeepSeek, or any capable model. It transforms AI-generated text that "smells like AI" into text that reads like a competent human wrote it.
 
-AI writes with a fingerprint: same rhythm, same structure, same burned words, same dead perfection. HUMAN-AI strips that fingerprint — not by making text "less AI", but by making it *more human*.
+AI writes with a fingerprint: same rhythm, same structure, same burned words, same dead perfection. HUMAN-AI strips that fingerprint - not by making text "less AI", but by making it *more human*.
 
 ---
 
@@ -24,9 +24,9 @@ AI writes with a fingerprint: same rhythm, same structure, same burned words, sa
 
 **Three modes:**
 
-- **Full Pipeline** — 5 stages: cleanup → specificity → tone → rhythm → proofread. Every text passes through. Flexible: skip stages with declared reason.
-- **Single Stage** — Run just one stage: cleanup only, specificity only, rhythm only, etc.
-- **Audit Mode** — Diagnostic scan only. Don't rewrite. Flag all AI patterns found.
+- **Full Pipeline** - 5 stages: cleanup → specificity → tone → rhythm → proofread. Every text passes through. Flexible: skip stages with declared reason.
+- **Single Stage** - Run just one stage: cleanup only, specificity only, rhythm only, etc.
+- **Audit Mode** - Diagnostic scan only. Don't rewrite. Flag all AI patterns found.
 
 ---
 
@@ -131,7 +131,7 @@ Rewrite this as a landing page. DE.
 ```
 Just clean the AI patterns from this.
 Add concrete details. Don't change the tone.
-Fix the rhythm — it reads like a machine.
+Fix the rhythm - it reads like a machine.
 ```
 
 ### Audit only
@@ -170,7 +170,7 @@ Here's what the four good ones have in common. And why the other eight failed.
 - Deleted "In today's fast-paced digital landscape" opener
 - Burned words removed: leveraging, cutting-edge, optimize, streamline, transformative, comprehensive
 - Specificity added: "twelve tools / three months / four helped"
-- Tone: human — direct, opinionated, fragment opener
+- Tone: human - direct, opinionated, fragment opener
 - Rhythm: 7w → 8w → 2w → 18w → 9w → 9w → 11w
 ```
 
@@ -182,8 +182,8 @@ Here's what the four good ones have in common. And why the other eight failed.
 
 - Any capable LLM with a system prompt / custom instructions field
 - For full skill functionality: a skill system that loads files from a folder (OpenCode, Claude Code)
-- For standalone: copy `SKILL.md` as system prompt — contains complete pipeline
-- No API keys, no tools, no dependencies — pure prompt engineering
+- For standalone: copy `SKILL.md` as system prompt - contains complete pipeline
+- No API keys, no tools, no dependencies - pure prompt engineering
 
 ---
 
@@ -209,7 +209,7 @@ Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per
 
 **Always:**
 - Flag invented numbers with `[VERIFY]`
-- Preserve factual content — only change presentation
+- Preserve factual content - only change presentation
 - Declare all changes in changelog
 
 **Never:**

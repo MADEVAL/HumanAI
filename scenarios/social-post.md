@@ -26,9 +26,9 @@
 **LinkedIn:** Professional but conversational. Data hooks work. "X cost us $Y. Here's what we learned."
 **Twitter/X:** Even punchier. Thread = each tweet a standalone idea that chains.
 **Telegram:** Russian-speaking audience: more directness than EN. Confidence without arrogance.
-**Instagram:** Visual-first — text supports the image. Shorter. Emotional resonance over data.
+**Instagram:** Visual-first - text supports the image. Shorter. Emotional resonance over data.
 
 ## Language notes
 
-**RU:** Measured confidence — bold but not brash. Self-irony works. Russian social is more direct than English.
+**RU:** Measured confidence - bold but not brash. Self-irony works. Russian social is more direct than English.
 **UK:** Ukrainian social = more emotional, community-oriented. Warmth works. Directness fine but less aggressive than RU.

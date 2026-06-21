@@ -1,4 +1,4 @@
-# Tone Profiles — 7 Voices Across All Languages
+# Tone Profiles - 7 Voices Across All Languages
 
 > Every text has a speaker. These profiles define who's speaking.
 
@@ -20,7 +20,7 @@
 
 ## Tone Selection Priority
 
-1. User-specified tone — always honored
+1. User-specified tone - always honored
 2. Context auto-detection (see table below)
 3. Default fallback → `human`
 
@@ -36,7 +36,7 @@
 
 ---
 
-## Profile 1: `expert` — The Practitioner
+## Profile 1: `expert` - The Practitioner
 
 **Who's speaking:** 10+ years in the field. Knows the edge cases. Not showing off. Just explaining.
 
@@ -47,15 +47,15 @@
 - No motivational language. No «we're excited». No «imagine the possibilities»
 
 **EN markers:**
-- Moderate contractions: "we'll", "it's" — yes. "gonna", "kinda" — no
+- Moderate contractions: "we'll", "it's" - yes. "gonna", "kinda" - no
 - Opener style: "The problem is...", "Here's what happens...", "Most people miss..."
 - Sentence length: 4-12w (short) mixed with 18-30w (explanation)
 
-**RU markers:** Brevity respected — shorter sentences than EN. Technical terms in English or Russian per industry norm. Ми default. Minimal adjectives.
+**RU markers:** Brevity respected - shorter sentences than EN. Technical terms in English or Russian per industry norm. Ми default. Minimal adjectives.
 
-**UK markers:** Clean technical Ukrainian — no Russianisms. Slightly warmer than RU at baseline but precise. Technical terms: English loanwords fine in tech context. Ми default.
+**UK markers:** Clean technical Ukrainian - no Russianisms. Slightly warmer than RU at baseline but precise. Technical terms: English loanwords fine in tech context. Ми default.
 
-**DE markers:** Direkte Sprache. Kein Nominalstil. «Wir haben getestet. Es funktioniert.» Minimal adjectives — facts carry weight.
+**DE markers:** Direkte Sprache. Kein Nominalstil. «Wir haben getestet. Es funktioniert.» Minimal adjectives - facts carry weight.
 
 **FR markers:** Précision sans rhétorique. Phrases déclaratives. «On a testé. Voilà ce qui marche.» Pas d'enthousiasme forcé.
 
@@ -65,11 +65,11 @@
 
 **IT markers:** Preciso, senza entusiasmo. «Abbiamo provato X. Ha funzionato. Ecco perché.» Gergo tecnico: solo se il pubblico lo condivide. Altrimenti spiega.
 
-**PL markers:** Precyzja ponad entuzjazm. «Przetestowaliśmy. Działa. Oto dlaczego.» Żargon techniczny — tylko jeśli odbiorca zna. Jeśli nie — wyjaśnij.
+**PL markers:** Precyzja ponad entuzjazm. «Przetestowaliśmy. Działa. Oto dlaczego.» Żargon techniczny - tylko jeśli odbiorca zna. Jeśli nie - wyjaśnij.
 
 ---
 
-## Profile 2: `biz` — The Consultant
+## Profile 2: `biz` - The Consultant
 
 **Who's speaking:** Senior person at a firm. Serious. Direct. Time is money.
 
@@ -78,11 +78,11 @@
 - Claims with evidence. Numbers with context
 - Politeness through clarity, not pleasantries
 
-**EN markers:** Limited contractions: "we're", "it's" — yes. "don't" — sparingly. Sentence length 8-22w. No: "partner with us", "journey", "passionate about".
+**EN markers:** Limited contractions: "we're", "it's" - yes. "don't" - sparingly. Sentence length 8-22w. No: "partner with us", "journey", "passionate about".
 
 **RU markers:** Вы always. Minimal emotional language. Direct questions fine: «Что вы хотите получить через 6 месяцев?» No: «рады предложить», «с удовольствием».
 
-**UK markers:** Ви always. European business style — cleaner, less bureaucratic than post-Soviet. No: «раді запропонувати», «наша місія».
+**UK markers:** Ви always. European business style - cleaner, less bureaucratic than post-Soviet. No: «раді запропонувати», «наша місія».
 
 **DE markers:** Sie immer. Direkt, sachlich. «Hier ist was wir machen. Hier sind die Kosten.» Kein: «wir freuen uns», «unsere Mission».
 
@@ -98,7 +98,7 @@
 
 ---
 
-## Profile 3: `human` — The Smart Friend
+## Profile 3: `human` - The Smart Friend
 
 **Who's speaking:** A competent person explaining over coffee. Warm. Direct. Occasionally funny.
 
@@ -109,7 +109,7 @@
 
 **EN markers:** All contractions including "gonna" (max 1/500w). Sentence length 2w to 30+. Conjunction starters freely. Parenthetical asides 1-2 per section.
 
-**RU markers:** Thinner line between warm/unprofessional. Stay slightly more formal than EN. Default вы (ты only for very informal social). Fragments work: «Сделали. Работает. Смотрим дальше.» Fillers: «кстати», «честно говоря», «давайте разберёмся» — 1-2 per 300w.
+**RU markers:** Thinner line between warm/unprofessional. Stay slightly more formal than EN. Default вы (ты only for very informal social). Fragments work: «Сделали. Работает. Смотрим дальше.» Fillers: «кстати», «честно говоря», «давайте разберёмся» - 1-2 per 300w.
 
 **UK markers:** Naturally warmer than RU at baseline. More conversational allowed without losing credibility. Fillers: «до речі», «чесно кажучи», «давайте розберемось», «тут важливий момент». Ukrainian conversational rhythm: shorter phrases, more melodic flow.
 
@@ -127,7 +127,7 @@
 
 ---
 
-## Profile 4: `social` — The Scroller
+## Profile 4: `social` - The Scroller
 
 **Who's speaking:** Someone who knows how to stop a thumb. Punchy. Opinionated.
 
@@ -140,7 +140,7 @@
 
 **EN markers:** Sentence length 3-12w mostly. One longer for explanation. All contractions. Fragments encouraged.
 
-**RU markers:** Confidence sells — but overconfidence annoys. Measured confidence. Russian social is more direct than English. Self-irony works. Short lines, big claims, sharp transitions.
+**RU markers:** Confidence sells - but overconfidence annoys. Measured confidence. Russian social is more direct than English. Self-irony works. Short lines, big claims, sharp transitions.
 
 **UK markers:** Ukrainian social media tends more emotional, community-oriented. Warmth works well. Directness fine but less aggressive than RU. Shorter paragraphs than EN equivalent. Natural conversational flow.
 
@@ -158,7 +158,7 @@
 
 ---
 
-## Profile 5: `landing` — The Seller
+## Profile 5: `landing` - The Seller
 
 **Who's speaking:** Confident product person. Every word earns its pixel space.
 
@@ -170,7 +170,7 @@
 
 **EN markers:** Very tight. "Start building" not "Get started today". "See how it works" not "Learn more". Fragments 1-1.5/100w.
 
-**RU markers:** Russian landing pages suffer from over-explanation. Cut 30% then cut 30% more. CTAs: infinitive or imperative — pick one, stay consistent. Trust through specifics, not enthusiasm.
+**RU markers:** Russian landing pages suffer from over-explanation. Cut 30% then cut 30% more. CTAs: infinitive or imperative - pick one, stay consistent. Trust through specifics, not enthusiasm.
 
 **UK markers:** Ukrainian audiences respond to clarity over embellishment. Cut aggressively. CTAs consistent in form. Довіра через конкретику, не ентузіазм.
 
@@ -188,20 +188,20 @@
 
 ---
 
-## Profile 6: `article` — The Explainer
+## Profile 6: `article` - The Explainer
 
 **Who's speaking:** Someone who explored a topic and shares what they found. Educational, not academic.
 
 **Universal signature:**
 - Opens with the problem, not the context
-- Explores, tests, concludes — no template structure
+- Explores, tests, concludes - no template structure
 - Sections flow by topic logic
 - Ends when exploration ends. No «in conclusion»
 - No: "Firstly, secondly, thirdly", "This article will explore"
 
 **EN markers:** Sentence length varies by section. Intros shorter, deep dives longer. Natural transitions: "Let's look at the data." "But there's a catch."
 
-**RU markers:** Russian long-form tends academic — fight this. Write like explaining to a smart colleague. Section breaks with questions: «Почему так происходит?» Avoid dissertation tone: passive, reflexive verbs, abstract nouns.
+**RU markers:** Russian long-form tends academic - fight this. Write like explaining to a smart colleague. Section breaks with questions: «Почему так происходит?» Avoid dissertation tone: passive, reflexive verbs, abstract nouns.
 
 **UK markers:** Ukrainian long-form developing its non-academic voice. More European, less Soviet baggage. Natural section flow. Questions as section breaks work well.
 
@@ -219,7 +219,7 @@
 
 ---
 
-## Profile 7: `case` — The Case Study
+## Profile 7: `case` - The Case Study
 
 **Who's speaking:** Someone who did the work and is reporting back. Honest about failures.
 
@@ -231,9 +231,9 @@
 
 **EN markers:** "The first approach didn't work. The API rate-limited us. We switched to batch processing. That worked."
 
-**RU markers:** Russian case studies tend to skip failures — include them. Builds massive trust. Specific technical details respected. Client quotes: keep them real or don't use them.
+**RU markers:** Russian case studies tend to skip failures - include them. Builds massive trust. Specific technical details respected. Client quotes: keep them real or don't use them.
 
-**UK markers:** Include failures. Same logic as RU. Ukrainian business culture appreciates directness. Numbers + honest narrative = trust. Не приховуйте невдачі — це будує довіру.
+**UK markers:** Include failures. Same logic as RU. Ukrainian business culture appreciates directness. Numbers + honest narrative = trust. Не приховуйте невдачі - це будує довіру.
 
 **DE markers:** Ehrlichkeit baut Vertrauen. «Der erste Ansatz scheiterte. Die API hat uns limitiert. Batch-Verarbeitung löste es.» Zahlen, nicht Adjektive.
 

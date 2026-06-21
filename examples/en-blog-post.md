@@ -38,6 +38,6 @@ The technology wasn't the hard part. The hard part was resisting the urge to "tr
 - Fake balance removed: "while some argue AI poses risks"
 - Conclusion regurgitation killed
 - Specificity added: 200 teams surveyed, 23%/41%/36% stats, 12-person team, 400 tickets/day, 7hrs→90min [VERIFY: stats are illustrative]
-- Tone: human — direct, data-driven, specific example
-- Rhythm: 9w → 8w → 2w → 13w → 9w → 14w → 5w → 21w → 7w → 6w → 6w → 24w → 19w → 12w → 10w → 13w — varied
+- Tone: human - direct, data-driven, specific example
+- Rhythm: 9w → 8w → 2w → 13w → 9w → 14w → 5w → 21w → 7w → 6w → 6w → 24w → 19w → 12w → 10w → 13w - varied
 ```

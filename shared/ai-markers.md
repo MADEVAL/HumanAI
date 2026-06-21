@@ -1,6 +1,6 @@
-# AI Markers — Detection Patterns Per Language
+# AI Markers - Detection Patterns Per Language
 
-> **Unified policy:** Em-dashes (—) are an AI tell in ALL languages. Replace with periods, commas, colons — regardless of language conventions. No exceptions except: direct quotes, code references, proper names.
+> **Unified policy:** Em-dashes (-) are an AI tell in ALL languages. Replace with periods, commas, colons - regardless of language conventions. No exceptions except: direct quotes, code references, proper names.
 
 ---
 
@@ -70,7 +70,7 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 ### Structure tells
 - Adverbial participle stacking (-ая, -ясь in one sentence)
 - Pseudo-academic tone: excessive reflexive verbs, abstract nouns
-- «Данный» / «являться» / «осуществлять» — see burned-words.md
+- «Данный» / «являться» / «осуществлять» - see burned-words.md
 
 ### Human Russian sounds like
 - Mix of коротких (2-4 words) and длинных (15-25 words) sentences
@@ -109,8 +109,8 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 ### Structure tells
 - Russianisms: «із-за» → «через», «так як» → «бо» / «тому що», «приймати участь» → «брати участь»
 - Surzhyk-like constructions from Russian or English templates
-- «Даний» / «являтися» / «здійснювати» — see burned-words.md
-- Missing natural conversational rhythm — too formal, too «written»
+- «Даний» / «являтися» / «здійснювати» - see burned-words.md
+- Missing natural conversational rhythm - too formal, too «written»
 
 ### Human Ukrainian sounds like
 - Natural mix of sentence lengths
@@ -118,7 +118,7 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 - Concrete examples rooted in Ukrainian reality
 - Cultural references that make sense locally
 - Less formality in appropriate contexts
-- Natural warmth — Ukrainian baseline is warmer than Russian
+- Natural warmth - Ukrainian baseline is warmer than Russian
 - Melodic flow: shorter phrases, rhythmic variation
 
 ---
@@ -145,7 +145,7 @@ Man könnte argumentieren dass, Einige schlagen vor, Es gibt Hinweise darauf, Es
 - English quotation marks («») used instead of German („“ or »«): AI tell.
 
 ### Human German sounds like
-- Varied sentence length (German tolerates long sentences — but vary)
+- Varied sentence length (German tolerates long sentences - but vary)
 - Active voice preferred over passive
 - Verbs where they belong (not pushed to the end unnaturally)
 - Natural modal particles: «doch», «ja», «halt», «eben» in informal contexts
@@ -204,7 +204,7 @@ Se podría decir que, Algunos sugieren, Es posible que, Por lo general, En la ma
 - Semicolons in series: reduce. Spanish prefers periods or commas.
 
 ### Human Spanish sounds like
-- Varied sentence length (Spanish tolerates long sentences — but vary)
+- Varied sentence length (Spanish tolerates long sentences - but vary)
 - Natural subjunctive, not forced
 - Regional flavor where appropriate (vosotros/ustedes, local expressions)
 - Active voice, direct statements
@@ -262,7 +262,7 @@ Si potrebbe dire che, Alcuni suggeriscono, È possibile che, In generale, Nella 
 - Semicolons: reduce. Italian prefers periods or commas.
 
 ### Human Italian sounds like
-- Varied sentence length (Italian tolerates long sentences — but vary)
+- Varied sentence length (Italian tolerates long sentences - but vary)
 - Natural «allora», «cioè», «comunque», «insomma» as conversational fillers
 - Regional flavor where appropriate
 - Active voice, less «si passivante» (passive «si»)

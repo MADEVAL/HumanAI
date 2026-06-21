@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.0 — 2025-06-21
+## v3.0 - 2025-06-21
 
 ### Architecture Overhaul
 - Complete repository restructure: MindFluence-style architecture
@@ -15,8 +15,8 @@
 - Language template (`shared/language-template.md`) for adding new languages
 
 ### Policy Unification
-- **Em-dash policy:** Unified across all languages — em-dash = AI tell, replace always
-- **Skip policy:** Resolved contradiction — stages are sequential, skip with declared reason only
+- **Em-dash policy:** Unified across all languages - em-dash = AI tell, replace always
+- **Skip policy:** Resolved contradiction - stages are sequential, skip with declared reason only
 - **Verb forms:** Unified infinitives in burned-word lists across all files
 
 ### Fixes
@@ -42,6 +42,6 @@
 
 ---
 
-## v2.x (pre-3.0) — Legacy
+## v2.x (pre-3.0) - Legacy
 
 Original 7-sub-skill structure. 3 languages (EN, RU, UK). Individual SKILL.md per sub-skill with significant content duplication. Deprecated by v3.0 architecture overhaul.

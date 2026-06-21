@@ -1,12 +1,12 @@
 # Scenario: Email
 
-**Use when:** Humanizing an email — newsletter, welcome sequence, cold outreach, nurture, or transactional.
+**Use when:** Humanizing an email - newsletter, welcome sequence, cold outreach, nurture, or transactional.
 
 **Default tone:** `human`
 
 ## Email-specific rules
 
-1. **Subject line = the hook.** Under 40 chars. Not "Your weekly update" — "The feature you asked for ships tomorrow."
+1. **Subject line = the hook.** Under 40 chars. Not "Your weekly update" - "The feature you asked for ships tomorrow."
 2. **One idea per email.** If there are 3 topics → send 3 emails.
 3. **First sentence = why you're writing.** Not "I hope this email finds you well."
 4. **Personal where possible.** "You signed up for X" not "Our valued subscribers."

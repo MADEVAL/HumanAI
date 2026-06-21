@@ -30,7 +30,7 @@
 ## Language-specific notes
 
 **RU:** «Вы» always. Minimal emotional language. Results, not feelings. No: «рады предложить», «наша миссия».
-**UK:** «Ви» always. European business style — cleaner than post-Soviet. No: «раді запропонувати».
+**UK:** «Ви» always. European business style - cleaner than post-Soviet. No: «раді запропонувати».
 **DE:** «Sie» immer. Direkt, sachlich. Kein: «wir freuen uns».
 **FR:** «Vous» toujours. Direct, factuel. Pas de: «nous sommes ravis».
 **ES:** «Usted» siempre. Datos, no entusiasmo.

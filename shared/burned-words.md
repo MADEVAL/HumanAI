@@ -1,4 +1,4 @@
-# Burned Words — Universal + Per Language
+# Burned Words - Universal + Per Language
 
 > Words that signal AI origin. Remove all instances unless they serve a precise, non-generic purpose.
 > **Replacement rule:** Do not find a synonym. Describe the actual action or quality.
@@ -156,53 +156,53 @@ bardzo, niezwykle, niesamowicie, naprawdę, absolutnie, całkowicie, kompletnie,
 |-----|------|
 | «оптимизирует процессы» | «сокращает время согласования с трёх дней до четырёх часов» |
 | «инновационный подход» | «мы попробовали метод, который никто в нашей нише не использовал» |
-| «комплексное решение» | «CRM, рассылки и отчёты — в одном окне, без переключения между вкладками» |
+| «комплексное решение» | «CRM, рассылки и отчёты - в одном окне, без переключения между вкладками» |
 
 ### UK
 | Bad | Good |
 |-----|------|
 | «оптимізує процеси» | «скорочує час погодження з трьох днів до чотирьох годин» |
 | «інноваційний підхід» | «ми спробували метод, який ніхто в нашій ніші не використовував» |
-| «комплексне рішення» | «CRM, розсилки та звіти — в одному вікні, без перемикання між вкладками» |
+| «комплексне рішення» | «CRM, розсилки та звіти - в одному вікні, без перемикання між вкладками» |
 
 ### DE
 | Bad | Good |
 |-----|------|
 | «optimiert Prozesse» | «verkürzt Genehmigungszeiten von drei Tagen auf vier Stunden» |
 | «innovative Lösung» | «ein Ansatz, den noch niemand in unserer Branche ausprobiert hat» |
-| «ganzheitliche Plattform» | «CRM, Mailing und Berichte — ein Tab, keine Wechsel» |
+| «ganzheitliche Plattform» | «CRM, Mailing und Berichte - ein Tab, keine Wechsel» |
 
 ### FR
 | Bad | Good |
 |-----|------|
 | «optimise les processus» | «réduit le temps de validation de trois jours à quatre heures» |
 | «solution innovante» | «une approche que personne dans notre secteur n'avait encore testée» |
-| «plateforme holistique» | «CRM, emails et rapports — un seul onglet, sans basculer» |
+| «plateforme holistique» | «CRM, emails et rapports - un seul onglet, sans basculer» |
 
 ### ES
 | Bad | Good |
 |-----|------|
 | «optimiza los procesos» | «reduce el tiempo de aprobación de tres días a cuatro horas» |
 | «solución innovadora» | «un enfoque que nadie en nuestro sector había probado» |
-| «plataforma integral» | «CRM, correos e informes — una pestaña, sin cambiar de ventana» |
+| «plataforma integral» | «CRM, correos e informes - una pestaña, sin cambiar de ventana» |
 
 ### PT
 | Bad | Good |
 |-----|------|
 | «otimiza os processos» | «reduz o tempo de aprovação de três dias para quatro horas» |
 | «solução inovadora» | «uma abordagem que ninguém no nosso setor tinha testado» |
-| «plataforma abrangente» | «CRM, emails e relatórios — uma aba, sem trocar de janela» |
+| «plataforma abrangente» | «CRM, emails e relatórios - uma aba, sem trocar de janela» |
 
 ### IT
 | Bad | Good |
 |-----|------|
 | «ottimizza i processi» | «riduce i tempi di approvazione da tre giorni a quattro ore» |
 | «soluzione innovativa» | «un approccio che nessuno nel nostro settore aveva mai provato» |
-| «piattaforma completa» | «CRM, email e report — una scheda, senza cambiare finestra» |
+| «piattaforma completa» | «CRM, email e report - una scheda, senza cambiare finestra» |
 
 ### PL
 | Bad | Good |
 |-----|------|
 | «optymalizuje procesy» | «skraca czas akceptacji z trzech dni do czterech godzin» |
 | «innowacyjne rozwiązanie» | «podejście, którego nikt w naszej branży jeszcze nie testował» |
-| «kompleksowa platforma» | «CRM, mailingi i raporty — jedna zakładka, bez przełączania» |
+| «kompleksowa platforma» | «CRM, mailingi i raporty - jedna zakładka, bez przełączania» |

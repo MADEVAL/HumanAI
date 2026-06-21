@@ -7,7 +7,7 @@
 ## Key priorities
 
 1. **Clarity over brevity.** Technical text can be longer if every word adds precision. But cut filler.
-2. **Jargon where appropriate.** Use correct terms — don't dumb down. Define implicitly through use, not with a glossary.
+2. **Jargon where appropriate.** Use correct terms - don't dumb down. Define implicitly through use, not with a glossary.
 3. **Active voice.** "The function returns an array" not "An array is returned by the function."
 4. **Code blocks stay.** Never modify code, commands, or config examples. Only edit surrounding explanation.
 5. **Assumed audience is smart.** Don't explain what a variable is. Do explain why this architecture choice matters.
@@ -40,4 +40,4 @@
 **RU:** Brevity respected. Technical terms in English or Russian per industry norm. Don't force-translate. Мы default.
 **UK:** Clean technical Ukrainian. No Russianisms. English loanwords fine in tech.
 **DE:** Direkt, präzise. Englishe Fachbegriffe ok. «Sie» für Benutzer.
-**All:** Technical accuracy > humanization. Don't make docs "warm" — make them clear.
+**All:** Technical accuracy > humanization. Don't make docs "warm" - make them clear.

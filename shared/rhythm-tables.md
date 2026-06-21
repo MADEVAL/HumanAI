@@ -1,4 +1,4 @@
-# Rhythm Tables — Sentence Flow Parameters
+# Rhythm Tables - Sentence Flow Parameters
 
 > **Core principle:** AI text is a metronome. Human text is jazz. Break the beat.
 
@@ -28,31 +28,31 @@
 
 **Rule:** No three consecutive sentences start with the same word or same grammatical structure.
 
-### Opener categories — EN
+### Opener categories - EN
 Subject, Pronoun (You/We/They), Conjunction (And/But/So/Or), Verb (Build/Start), Preposition (In/With/For), Adverb, Question, Fragment.
 
-### Opener categories — RU
+### Opener categories - RU
 Subject, Pronoun (Вы/Мы/Они), Conjunction (А/И/Но), Verb-first, Adverbial (Когда/Если), Question, Fragment.
 
-### Opener categories — UK
+### Opener categories - UK
 Subject, Pronoun (Ви/Ми/Вони), Conjunction (А/І/Але), Verb-first, Adverbial (Коли/Якщо), Question, Fragment.
 
-### Opener categories — DE
+### Opener categories - DE
 Subject, Pronomen (Sie/Wir), Konjunktion (Und/Aber/Oder), Verb-erst, Präpositional (Mit/Durch/Für), Adverbial, Frage, Fragment.
 
-### Opener categories — FR
+### Opener categories - FR
 Sujet, Pronom (Vous/Nous/On), Conjonction (Et/Mais/Donc), Verbe, Prépositionnel (Avec/Pour/Dans), Adverbial, Question, Fragment.
 
-### Opener categories — ES
+### Opener categories - ES
 Sujeto, Pronombre (Usted/Nosotros), Conjunción (Y/Pero), Verbo, Preposicional (Con/Para/En), Adverbial, Pregunta, Fragmento.
 
-### Opener categories — PT
+### Opener categories - PT
 Sujeito, Pronome (Você/Nós), Conjunção (E/Mas), Verbo, Preposicional (Com/Para/Em), Adverbial, Pergunta, Fragmento.
 
-### Opener categories — IT
+### Opener categories - IT
 Soggetto, Pronome (Lei/Noi), Congiunzione (E/Ma), Verbo, Preposizionale (Con/Per/In), Avverbiale, Domanda, Frammento.
 
-### Opener categories — PL
+### Opener categories - PL
 Podmiot, Zaimek (Pan/Pani/My), Spójnik (I/Ale), Czasownik, Przyimkowy (Z/Dla/W), Przysłówkowy, Pytanie, Fragment.
 
 ---

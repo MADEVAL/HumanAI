@@ -17,7 +17,7 @@ Read the text. What language patterns are haunting it? Common source→target te
 - **EN→FR:** English sentence structures, missing «on»/«en fait», forced formality
 - **EN→ES:** English gerund patterns, missing subjunctive, forced subjects
 - **Any→UK:** Russian loan structures, over-formality, double-translation artifacts (EN→RU→UA)
-- **Uncovered pairs:** Apply general principles — identify non-native constructions, replace with native phrasing
+- **Uncovered pairs:** Apply general principles - identify non-native constructions, replace with native phrasing
 
 ### Step 2: Extract meaning, discard phrasing
 Ask: what is this actually saying? Then: how would a native speaker express this?
@@ -34,7 +34,7 @@ Paragraph norms differ by language. EN: topic→development→conclusion. RU: lo
 - Punctuation must match target-language conventions
 
 ### Step 5: Read aloud in target language
-Would a native speaker ever say these words in this order? If no — it's still a translation. Go back.
+Would a native speaker ever say these words in this order? If no - it's still a translation. Go back.
 
 ## Output format
 

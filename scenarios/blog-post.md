@@ -6,10 +6,10 @@
 
 ## Key priorities (ordered)
 
-1. **Kill the template structure.** No "Introduction → Body → Conclusion" skeleton. Open with a specific observation, problem, or story — not context.
+1. **Kill the template structure.** No "Introduction → Body → Conclusion" skeleton. Open with a specific observation, problem, or story - not context.
 2. **Opinion required.** Blog posts without an opinion are AI. State the writer's actual position. No fake balance.
 3. **Specificity over everything.** Every abstract claim gets a concrete example, number, or micro-story.
-4. **Natural flow.** Section transitions by topic logic — not "Firstly, Secondly, Thirdly."
+4. **Natural flow.** Section transitions by topic logic - not "Firstly, Secondly, Thirdly."
 5. **End on substance.** No "In conclusion" restating what was just said. Last paragraph: a clear takeaway, a question, or a next step.
 
 ## Rhythm targets

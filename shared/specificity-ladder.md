@@ -1,4 +1,4 @@
-# Specificity Ladder — Abstraction to Concrete
+# Specificity Ladder - Abstraction to Concrete
 
 > **The Golden Question:** For every claim ask: *How, exactly?*
 > **Target:** Every claim at rung 0-1 → rung 2+. Aim for rung 3 when data supports it.
@@ -27,7 +27,7 @@
 | 1 | "improves WordPress security" |
 | 2 | "blocks brute-force login attacks" |
 | 3 | "blocks 8,400 brute-force attempts/day on average" |
-| 4 | "blocks 8,400 attacks/day — login page stays available for real users" |
+| 4 | "blocks 8,400 attacks/day - login page stays available for real users" |
 
 ### Russian
 | Rung | Example |
@@ -36,7 +36,7 @@
 | 1 | «повышает безопасность WordPress» |
 | 2 | «блокирует атаки перебора паролей» |
 | 3 | «блокирует в среднем 8400 попыток перебора в день» |
-| 4 | «блокирует 8400 попыток в день — страница входа остаётся доступной» |
+| 4 | «блокирует 8400 попыток в день - страница входа остаётся доступной» |
 
 ### Ukrainian
 | Rung | Example |
@@ -45,7 +45,7 @@
 | 1 | «підвищує безпеку WordPress» |
 | 2 | «блокує атаки перебору паролів» |
 | 3 | «блокує в середньому 8400 спроб перебору на день» |
-| 4 | «блокує 8400 спроб на день — сторінка входу залишається доступною» |
+| 4 | «блокує 8400 спроб на день - сторінка входу залишається доступною» |
 
 ### German
 | Rung | Example |
@@ -54,7 +54,7 @@
 | 1 | «verbessert die WordPress-Sicherheit» |
 | 2 | «blockiert Brute-Force-Login-Angriffe» |
 | 3 | «blockiert durchschnittlich 8.400 Brute-Force-Versuche pro Tag» |
-| 4 | «blockiert 8.400 Angriffe/Tag — Login-Seite bleibt für echte Nutzer erreichbar» |
+| 4 | «blockiert 8.400 Angriffe/Tag - Login-Seite bleibt für echte Nutzer erreichbar» |
 
 ### French
 | Rung | Example |
@@ -63,7 +63,7 @@
 | 1 | «améliore la sécurité WordPress» |
 | 2 | «bloque les attaques par force brute» |
 | 3 | «bloque en moyenne 8 400 tentatives par jour» |
-| 4 | «bloque 8 400 attaques/jour — la page de connexion reste disponible» |
+| 4 | «bloque 8 400 attaques/jour - la page de connexion reste disponible» |
 
 ### Spanish
 | Rung | Example |
@@ -72,7 +72,7 @@
 | 1 | «mejora la seguridad de WordPress» |
 | 2 | «bloquea ataques de fuerza bruta» |
 | 3 | «bloquea un promedio de 8.400 intentos por día» |
-| 4 | «bloquea 8.400 ataques/día — la página de inicio sigue disponible» |
+| 4 | «bloquea 8.400 ataques/día - la página de inicio sigue disponible» |
 
 ### Portuguese
 | Rung | Example |
@@ -81,7 +81,7 @@
 | 1 | «melhora a segurança do WordPress» |
 | 2 | «bloqueia ataques de força bruta» |
 | 3 | «bloqueia em média 8.400 tentativas por dia» |
-| 4 | «bloqueia 8.400 ataques/dia — página de login continua disponível» |
+| 4 | «bloqueia 8.400 ataques/dia - página de login continua disponível» |
 
 ### Italian
 | Rung | Example |
@@ -90,7 +90,7 @@
 | 1 | «migliora la sicurezza di WordPress» |
 | 2 | «blocca gli attacchi di forza bruta» |
 | 3 | «blocca in media 8.400 tentativi al giorno» |
-| 4 | «blocca 8.400 attacchi/giorno — la pagina di login resta disponibile» |
+| 4 | «blocca 8.400 attacchi/giorno - la pagina di login resta disponibile» |
 
 ### Polish
 | Rung | Example |
@@ -99,11 +99,11 @@
 | 1 | «poprawia bezpieczeństwo WordPress» |
 | 2 | «blokuje ataki brute-force» |
 | 3 | «blokuje średnio 8400 prób dziennie» |
-| 4 | «blokuje 8400 ataków/dzień — strona logowania pozostaje dostępna» |
+| 4 | «blokuje 8400 ataków/dzień - strona logowania pozostaje dostępna» |
 
 ---
 
-## Abstraction Detector (EN — applies to all languages with equivalent words)
+## Abstraction Detector (EN - applies to all languages with equivalent words)
 
 Scan for these triggers:
 - "improves" / "enhances" / "boosts" / "increases" (without a number or mechanism)
@@ -135,7 +135,7 @@ Good: "handles ~12,000 requests/sec under normal load [VERIFY: confirm actual th
 
 ### 4. Scenario Example (micro-story)
 Bad: "The tool helps prevent shipping errors."
-Good: "A warehouse worker scans a box. The tablet shows a green check — right item, right address. Last month that happened 37 times."
+Good: "A warehouse worker scans a box. The tablet shows a green check - right item, right address. Last month that happened 37 times."
 
 ### 5. Comparison Ground
 Bad: "Fast."

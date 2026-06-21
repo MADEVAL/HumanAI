@@ -15,7 +15,7 @@
 3. Stage 2: Climb specificity ladder for every claim rung 0-1. Flag invented numbers `[VERIFY]`
 4. Stage 3: Set tone. Apply tone-specific markers (contractions, fragments, formality)
 5. Stage 4: Break metronome. Vary sentence length, openers, add fragments and conjunction starters (`shared/rhythm-tables.md`)
-6. Stage 5: Final proofread — read-aloud test, top-10 AI tells scan, max 2 passes
+6. Stage 5: Final proofread - read-aloud test, top-10 AI tells scan, max 2 passes
 
 ## Output
 
@@ -31,7 +31,7 @@
 - Opener removed: [what]
 - Burned words: [count + list]
 - Specificity: [N claims rung X→Y]
-- Tone: [profile] — [key changes]
+- Tone: [profile] - [key changes]
 - Rhythm: [N same-length runs broken], [N fragments added]
 ```
 

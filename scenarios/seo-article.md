@@ -27,7 +27,7 @@
 ## Language-specific SEO notes
 
 **RU:** Yandex (~35% share) penalizes over-optimization harder than Google. Human-sounding text is even MORE important. Queries often phrased as questions.
-**EN:** Featured snippets reward clear, concise answers. E-E-A-T is real — signal experience through specifics.
+**EN:** Featured snippets reward clear, concise answers. E-E-A-T is real - signal experience through specifics.
 **UK:** Google dominates (~95%). Ukrainian queries longer and more conversational. Avoid RU SEO patterns leaking.
 **DE/FR/ES/PT/IT/PL:** Google dominates. Same quality-first principles. Local keyword research patterns apply.
 
