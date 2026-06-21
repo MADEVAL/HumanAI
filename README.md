@@ -219,14 +219,114 @@ Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per
 
 ---
 
-## Integration with MindFluence
+## Integration
 
-HUMAN-AI pairs with [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing):
+HUMAN-AI is designed to work with two other skills — [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
 
-- MindFluence generates persuasive copy with psychological engineering
-- HUMAN-AI humanizes it without breaking the bias structure
-- Map tones: `warm-human` → `human`, `expert-calm` → `expert`, `bold-sell` → `landing`
-- Use `PIPELINE: cleanup → specificity → tone(skipped) → rhythm → proofread` to preserve MindFluence tone
+### Joint Prompt Triggers
+
+HUMAN-AI recognizes these joint prompts and activates preservation rules automatically:
+
+- "SEO-rewrite this (RankWise), then humanize it (HumanAI)"
+- "Humanize the RankWise output below"
+- "HumanAI pass on RankWise content"
+- "MindFluence generated this. Now humanize it with HumanAI."
+- "Triple pipeline: RankWise → MindFluence → HumanAI"
+
+### With RankWise (SEO)
+
+**The rule:** RankWise handles SEO structure → HumanAI handles human voice. Do not break SEO.
+
+**Preservation rules when processing RankWise content:**
+
+- **Do NOT delete or alter H2/H3 headings** that contain SEO keywords. Only rewrite the sentences surrounding them.
+- **Preserve keyword density of 0.8%–1.5%.** If keyword instances are removed during cleanup, add equivalent keyword-adjacent language elsewhere.
+- **Maintain minimum 600 words** (unless user explicitly requests shorter).
+- **Keep internal link anchors and placement** — they are deliberately positioned for SEO.
+- **During Stage 1 (cleanup):** skip deletion of keywords, internal links, and schema-relevant elements.
+- **Meta title/description:** already SEO-optimized. Do not humanize them.
+
+**Conflict resolution (RankWise vs HumanAI instincts):**
+1. Preserve keyword placement (K2, K4, K6, K8) — highest priority
+2. Preserve heading structure (C13) — second priority
+3. Then apply human voice cleanup
+4. Accept ≤5% density fluctuation as acceptable trade-off
+
+**SEO-safe markers — do NOT delete during cleanup:**
+- Keywords in the first 100–150 words
+- Keywords in H2 headings
+- Keywords in image alt texts (if present)
+- Internal link anchor text variety (exact-match ≤2)
+- Meta title and description
+
+**Recommended pipeline invocation:**
+```
+PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm → proofread
+```
+
+### With MindFluence (Cognitive Bias Marketing)
+
+**The rule:** MindFluence engineers persuasion → HumanAI humanizes the voice. Do not strip psychological structure.
+
+**Tone mapping (MindFluence → HumanAI):**
+
+| MindFluence Tone | HumanAI Tone |
+|-----------------|-------------|
+| `bold-sell` | `landing` |
+| `expert-calm` | `expert` |
+| `rebel-edgy` | `social` |
+| `warm-human` | `human` |
+| `luxe-minimal` | `case` |
+
+**Preservation rules when processing MindFluence content:**
+
+- **Do NOT strip bias markers:** social proof numbers, anchoring prices, authority signals, scarcity cues, confirmation hooks.
+- **Do NOT delete power words** that overlap with burned-word lists — they serve a psychological function.
+- **Do NOT break "hook" openings** — they are deliberately patterned for System 1 capture.
+- **Preserve social proof specificity:** "14,327 users this week" is a bias marker, not fluff.
+- **During Stage 1 (cleanup):** skip cleanup of persuasion elements. Only remove generic AI patterns (throat-clearing, hedging, fake transitions).
+
+**Recommended pipeline invocation (preserving MindFluence tone):**
+```
+PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: MindFluence tone) → rhythm → proofread
+```
+
+### Triple Pipeline (RankWise → MindFluence → HumanAI)
+
+**Recommended order and protocol:**
+
+1. **RankWise Brief** → SEO structure, keyword placement, heading hierarchy, link plan
+2. **MindFluence** → Cognitive bias copy within the SEO skeleton, section-by-section bias annotations
+3. **HumanAI** → Humanize the voice while preserving BOTH SEO signals AND bias structure
+4. **RankWise Audit** → Final 49-factor verification
+
+**Triple-pipeline preservation checklist for HumanAI:**
+
+| Preserve | From | Why |
+|---------|------|-----|
+| Keyword-containing H2/H3 headings | RankWise | SEO hierarchy breaks if altered |
+| Internal link anchors | RankWise | Deliberate link-juice structure |
+| Keyword density 0.8%–1.5% | RankWise | Under/over triggers ranking penalties |
+| Social proof numbers | MindFluence | "14,327 users" — bias, not fluff |
+| Anchoring / pricing figures | MindFluence | Reference points for value perception |
+| Authority signals | MindFluence | Named sources, credentials, media logos |
+| Scarcity / urgency cues | MindFluence | Genuine time/quantity limits |
+| Power words | Both | Serve SEO sentiment + bias function |
+| Minimum word count (600+) | RankWise | Thin content penalty threshold |
+
+**Joint triple prompt template:**
+```
+Triple pipeline:
+1) RankWise SEO brief for [topic]. Keyword: [kw]. Language: [xx].
+2) MindFluence generate from that brief. Tone: [expert-calm/warm-human/bold-sell].
+3) HumanAI humanize the MindFluence output. Preserve SEO structure + bias markers.
+4) RankWise audit the final result.
+```
+
+**HumanAI invocation for triple pipeline:**
+```
+PIPELINE: cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread
+```
 
 ---
 
