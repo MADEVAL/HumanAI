@@ -50,56 +50,56 @@
 ### German
 | Rung | Example |
 |------|---------|
-| 0 | «verbessert die Sicherheit» |
-| 1 | «verbessert die WordPress-Sicherheit» |
-| 2 | «blockiert Brute-Force-Login-Angriffe» |
-| 3 | «blockiert durchschnittlich 8.400 Brute-Force-Versuche pro Tag» |
-| 4 | «blockiert 8.400 Angriffe/Tag - Login-Seite bleibt für echte Nutzer erreichbar» |
+| 0 | «verbessert Lieferzeiten» |
+| 1 | «verbessert Lieferzeiten im Online-Handel» |
+| 2 | «bündelt Bestellungen und optimiert Routen automatisch» |
+| 3 | «verkürzt Auslieferung von 3 Tagen auf 4 Stunden» |
+| 4 | «Lieferung in 4h statt 3 Tagen - Retourenquote sank um 22%, Stammkundenbestellungen stiegen um 40%» |
 
 ### French
 | Rung | Example |
 |------|---------|
-| 0 | «améliore la sécurité» |
-| 1 | «améliore la sécurité WordPress» |
-| 2 | «bloque les attaques par force brute» |
-| 3 | «bloque en moyenne 8 400 tentatives par jour» |
-| 4 | «bloque 8 400 attaques/jour - la page de connexion reste disponible» |
+| 0 | «améliore l'expérience client» |
+| 1 | «améliore l'expérience en magasin» |
+| 2 | «réduit le temps d'attente en caisse» |
+| 3 | «réduit l'attente de 7 à 2 minutes par client» |
+| 4 | «attente réduite de 7 à 2 min - le client suivant voit un caissier libre, pas une file» |
 
 ### Spanish
 | Rung | Example |
 |------|---------|
-| 0 | «mejora la seguridad» |
-| 1 | «mejora la seguridad de WordPress» |
-| 2 | «bloquea ataques de fuerza bruta» |
-| 3 | «bloquea un promedio de 8.400 intentos por día» |
-| 4 | «bloquea 8.400 ataques/día - la página de inicio sigue disponible» |
+| 0 | «mejora la productividad» |
+| 1 | «mejora la productividad administrativa» |
+| 2 | «automatiza la generación de informes semanales» |
+| 3 | «reduce 12 horas de papeleo semanal a 3 horas» |
+| 4 | «12h a 3h de papeleo semanal - el equipo recupera un día entero de trabajo cada semana» |
 
 ### Portuguese
 | Rung | Example |
 |------|---------|
-| 0 | «melhora a segurança» |
-| 1 | «melhora a segurança do WordPress» |
-| 2 | «bloqueia ataques de força bruta» |
-| 3 | «bloqueia em média 8.400 tentativas por dia» |
-| 4 | «bloqueia 8.400 ataques/dia - página de login continua disponível» |
+| 0 | «aumenta vendas» |
+| 1 | «aumenta vendas no e-commerce» |
+| 2 | «integra PIX e mostra frete em tempo real» |
+| 3 | «cresceu de 40 para 127 pedidos/dia em 3 meses» |
+| 4 | «de 40 a 127 pedidos/dia - taxa de abandono de carrinho caiu de 68% para 12%» |
 
 ### Italian
 | Rung | Example |
 |------|---------|
-| 0 | «migliora la sicurezza» |
-| 1 | «migliora la sicurezza di WordPress» |
-| 2 | «blocca gli attacchi di forza bruta» |
-| 3 | «blocca in media 8.400 tentativi al giorno» |
-| 4 | «blocca 8.400 attacchi/giorno - la pagina di login resta disponibile» |
+| 0 | «ottimizza la produzione» |
+| 1 | «ottimizza la linea di imbottigliamento» |
+| 2 | «riduce gli scarti regolando temperatura e velocità» |
+| 3 | «riduce scarti del 18% nella linea di imbottigliamento» |
+| 4 | «-18% scarti sulla linea - risparmio di 47.000 euro/anno in materia prima [VERIFY]» |
 
 ### Polish
 | Rung | Example |
 |------|---------|
-| 0 | «poprawia bezpieczeństwo» |
-| 1 | «poprawia bezpieczeństwo WordPress» |
-| 2 | «blokuje ataki brute-force» |
-| 3 | «blokuje średnio 8400 prób dziennie» |
-| 4 | «blokuje 8400 ataków/dzień - strona logowania pozostaje dostępna» |
+| 0 | «usprawnia obsługę klienta» |
+| 1 | «usprawnia obsługę w dziale supportu» |
+| 2 | «automatyzuje odpowiedzi na najczęstsze zapytania» |
+| 3 | «skraca czas odpowiedzi z 48h do 4h, automatyzując 70% zapytań» |
+| 4 | «odpowiedź w 4h zamiast 48h - 70% spraw zamkniętych w pierwszej wiadomości, bez eskalacji» |
 
 ---
 
