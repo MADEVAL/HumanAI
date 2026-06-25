@@ -112,7 +112,7 @@ for tone in "${TONES[@]}"; do
     for lang in "${LANGUAGES[@]}"; do
         marker="${LANG_MARKERS[$lang]}"
         if echo "$TP_CONTENT" | grep -q "$marker"; then
-            $VERBOSE && pass "tone-profiles.md [$tone/$lang]"
+            if $VERBOSE; then pass "tone-profiles.md [$tone/$lang]"; fi
         else
             fail "tone-profiles.md [$tone/$lang] missing ($marker)"
         fi
@@ -220,7 +220,7 @@ while IFS= read -r -d '' f; do
     count=$(grep -Pc '[\x{2014}\x{2013}]' "$f" 2>/dev/null || true)
     if [[ "$count" -gt 0 ]]; then
         EM_COUNT=$((EM_COUNT + count))
-        $VERBOSE && warn "$(basename "$f"): $count em-dash(es)"
+        if $VERBOSE; then warn "$(basename "$f"): $count em-dash(es)"; fi
     fi
 done < <(find "$REPO_ROOT" -name "*.md" -print0 2>/dev/null)
 
@@ -249,7 +249,7 @@ TREE_FILES=(
 
 for f in "${TREE_FILES[@]}"; do
     if [[ -f "$REPO_ROOT/$f" ]]; then
-        $VERBOSE && pass "File exists: $f"
+        if $VERBOSE; then pass "File exists: $f"; fi
     else
         warn "File in tree but not on disk: $f"
     fi
