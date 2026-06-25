@@ -14,6 +14,7 @@
 [LANG: ru]
 [TONE: landing]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 90/100]
 
 Задачи, дедлайны и файлы команды. В одном месте. Не в шести.
 

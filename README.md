@@ -158,6 +158,7 @@ This was translated from Russian to English. Make it sound native.
 [LANG: en]
 [TONE: human]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 94/100]
 
 Most AI tools promise to save time. They don't. They just move the work around.
 

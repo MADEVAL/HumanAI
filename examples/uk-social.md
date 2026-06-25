@@ -14,6 +14,7 @@
 [LANG: uk]
 [TONE: social]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 91/100]
 
 У вашої команди немає проблем з комунікацією. У неї проблема «де той клятий файл?»
 

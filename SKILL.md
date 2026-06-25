@@ -254,14 +254,50 @@ Last sentence has actual information? Not summary? Good.
 3. "Robust" / its translations - 0
 4. "In today's" / its translations - 0
 5. "Moreover" / its translations - 0
-6. Symmetrical 3-paragraph blocks - 0
+6. Symmetrical paragraph blocks (same weight 3x) - 0
 7. "In conclusion" / its translations - 0
 8. 3+ adjective pileups - 0
-9. Empty intensifiers - ≤1
+9. Empty intensifiers - 1 or fewer
 10. Rhetorical question padding - 0
 
-### Iteration limit
-Max 2 full proofread passes. If after 2 passes a word remains legitimately (quote, name, code reference): leave it. Stop after 2 passes.
+### 5.6 Self-Evaluation
+
+After producing the output, scan it against your own rules and assign a **QUALITY SCORE**:
+
+| # | Check | Pass (10) | Partial (5) | Fail (0) |
+|---|-------|-----------|-------------|----------|
+| 1 | Top-10 AI tells = 0 | All 10 cleared | 1-2 remain | 3+ remain |
+| 2 | Rhythm Rule 1: no 3 consecutive same length category | 0 triplets | 1 triplet | 2+ triplets |
+| 3 | Rhythm Rule 2: no 3 consecutive same clause count | 0 triplets | 1 triplet | 2+ triplets |
+| 4 | Rhythm Rule 3: no sentence exceeds 3 clauses | 0 violations | 1 violation | 2+ violations |
+| 5 | Opener variety: no 3 consecutive same type | 0 triplets | 1 triplet | 2+ triplets |
+| 6 | Paragraph weight variety: no 3 consecutive same | 0 triplets | 1 triplet | 2+ triplets |
+| 7 | Tone consistency: matches declared profile | Strong match | Minor drift | Tone broken |
+| 8 | Specificity: all claims rung 2+ | All rung 2+ | 1-2 at rung 0-1 | 3+ at rung 0-1 |
+| 9 | Burned words: 0 remaining | 0 remain | 1 remains | 2+ remain |
+| 10 | Human read-aloud test: natural voice | Passes | 1-2 awkward | 3+ awkward |
+
+**Scoring:** Sum the 10 checks (max 100).
+
+| Score | Rating | Action |
+|-------|--------|--------|
+| 90-100 | Excellent | Output is production-ready |
+| 75-89 | Good | 1-2 minor issues, acceptable |
+| 60-74 | Fair | Multiple issues. Re-run affected stages (see Re-loop) |
+| Below 60 | Poor | Re-run pipeline with adjusted parameters |
+
+### Re-loop Rule
+
+If QUALITY SCORE < 75: identify the 2 lowest-scoring checks. Re-run ONLY the relevant stage(s) for those checks. Max 1 re-loop. Record both scores in output.
+
+**Re-loop mapping:**
+- Checks 1, 9 → re-run Stage 1 (cleanup)
+- Check 8 → re-run Stage 2 (specificity)
+- Check 7 → re-run Stage 3 (tone)
+- Checks 2, 3, 4, 5, 6 → re-run Stage 4 (rhythm)
+- Check 10 → re-run Stage 5 (proofread, focused on awkward sentences)
+
+After the single re-loop, output the final score regardless. Stop after 2 passes total.
 
 ---
 
@@ -282,12 +318,22 @@ Mixed-language text: detect primary language. Do not rewrite quoted foreign-lang
 [LANG: en / ru / uk / de / fr / es / pt / it / pl]
 [TONE: expert / biz / human / social / landing / article / case]
 [PIPELINE: stages applied with skip notes]
+[QUALITY: XX/100] ← Self-evaluation score from Stage 5.6
+[ISSUES: brief list of remaining issues, if any]
 
 [THE TEXT]
 
 ---
 [CHANGELOG]
 Brief: 3-5 bullet points on what was changed and why.
+
+[STAGE SCORES]
+Cleanup: XX/100 (checks 1+9 from self-eval)
+Specificity: XX/100 (check 8)
+Tone: XX/100 (check 7)
+Rhythm: XX/100 (checks 2+3+4+5+6)
+Proofread: XX/100 (check 10)
+Re-loop: yes/no, stage(s) re-run, final score (if applicable)
 
 [FACTUAL NOTES]
 (Optional - flag inaccuracies, do not silently fix.)

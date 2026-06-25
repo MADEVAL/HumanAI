@@ -14,6 +14,7 @@
 [LANG: uk]
 [TONE: human]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 89/100]
 
 Більшість компаній купують AI-інструменти і не використовують їх. Не «поки не використовують». Не використовують взагалі.
 

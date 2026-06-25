@@ -14,6 +14,7 @@ In today's fast-paced digital landscape, businesses are increasingly leveraging 
 [LANG: en]
 [TONE: human]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 92/100]
 
 Most companies buy AI tools and don't use them. Not "haven't yet." Don't. Ever.
 

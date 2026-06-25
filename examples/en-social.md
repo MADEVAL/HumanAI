@@ -14,6 +14,7 @@ In today's competitive business environment, effective communication is more imp
 [LANG: en]
 [TONE: social]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 94/100]
 
 Your team doesn't have a communication problem. They have a "where the hell is that file" problem.
 

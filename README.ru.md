@@ -158,6 +158,7 @@ natural-skill/
 [LANG: ru]
 [TONE: human]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 94/100]
 
 Большинство AI-инструментов обещают экономию времени. Не экономят. Просто перекладывают работу из одного места в другое.
 

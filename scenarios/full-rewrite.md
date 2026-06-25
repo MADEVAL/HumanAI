@@ -23,6 +23,7 @@
 [LANG: detected]
 [TONE: detected or specified]
 [PIPELINE: full or with skip notes]
+[QUALITY: XX/100]
 
 [Rewritten text]
 
@@ -32,7 +33,10 @@
 - Burned words: [count + list]
 - Specificity: [N claims rung X→Y]
 - Tone: [profile] - [key changes]
-- Rhythm: [N same-length runs broken], [N fragments added]
+- Rhythm: [N same-category runs broken], [N fragments added]
+
+[STAGE SCORES]
+Cleanup: XX | Specificity: XX | Tone: XX | Rhythm: XX | Proofread: XX
 ```
 
 ## Skip conditions

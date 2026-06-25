@@ -14,6 +14,7 @@
 [LANG: ru]
 [TONE: social]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 93/100]
 
 У вашей команды нет проблем с коммуникацией. У неё проблема «где этот чёртов файл?»
 

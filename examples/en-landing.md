@@ -14,6 +14,7 @@ Welcome to TaskFlow - the revolutionary project management platform for modern t
 [LANG: en]
 [TONE: landing]
 [PIPELINE: cleanup → specificity → tone → rhythm → proofread]
+[QUALITY: 91/100]
 
 Your team's tasks, deadlines, and files. In one place. Not six.
 
