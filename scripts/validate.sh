@@ -235,13 +235,15 @@ echo ""
 check "11. File tree consistency"
 
 TREE_FILES=(
-    "SKILL.md" "README.md" "README.ru.md" "CHANGELOG.md" "LICENSE" ".gitignore"
+    "SKILL.md" "README.md" "README.ru.md" "CHANGELOG.md" "EVAL.md" "KNOWN_LIMITATIONS.md" "LICENSE" ".gitignore"
     "shared/burned-words.md" "shared/ai-markers.md" "shared/tone-profiles.md"
     "shared/specificity-ladder.md" "shared/rhythm-tables.md" "shared/language-template.md"
     "scenarios/full-rewrite.md" "scenarios/blog-post.md" "scenarios/landing-page.md"
     "scenarios/social-post.md" "scenarios/seo-article.md" "scenarios/case-study.md"
     "scenarios/commercial-offer.md" "scenarios/email.md" "scenarios/technical-doc.md"
     "scenarios/translation-fix.md"
+    "scripts/validate.ps1" "scripts/validate.sh"
+    "scripts/zerogpt-detect.ps1" "scripts/zerogpt-detect.sh" "scripts/run-benchmark.ps1"
     "examples/en-blog-post.md" "examples/en-landing.md" "examples/en-social.md"
     "examples/ru-blog-post.md" "examples/ru-landing.md" "examples/ru-social.md"
     "examples/uk-blog-post.md" "examples/uk-social.md"
@@ -254,6 +256,33 @@ for f in "${TREE_FILES[@]}"; do
         warn "File in tree but not on disk: $f"
     fi
 done
+
+# ============================================
+echo ""
+check "12. ZeroGPT integration scripts"
+
+ZG_SCRIPTS=("zerogpt-detect.ps1" "zerogpt-detect.sh" "run-benchmark.ps1")
+for zg_script in "${ZG_SCRIPTS[@]}"; do
+    if [[ -f "$REPO_ROOT/scripts/$zg_script" ]]; then
+        pass "ZeroGPT script exists: $zg_script"
+    else
+        fail "ZeroGPT script missing: $zg_script"
+    fi
+done
+
+# Check EVAL.md references ZeroGPT
+if grep -q "ZeroGPT\|zerogpt-detect\|external.validator" "$REPO_ROOT/EVAL.md" 2>/dev/null; then
+    pass "EVAL.md references ZeroGPT external validator"
+else
+    warn "EVAL.md should reference ZeroGPT external validator"
+fi
+
+# Check annotations.json still present
+if [[ -f "$REPO_ROOT/tests/benchmark/annotations.json" ]]; then
+    pass "annotations.json exists (benchmark data)"
+else
+    fail "annotations.json missing"
+fi
 
 # ============================================
 echo ""

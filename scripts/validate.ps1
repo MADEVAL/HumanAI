@@ -289,13 +289,15 @@ Write-Host ""
 Write-Check "11. File tree consistency"
 
 $treeFiles = @(
-    "SKILL.md","README.md","README.ru.md","CHANGELOG.md","LICENSE",".gitignore",
+    "SKILL.md","README.md","README.ru.md","CHANGELOG.md","EVAL.md","KNOWN_LIMITATIONS.md","LICENSE",".gitignore",
     "shared/burned-words.md","shared/ai-markers.md","shared/tone-profiles.md",
     "shared/specificity-ladder.md","shared/rhythm-tables.md","shared/language-template.md",
     "scenarios/full-rewrite.md","scenarios/blog-post.md","scenarios/landing-page.md",
     "scenarios/social-post.md","scenarios/seo-article.md","scenarios/case-study.md",
     "scenarios/commercial-offer.md","scenarios/email.md","scenarios/technical-doc.md",
     "scenarios/translation-fix.md",
+    "scripts/validate.ps1","scripts/validate.sh",
+    "scripts/zerogpt-detect.ps1","scripts/zerogpt-detect.sh","scripts/run-benchmark.ps1",
     "examples/en-blog-post.md","examples/en-landing.md","examples/en-social.md",
     "examples/ru-blog-post.md","examples/ru-landing.md","examples/ru-social.md",
     "examples/uk-blog-post.md","examples/uk-social.md"
@@ -308,6 +310,50 @@ foreach ($f in $treeFiles) {
     } else {
         Write-Warn ("File in tree but not on disk: " + $f)
     }
+}
+
+# ============================================
+Write-Host ""
+Write-Check "12. ZeroGPT integration scripts"
+
+$zgScripts = @("zerogpt-detect.ps1", "zerogpt-detect.sh", "run-benchmark.ps1")
+foreach ($zgScript in $zgScripts) {
+    $zgPath = Join-Path $RepoRoot "scripts\$zgScript"
+    if (Test-Path $zgPath -PathType Leaf) {
+        Write-Pass ("ZeroGPT script exists: " + $zgScript)
+    } else {
+        Write-Fail ("ZeroGPT script missing: " + $zgScript)
+    }
+}
+
+# Check ZeroGPT API key reference in scripts
+$runBenchPath = Join-Path $RepoRoot "scripts\run-benchmark.ps1"
+if (Test-Path $runBenchPath) {
+    $runContent = Get-Content $runBenchPath -Raw
+    if ($runContent -match "zerogpt") {
+        Write-Pass "run-benchmark.ps1 references ZeroGPT"
+    } else {
+        Write-Warn "run-benchmark.ps1 may not reference ZeroGPT"
+    }
+}
+
+# Check that EVAL.md mentions ZeroGPT
+$evalPath = Join-Path $RepoRoot "EVAL.md"
+if (Test-Path $evalPath) {
+    $evalContent = Get-Content $evalPath -Raw
+    if ($evalContent -match "ZeroGPT|zerogpt-detect|external.validator") {
+        Write-Pass "EVAL.md references ZeroGPT external validator"
+    } else {
+        Write-Warn "EVAL.md should reference ZeroGPT external validator"
+    }
+}
+
+# Check annotations.json still consistent
+$annotationsPath = Join-Path $RepoRoot "tests\benchmark\annotations.json"
+if (Test-Path $annotationsPath) {
+    Write-Pass "annotations.json exists (benchmark data)"
+} else {
+    Write-Fail "annotations.json missing"
 }
 
 # ============================================

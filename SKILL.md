@@ -367,6 +367,8 @@ If QUALITY SCORE < 75: identify the 2 lowest-scoring checks. Re-run ONLY the rel
 
 After the single re-loop, output the final score regardless. Stop after 2 passes total.
 
+**External validation:** For independent verification, run ZeroGPT detection via `scripts/zerogpt-detect.ps1` or `scripts/run-benchmark.ps1`. See `EVAL.md` — External Validation section for details. The self-evaluation score is an LLM self-assessment. ZeroGPT provides an independent external check.
+
 ---
 
 ## WHEN NOT TO APPLY
@@ -495,11 +497,15 @@ natural-skill/
 ├── .gitignore
 ├── scripts/
 │   ├── validate.ps1                ← Integrity checker (PowerShell)
-│   └── validate.sh                 ← Integrity checker (Bash)
+│   ├── validate.sh                 ← Integrity checker (Bash)
+│   ├── zerogpt-detect.ps1          ← ZeroGPT AI detection (PowerShell)
+│   ├── zerogpt-detect.sh           ← ZeroGPT AI detection (Bash)
+│   └── run-benchmark.ps1           ← External benchmark runner (ZeroGPT)
 ├── .github/workflows/
 │   └── validate.yml                ← CI pipeline
 ├── tests/benchmark/                ← Evaluation dataset
 │   ├── annotations.json
+│   ├── zerogpt-results.json        ← ZeroGPT external validation results
 │   ├── ai-texts/  (9 languages)
 │   ├── human-texts/
 │   └── edge-cases/

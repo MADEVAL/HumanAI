@@ -1,5 +1,7 @@
 # EVAL - Quality Evaluation Framework for HUMAN-AI
 
+> **NEW in v3.0:** ZeroGPT external validator integration. Run `scripts/run-benchmark.ps1` with a ZeroGPT API key to get independent AI detection scores.
+
 > Load this prompt alongside SKILL.md output to score the humanization result.
 > The evaluator is a separate prompt to avoid self-assessment bias.
 
@@ -166,3 +168,70 @@ HUMAN-AI OUTPUT:
 ```
 
 The evaluator must have access to `shared/tone-profiles.md` and `shared/rhythm-tables.md` for accurate scoring.
+
+---
+
+## External Validation — ZeroGPT API
+
+For **independent** validation (not LLM self-assessment), use ZeroGPT's external AI detection API.
+
+### Prerequisites
+
+1. ZeroGPT API key (register at [zerogpt.com](https://www.zerogpt.com) → Dashboard → API)
+2. Set environment variable: `ZEROGPT_API_KEY="your-key"`
+
+### Quick single-text check
+
+```bash
+# PowerShell
+.\scripts\zerogpt-detect.ps1 -Text "Text to analyze"
+
+# Bash
+./scripts/zerogpt-detect.sh --text "Text to analyze"
+
+# From file
+.\scripts\zerogpt-detect.ps1 -File "path/to/text.md"
+```
+
+### Full benchmark run
+
+```bash
+# Dry run (see what would be tested)
+.\scripts\run-benchmark.ps1 -SkipApi
+
+# Full run with ZeroGPT API
+$env:ZEROGPT_API_KEY = "your-key"
+.\scripts\run-benchmark.ps1
+```
+
+Results are saved to `tests/benchmark/zerogpt-results.json`.
+
+### Interpreting ZeroGPT scores
+
+| ZeroGPT Score | Meaning | Action |
+|--------------|---------|--------|
+| 0-10% | Human-written | Pre-flight guard should have STOPPED |
+| 10-25% | Mostly human | Acceptable output |
+| 25-50% | Mixed signals | Some AI patterns remain |
+| 50-80% | Likely AI | Re-run pipeline with aggressive cleanup |
+| 80-100% | Heavy AI | Pipeline did not work — adjust parameters |
+
+### Combined Evaluation Flow
+
+```
+1. Run skill → get self-evaluated [QUALITY: XX/100]
+2. Run ZeroGPT on output → get external AI probability
+3. Run EVAL.md LLM evaluator → get independent 5-metric score
+4. Triangulate: if all three agree → high confidence in quality
+```
+
+### Exit codes
+
+| Code | Meaning |
+|------|---------|
+| 0 | Text classified as human / mixed |
+| 10 | Text classified as AI-generated |
+| 1 | Input error |
+| 2 | Missing API key |
+| 3 | API connection error |
+| 4 | API returned error |

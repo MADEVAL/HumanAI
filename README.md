@@ -91,6 +91,18 @@ natural-skill/
 │   ├── specificity-ladder.md       ← Abstraction → concrete framework
 │   ├── rhythm-tables.md            ← Sentence flow parameters
 │   └── language-template.md        ← Template for adding new languages
+├── scripts/                      ← Automation scripts
+│   ├── validate.ps1                ← Integrity checker (PowerShell)
+│   ├── validate.sh                 ← Integrity checker (Bash)
+│   ├── zerogpt-detect.ps1          ← ZeroGPT AI detection (PowerShell)
+│   ├── zerogpt-detect.sh           ← ZeroGPT AI detection (Bash)
+│   └── run-benchmark.ps1           ← External benchmark runner
+├── tests/benchmark/               ← Evaluation dataset
+│   ├── annotations.json
+│   ├── zerogpt-results.json        ← ZeroGPT external validation results
+│   ├── ai-texts/  (9 languages)
+│   ├── human-texts/
+│   └── edge-cases/
 ├── scenarios/                      ← Task-specific playbooks
 │   ├── full-rewrite.md             ← Default: all 6 stages
 │   ├── blog-post.md                ← Blog post humanization
@@ -189,7 +201,35 @@ Here's what the four good ones have in common. And why the other eight failed.
 - Any capable LLM with a system prompt / custom instructions field
 - For full skill functionality: a skill system that loads files from a folder (OpenCode, Claude Code)
 - For standalone: copy `SKILL.md` as system prompt - contains complete pipeline
-- No API keys, no tools, no dependencies - pure prompt engineering
+- **External validation:** ZeroGPT API key (optional) — for independent AI detection scoring via `scripts/run-benchmark.ps1`
+
+## Quality Validation
+
+HUMAN-AI provides **three layers** of quality verification:
+
+| Layer | Method | Independence | How to run |
+|-------|--------|-------------|------------|
+| 1. Self-eval | Stage 5.6 Quality Score | LLM self-assessment | Built into pipeline |
+| 2. EVAL.md | 5-metric LLM evaluation | Separate LLM call | `EVAL.md` prompt |
+| 3. ZeroGPT | External API detection | Fully independent | `scripts/run-benchmark.ps1` |
+
+**ZeroGPT external validation:**
+
+```bash
+# Set API key
+$env:ZEROGPT_API_KEY = "your-key"
+
+# Single text check
+.\scripts\zerogpt-detect.ps1 -File "output.md"
+
+# Full benchmark run (all test texts)
+.\scripts\run-benchmark.ps1 -MaxTexts 10 -DelaySeconds 2
+
+# Dry run (see what would be tested)
+.\scripts\run-benchmark.ps1 -SkipApi
+```
+
+Results saved to `tests/benchmark/zerogpt-results.json`.
 
 ---
 
