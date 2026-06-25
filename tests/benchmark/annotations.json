@@ -1,0 +1,292 @@
+{
+  "version": "1.0",
+  "description": "Benchmark annotations for HUMAN-AI evaluation. Each entry maps a test file to expected AI markers and pipeline actions.",
+  "entries": {
+    "ai-texts/en/blog-post.md": {
+      "language": "en",
+      "ai_probability": 95,
+      "markers": {
+        "openers": ["In today's fast-paced digital landscape"],
+        "burned_words": ["leverage", "cutting-edge", "optimize", "streamline", "transformative", "harness", "comprehensive"],
+        "fake_transitions": ["Moreover", "Additionally", "Furthermore"],
+        "hedging": ["It is important to note that", "while some argue"],
+        "conclusion_regurgitation": ["In conclusion"],
+        "adjective_pileups": ["fast-paced digital landscape"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["symmetrical sentences", "no fragments", "no conjunction openers"]
+    },
+    "ai-texts/en/landing.md": {
+      "language": "en",
+      "ai_probability": 90,
+      "markers": {
+        "openers": ["Welcome to"],
+        "burned_words": ["revolutionary", "cutting-edge", "leverages", "optimize", "streamline", "seamless", "robust", "empowers", "comprehensive", "best-in-class", "harnessed"],
+        "fake_transitions": [],
+        "hedging": [],
+        "conclusion_regurgitation": [],
+        "adjective_pileups": []
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "landing",
+      "rhythm_issues": ["symmetrical structure", "no fragments"]
+    },
+    "ai-texts/en/social.md": {
+      "language": "en",
+      "ai_probability": 85,
+      "markers": {
+        "openers": ["In today's"],
+        "burned_words": ["robust", "comprehensive", "game-changing", "seamlessly", "innovative", "transform", "competitive edge"],
+        "fake_transitions": ["Moreover"],
+        "hedging": [],
+        "conclusion_regurgitation": [],
+        "rhetorical_padding": ["Want to learn more?", "Don't miss this opportunity"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "social",
+      "rhythm_issues": ["symmetrical sentences", "no punch ending"]
+    },
+    "ai-texts/en/email.md": {
+      "language": "en",
+      "ai_probability": 92,
+      "markers": {
+        "openers": ["I hope this email finds you well"],
+        "burned_words": ["leverage", "cutting-edge", "comprehensive", "optimize", "streamline", "empower", "seamless", "robust", "transform"],
+        "fake_transitions": ["Moreover"],
+        "hedging": [],
+        "conclusion_regurgitation": ["To summarize"],
+        "rhetorical_padding": ["Click here to schedule a demo"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["formal monotone", "no personal voice"]
+    },
+    "ai-texts/en/tech-doc.md": {
+      "language": "en",
+      "ai_probability": 78,
+      "markers": {
+        "openers": ["In this document, we will explore"],
+        "burned_words": ["robust", "scalable", "optimize", "streamline", "leverages", "cutting-edge", "seamless", "innovative", "empowers", "comprehensive"],
+        "fake_transitions": ["Additionally", "Furthermore"],
+        "hedging": ["It is important to note that"],
+        "conclusion_regurgitation": ["In conclusion", "To summarize"],
+        "adjective_pileups": []
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "expert",
+      "rhythm_issues": ["too many same-length sentences"]
+    },
+    "ai-texts/ru/blog-post.md": {
+      "language": "ru",
+      "ai_probability": 95,
+      "markers": {
+        "openers": ["В современном быстро меняющемся цифровом ландшафте"],
+        "burned_words": ["передовые", "оптимизации", "эффективности", "данное", "комплексное", "трансформационную", "бесшовную"],
+        "fake_transitions": ["Более того", "Кроме того", "Помимо этого"],
+        "hedging": ["Следует отметить", "хотя некоторые эксперты указывают"],
+        "conclusion_regurgitation": ["В заключение"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["symmetrical sentences", "academic tone"]
+    },
+    "ai-texts/ru/landing.md": {
+      "language": "ru",
+      "ai_probability": 90,
+      "markers": {
+        "openers": ["Добро пожаловать"],
+        "burned_words": ["революционную", "передовое", "оптимизации", "эффективности", "бесшовной", "комплексная", "передовые"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "landing",
+      "rhythm_issues": ["over-explanation pattern"]
+    },
+    "ai-texts/ru/social.md": {
+      "language": "ru",
+      "ai_probability": 85,
+      "markers": {
+        "openers": [],
+        "burned_words": ["современной", "комплексную", "инновационный", "бесшовно", "инновационное", "трансформировать"],
+        "fake_transitions": ["Более того"],
+        "hedging": [],
+        "rhetorical_padding": ["Хотите узнать больше?"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "social",
+      "rhythm_issues": ["no punch", "predictable structure"]
+    },
+    "ai-texts/uk/blog-post.md": {
+      "language": "uk",
+      "ai_probability": 90,
+      "markers": {
+        "openers": ["У сучасному цифровому ландшафті"],
+        "burned_words": ["передові", "оптимізації", "ефективності", "дане", "комплексне", "трансформаційну", "безшовну"],
+        "fake_transitions": ["Більш того", "Крім того", "Окрім цього"],
+        "hedging": ["Слід зазначити"],
+        "conclusion_regurgitation": ["У підсумку"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["formal written style", "no conversational flow"]
+    },
+    "ai-texts/de/blog-post.md": {
+      "language": "de",
+      "ai_probability": 88,
+      "markers": {
+        "openers": ["In der heutigen digitalen Welt"],
+        "burned_words": ["innovativen", "optimieren", "transformieren", "revolutionare", "nahtlose", "ganzheitlicher"],
+        "fake_transitions": ["Daruber hinaus", "Ausserdem"],
+        "hedging": ["Es ist wichtig zu beachten"],
+        "conclusion_regurgitation": ["Zusammenfassend lasst sich sagen"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["Nominalstil", "monotone sentence length"]
+    },
+    "ai-texts/fr/blog-post.md": {
+      "language": "fr",
+      "ai_probability": 88,
+      "markers": {
+        "openers": ["Dans le monde numerique d'aujourd'hui"],
+        "burned_words": ["de pointe", "optimiser", "rationaliser", "transformateur", "integrale", "holistique"],
+        "fake_transitions": ["De plus", "Par ailleurs"],
+        "hedging": ["Il est important de noter"],
+        "conclusion_regurgitation": ["En conclusion"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["formal monotone", "3-part structure"]
+    },
+    "ai-texts/es/blog-post.md": {
+      "language": "es",
+      "ai_probability": 85,
+      "markers": {
+        "openers": ["En el mundo digital actual"],
+        "burned_words": ["vanguardia", "optimizar", "transformador", "aprovechar", "integracion perfecta", "holistico"],
+        "fake_transitions": ["Ademas", "Asimismo"],
+        "hedging": ["Cabe destacar"],
+        "conclusion_regurgitation": ["En conclusion"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["gerund tendency", "symmetrical structure"]
+    },
+    "ai-texts/pt/blog-post.md": {
+      "language": "pt",
+      "ai_probability": 85,
+      "markers": {
+        "openers": ["No mundo digital de hoje"],
+        "burned_words": ["ponta", "otimizar", "abrangente", "transformador", "aproveitar", "integracao perfeita", "holistica"],
+        "fake_transitions": ["Alem disso", "Ademais"],
+        "hedging": ["E importante notar"],
+        "conclusion_regurgitation": ["Em conclusao"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["formal written style"]
+    },
+    "ai-texts/it/blog-post.md": {
+      "language": "it",
+      "ai_probability": 85,
+      "markers": {
+        "openers": ["Nel mondo digitale di oggi"],
+        "burned_words": ["all'avanguardia", "ottimizzare", "completa", "trasformativo", "sfruttare", "perfetta", "olistico"],
+        "fake_transitions": ["Inoltre", "Per di piu"],
+        "hedging": ["E importante notare"],
+        "conclusion_regurgitation": ["In conclusione"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["si passivante tendency", "formal monotone"]
+    },
+    "ai-texts/pl/blog-post.md": {
+      "language": "pl",
+      "ai_probability": 85,
+      "markers": {
+        "openers": ["W dzisiejszym cyfrowym swiecie"],
+        "burned_words": ["zaawansowanych", "optymalizowac", "kompleksowy", "transformacyjna", "wykorzystac", "bezproblemowa", "holistycznego"],
+        "fake_transitions": ["Ponadto", "Co wiecej"],
+        "hedging": ["Nalezy podkreslic"],
+        "conclusion_regurgitation": ["Podsumowujac"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "human",
+      "rhythm_issues": ["bureaucratic nominalization"]
+    },
+    "human-texts/en-blog.md": {
+      "language": "en",
+      "ai_probability": 8,
+      "markers": {},
+      "expected_pipeline": "skip",
+      "note": "Should be detected as already-human and NOT modified"
+    },
+    "human-texts/ru-blog.md": {
+      "language": "ru",
+      "ai_probability": 10,
+      "markers": {},
+      "expected_pipeline": "skip",
+      "note": "Should be detected as already-human and NOT modified"
+    },
+    "human-texts/en-email.md": {
+      "language": "en",
+      "ai_probability": 5,
+      "markers": {},
+      "expected_pipeline": "skip",
+      "note": "Real business email with natural voice"
+    },
+    "human-texts/en-social.md": {
+      "language": "en",
+      "ai_probability": 5,
+      "markers": {},
+      "expected_pipeline": "skip",
+      "note": "Real social post with fragments and personal story"
+    },
+    "edge-cases/already-human.md": {
+      "language": "en",
+      "ai_probability": 8,
+      "markers": {},
+      "expected_pipeline": "skip",
+      "note": "Should pass already-human guard without modification"
+    },
+    "edge-cases/code-heavy.md": {
+      "language": "en",
+      "ai_probability": 55,
+      "markers": {
+        "burned_words": ["robust", "leverages", "significantly", "seamlessly", "comprehensive"],
+        "hedging": ["It is important to note"]
+      },
+      "expected_pipeline": "cleanup only (prose sections)",
+      "note": "Code blocks must remain UNCHANGED. Only humanize surrounding prose."
+    },
+    "edge-cases/very-short.md": {
+      "language": "en",
+      "ai_probability": 80,
+      "markers": {
+        "openers": ["In today's digital age"],
+        "burned_words": ["leveraging", "innovative", "cutting-edge"]
+      },
+      "expected_pipeline": "cleanup (limited)",
+      "note": "Very short text, limited room for specificity/rhythm stages"
+    },
+    "edge-cases/mixed-lang.md": {
+      "language": "en",
+      "ai_probability": 45,
+      "markers": {
+        "burned_words": ["seamless", "leveraging", "comprehensive", "optimize", "streamline"],
+        "note": "Russian quote must be preserved as-is"
+      },
+      "expected_pipeline": "cleanup (EN sections only, preserve RU quote)",
+      "note": "Foreign language quoted passages must not be modified"
+    },
+    "edge-cases/poetry.md": {
+      "language": "en",
+      "ai_probability": 60,
+      "markers": {
+        "note": "Creative writing - light touch only"
+      },
+      "expected_pipeline": "light cleanup only",
+      "note": "Poetry requires minimal intervention. Preserve creative voice."
+    }
+  }
+}
