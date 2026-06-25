@@ -181,22 +181,38 @@ See `shared/tone-profiles.md` and `shared/rhythm-tables.md` for: fragment freque
 ### Objective
 Break the machine rhythm. AI = metronome. Human = jazz. Full parameters: `shared/rhythm-tables.md`
 
-### Three rhythm rules
-1. **No three consecutive sentences** of the exact same word count.
-2. **No three consecutive sentences** within ±2 words of each other.
-3. **No sentence exceeds 25 words.** Split at 26+. Exception: 1 long technical sentence per 300 words.
+### Sentence length: use CLAUSE COUNT (not word count)
+
+LLMs cannot count words reliably. Use syntactic categories instead. Full definitions: `shared/rhythm-tables.md`
+
+| Category | Clauses | Check method |
+|----------|---------|-------------|
+| Fragment | 0 clauses | No subject+predicate pair |
+| Short | 1 clause | One subject+predicate pair |
+| Medium | 2 clauses | Two clauses (main + dependent/coordinate) |
+| Long | 3 clauses | Three clauses |
+| Very Long | 4+ clauses | Split at clause boundary |
+
+### Three rhythm rules (clause-based)
+
+1. **No three consecutive sentences** of the same length category.
+2. **No three consecutive sentences** with the same clause count.
+3. **No sentence exceeds 3 clauses.** Split at 4+. Exception: 1 sentence per ~300 words may have 4 clauses.
+
+### Approximate word reference (rough guidance, not strict)
+Fragment: ~1-5w. Short: ~4-12w. Medium: ~12-22w. Long: ~22-30w. Very Long: 30+w (split).
 
 ### Opener variety
 No three consecutive sentences start with the same word or grammatical structure. Per-language opener categories: `shared/rhythm-tables.md`
 
 ### Fragments
-Use them. Fastest way to break AI rhythm. Fragment frequencies by tone: `shared/rhythm-tables.md`
+Use them. Fastest way to break AI rhythm. Fragment types and frequencies by tone: `shared/rhythm-tables.md`
 
 ### Conjunction-started sentences
 Real humans start with conjunctions. AI rarely does. Frequencies and per-language conjunction lists: `shared/rhythm-tables.md`
 
 ### Visual paragraph weight
-No three consecutive paragraphs of identical visual weight. Break one.
+No three consecutive paragraphs of identical visual weight. Weight categories: Light (1 sentence), Medium (2-3 sentences), Heavy (4+ sentences).
 
 ---
 

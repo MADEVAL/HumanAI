@@ -15,10 +15,9 @@
 ## Rhythm targets
 
 - Short sentences every 2-3 sentences
-- Fragments: 1.5-3 per 100 words
-- Conjunction openers: 2-3 per 100 words
-- Max consecutive same-length: 1
-- Max ±2 words: 1
+- Fragments: every 2-3 sentences (very aggressive)
+- Conjunction openers: every 2-4 sentences
+- Max consecutive same category: 1
 - Paragraphs: 1-3 sentences
 
 ## Platform-specific notes

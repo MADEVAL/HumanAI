@@ -4,23 +4,65 @@
 
 ---
 
-## Sentence Length Rules (all languages)
+## Sentence Length Categories (primary system)
 
-1. **No three consecutive sentences** of the exact same word count.
-2. **No three consecutive sentences** where all are within ±2 words of each other.
-3. **No sentence exceeds 25 words.** Split at 26+. Exception: 1 long technical sentence per 300 words.
+LLMs cannot reliably count exact words. Use syntactic categories instead:
 
-### Length Mix by Tone
+| Category | Definition | LLM can verify? |
+|----------|-----------|-----------------|
+| **Fragment** | 0 clauses. No subject+predicate pair. "Yes. Like this." | YES - trivial |
+| **Short** | 1 clause. One subject+predicate pair with minimal modifiers. | YES - syntactic |
+| **Medium** | 2 clauses. Main clause + one dependent/coordinate, or 1 clause with substantial modifiers. | YES - syntactic |
+| **Long** | 3 clauses. Main + two dependents, or complex embedding. | YES - syntactic |
+| **Very Long** | 4+ clauses. Split at clause boundary. | YES - syntactic |
 
-| Tone | Short (2-6w) | Medium (7-16w) | Long (17-30+w) | Max same-length | Max ±2 words | Paragraph variance |
-|------|-------------|---------------|----------------|-----------------|-------------|-------------------|
-| expert | Every 5-7 sent | Majority | ~30% | 2 | 2 | Moderate |
-| biz | Every 6-8 sent | Majority | ~25% | 2 | 2 | Low-moderate |
-| human | Every 3-5 sent | ~50% | ~30% | 2 | 2 | High |
-| social | Every 2-3 sent | ~40% | ~10% | 1 | 1 | Very high |
-| landing | Every 3-4 sent | ~40% | ~20% | 1 | 1 | High |
-| article | Every 4-6 sent | ~55% | ~30% | 2 | 2 | Moderate |
-| case | Every 4-5 sent | ~55% | ~25% | 2 | 2 | Moderate |
+### How to check clause count
+
+A clause = a subject+predicate pair (explicit or implied).
+- "The server crashed." = 1 clause (short)
+- "We fixed the bug and deployed the patch." = 2 clauses (medium: "We fixed" + "deployed")
+- "After we fixed the bug, which had been open for three weeks, we deployed the patch." = 3 clauses (long)
+- "The server crashed, we investigated, found the root cause, and deployed a fix all within the same hour." = 4+ clauses (very long) -- split this
+
+---
+
+## Three Rhythm Rules (clause-based)
+
+1. **No three consecutive sentences** of the same length category (fragment/short/medium/long).
+
+2. **No three consecutive sentences** with the same clause count.
+   Example violation: 1-clause, 1-clause, 1-clause in a row. Fix: vary to 1, 2, 1 or 1, 2, 0 (fragment).
+
+3. **No sentence exceeds 3 clauses.** 4+ clauses: split at the natural clause boundary.
+   Exception: 1 sentence per ~300 words may have 4 clauses (for necessary technical detail).
+
+### Approximate word-count reference (for rough guidance only)
+
+LLMs estimate word counts poorly. These are ballpark targets, NOT strict rules:
+
+| Category | ~Words |
+|----------|--------|
+| Fragment | 1-5w |
+| Short | 4-12w |
+| Medium | 12-22w |
+| Long | 22-30w |
+| Very Long | 30+w (split) |
+
+---
+
+## Length Mix by Tone
+
+| Tone | Fragment spacing | Short % | Medium % | Long % | Max consecutive same category |
+|------|-----------------|---------|----------|--------|-------------------------------|
+| expert | Every 5-7 sent | ~20% | ~50% | ~30% | 2 |
+| biz | Every 6-8 sent | ~20% | ~55% | ~25% | 2 |
+| human | Every 3-5 sent | ~25% | ~45% | ~30% | 2 |
+| social | Every 2-3 sent | ~35% | ~55% | ~10% | 1 |
+| landing | Every 3-4 sent | ~30% | ~50% | ~20% | 1 |
+| article | Every 4-6 sent | ~20% | ~50% | ~30% | 2 |
+| case | Every 4-5 sent | ~20% | ~55% | ~25% | 2 |
+
+**"Max consecutive same category"**: the maximum allowed run of identical length category before you MUST vary. `social` and `landing` are strictest (max 1) because they need the most aggressive rhythm breaks.
 
 ---
 
@@ -59,8 +101,8 @@ Podmiot, Zaimek (Pan/Pani/My), Spójnik (I/Ale), Czasownik, Przyimkowy (Z/Dla/W)
 
 ## Conjunction-Started Sentences
 
-| Tone | Per 100 words |
-|------|---------------|
+| Tone | Per 100 words (approximate) |
+|------|---------------------------|
 | expert | 1-2 |
 | biz | 0-1 |
 | human | 2-4 |
@@ -80,20 +122,30 @@ Podmiot, Zaimek (Pan/Pani/My), Spójnik (I/Ale), Czasownik, Przyimkowy (Z/Dla/W)
 - IT: E, Ma, O, Quindi, Però, Dunque
 - PL: I, Ale, Lub, Więc, Jednak, Zatem
 
+**Note on conjunction frequency counting:** LLMs cannot reliably count per-100-words. Instead, aim for the feel: in `human` tone, roughly every 5-6 sentences starts with a conjunction. In `biz` tone, maybe 1-2 per paragraph. Use the frequency as a qualitative target, not an exact metric.
+
 ---
 
 ## Visual Paragraph Weight
 
-**Rule:** No three consecutive paragraphs of identical visual weight (same number of lines).
+**Rule:** No three consecutive paragraphs of identical visual weight.
 
-**Fix:** Split one, merge two, or add a single-sentence paragraph between longer ones.
+| Weight | Definition |
+|--------|-----------|
+| **Light** | 1 sentence (fragment or short). ~1-2 visual lines. |
+| **Medium** | 2-3 sentences. ~3-5 visual lines. |
+| **Heavy** | 4+ sentences. ~6+ visual lines. |
+
+**Fix strategy:** Split a heavy into two mediums. Merge two lights. Insert a light paragraph between two mediums.
 
 ---
 
 ## Fragment Types (universal)
 
-1. **Emphasis fragment:** Breaks a statement into pieces.
-2. **Afterthought fragment:** Adds an observation after the main thought.
-3. **Contrast fragment:** States the opposite of expectations.
-4. **Summary fragment:** Condenses the preceding into punchy units.
-5. **Punch fragment:** One blunt statement. No follow-up.
+| # | Type | Function | Example |
+|---|------|----------|---------|
+| 1 | Emphasis | Breaks a statement into pieces for dramatic effect | "We tested it. For six months. In production." |
+| 2 | Afterthought | Adds an observation after the main thought | "The migration took three weekends. Nobody noticed." |
+| 3 | Contrast | States the opposite of what the reader expects | "We thought scaling was the problem. It wasn't." |
+| 4 | Summary | Condenses the preceding into punchy units | "Three teams. Four months. One result." |
+| 5 | Punch | One blunt statement. No follow-up | "Don't do this." |

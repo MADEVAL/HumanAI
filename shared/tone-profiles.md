@@ -6,15 +6,17 @@
 
 ## Fragment & Conjunction Frequencies (all languages)
 
-| Tone | Fragments /100w | Conjunction openers /100w | Short sent. every |
-|------|-----------------|---------------------------|-------------------|
-| expert | 0.5–1 | 1–2 | 5–7 sentences |
-| biz | 0–0.5 | 0–1 | 6–8 sentences |
-| human | 1–2 | 2–4 | 3–5 sentences |
-| social | 1.5–3 | 2–3 | 2–3 sentences |
-| landing | 1–1.5 | 1–2 | 3–4 sentences |
-| article | 0.5–1 | 1.5–3 | 4–6 sentences |
-| case | 0.5–1 | 1–2 | 4–5 sentences |
+Use these as qualitative targets, not exact word-based metrics (LLMs cannot count words reliably).
+
+| Tone | Fragment spacing | Conjunction spacing | Short sent. every |
+|------|-----------------|---------------------|-------------------|
+| expert | Every 5-7 sentences | Every 5-7 sentences | 5-7 sentences |
+| biz | Rare (1-2 per text) | Rare (1-2 per text) | 6-8 sentences |
+| human | Every 3-5 sentences | Every 3-5 sentences | 3-5 sentences |
+| social | Every 2-3 sentences | Every 2-4 sentences | 2-3 sentences |
+| landing | Every 3-4 sentences | Every 5-7 sentences | 3-4 sentences |
+| article | Every 4-6 sentences | Every 4-6 sentences | 4-6 sentences |
+| case | Every 4-5 sentences | Every 4-6 sentences | 4-5 sentences |
 
 ---
 

@@ -15,10 +15,9 @@
 ## Rhythm targets
 
 - Short sentences every 5-7 sentences
-- Fragments: 0.5-1 per 100 words
-- Conjunction openers: 1-2 per 100 words
-- Max consecutive same-length: 2
-- 25-word cap exception: 1 long technical sentence per 300 words
+- Fragments: every 7-10 sentences
+- Conjunction openers: every 5-7 sentences
+- 3-clause cap exception: 1 technical sentence per ~300 words may have 4 clauses
 
 ## What to cut
 

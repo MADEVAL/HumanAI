@@ -35,5 +35,5 @@ Plans start at $12 per person. No setup fee. Cancel anytime. Your data exports i
 - "Learn more" → deleted
 - "Whether you're a small startup..." fake balance → deleted
 - Tone: landing - tight, benefit-focused, confident
-- Rhythm: 9w → 4w → 22w → 9w → 9w → 16w → 6w → 3w → 17w
+- Rhythm: clause mix, varied visual weight
 ```

@@ -15,10 +15,10 @@
 ## Rhythm targets
 
 - Short sentences every 3-5 sentences
-- Fragments: 1-2 per 100 words
-- Conjunction openers: 2-4 per 100 words
-- Sentence length: high variance (2w to 30+w)
-- Paragraphs: varied visual weight
+- Fragments: 1-2 per 100 words (qualitative target - use feel, not counting)
+- Conjunction openers: 2-4 per 100 words (qualitative target)
+- Sentence length: high variance (fragment to 3-clause)
+- Paragraphs: varied visual weight (light/medium/heavy mix)
 
 ## What to cut aggressively
 

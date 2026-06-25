@@ -39,5 +39,5 @@ The technology wasn't the hard part. The hard part was resisting the urge to "tr
 - Conclusion regurgitation killed
 - Specificity added: 200 teams surveyed, 23%/41%/36% stats, 12-person team, 400 tickets/day, 7hrs→90min [VERIFY: stats are illustrative]
 - Tone: human - direct, data-driven, specific example
-- Rhythm: 9w → 8w → 2w → 13w → 9w → 14w → 5w → 21w → 7w → 6w → 6w → 24w → 19w → 12w → 10w → 13w - varied
+- Rhythm: clause mix: F(2) → S(8) → S(7) → M(13) → M(9) → L(14) → F(5) → M(21) → S(7) → S(6) → S(6) → L(24) → M(19) → S(12) → S(10) → M(13) - no consecutive same-category runs
 ```

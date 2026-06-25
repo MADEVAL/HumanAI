@@ -171,7 +171,7 @@ Here's what the four good ones have in common. And why the other eight failed.
 - Burned words removed: leveraging, cutting-edge, optimize, streamline, transformative, comprehensive
 - Specificity added: "twelve tools / three months / four helped"
 - Tone: human - direct, opinionated, fragment opener
-- Rhythm: 7w → 8w → 2w → 18w → 9w → 9w → 11w
+- Rhythm: clause mix with high variance
 ```
 
 *→ More examples in `examples/`*

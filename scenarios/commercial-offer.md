@@ -15,9 +15,9 @@
 ## Rhythm targets
 
 - Short sentences every 6-8 sentences
-- Fragments: 0-0.5 per 100 words
-- Conjunction openers: 0-1 per 100 words
-- Max consecutive same-length: 2
+- Fragments: rare (1-2 per entire document)
+- Conjunction openers: rare (1-2 per entire document)
+- Max consecutive same category: 2
 
 ## What to cut
 

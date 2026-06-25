@@ -21,9 +21,9 @@ Context → Problem → Attempt 1 (failed) → Attempt 2 (worked) → Numbers �
 ## Rhythm targets
 
 - Short sentences every 4-5 sentences
-- Fragments: 0.5-1 per 100 words
-- Conjunction openers: 1-2 per 100 words
-- Max consecutive same-length: 2
+- Fragments: every 5-7 sentences
+- Conjunction openers: every 5-7 sentences
+- Max consecutive same category: 2
 
 ## Language-specific notes
 

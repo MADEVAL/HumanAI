@@ -67,13 +67,13 @@ Verify the output matches the declared tone profile. Check against `shared/tone-
 
 ### 4. RHYTHM COMPLIANCE (RC)
 
-Check rhythm rules from `shared/rhythm-tables.md`:
+Check rhythm rules from `shared/rhythm-tables.md` (clause-based, not word-count):
 
 | Rule | Violations |
 |------|-----------|
-| No 3 consecutive sentences of same length category (short/medium/long) | |
-| No 3 consecutive sentences of same clause count | |
-| No sentence exceeds 3 clauses (exception: 1 per 300 words may have 4+) | |
+| No 3 consecutive sentences of same length category (fragment/short/medium/long) | |
+| No 3 consecutive sentences of same clause count (0/1/2/3) | |
+| No sentence exceeds 3 clauses (exception: 1 per ~300 words may have 4) | |
 | No 3 consecutive same opener type | |
 | No 3 consecutive paragraphs of same visual weight (light/medium/heavy) | |
 

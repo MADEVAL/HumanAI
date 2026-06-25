@@ -32,5 +32,5 @@ The tool didn't matter. The rule did.
 - Conclusion: "The bottom line" → replaced with punch
 - Specificity: 8 people, 4 hours, real scenario [VERIFY: illustrative]
 - Tone: social - hook, micro-story, punch ending
-- Rhythm: 10w → 3w → 4w → 3w → 3w → 5w → 18w → 19w → 7w → 6w
+- Rhythm: clause mix with fragments, punch ending
 ```
