@@ -33,14 +33,15 @@ AI says: "robust, cutting-edge platform". Humans say: "we patch bugs within 4 ho
 ## THE PIPELINE
 
 ```
-anti-ai-cleanup → specificity → tone → rhythm → proofread
+pre-flight → cleanup → specificity → tone → rhythm → proofread
 ```
 
 ### Why this order
-1. **Cleanup first** - remove AI patterns before anything else. Don't build human text on a robot skeleton.
-2. **Specificity second** - concrete details must exist before tone, because tone wraps around content.
-3. **Tone third** - once content is solid, shape the voice.
-4. **Rhythm fourth** - fine-tune sentence flow after voice is set.
+0. **Pre-flight first** - detect language, estimate AI probability. If human-written → STOP. Don't waste pipeline stages.
+1. **Cleanup second** - remove AI patterns before anything else. Don't build human text on a robot skeleton.
+2. **Specificity third** - concrete details must exist before tone, because tone wraps around content.
+3. **Tone fourth** - once content is solid, shape the voice.
+4. **Rhythm fifth** - fine-tune sentence flow after voice is set.
 5. **Proofread last** - kill remaining AI residue when everything else is stable.
 
 ### Skip policy
@@ -52,6 +53,73 @@ Skip if:
 - Stage 3 (tone): Tone already matches target
 - Stage 4 (rhythm): Rhythm already varied
 - Stage 5 (proofread): Always runs - at minimum a top-10 tells scan
+
+---
+
+## STAGE -1: PRE-FLIGHT CHECK
+
+Before running any pipeline stage, perform a rapid diagnostic scan.
+
+### Language Detection
+Identify primary language. If mixed text: detect dominant language, preserve quoted foreign-language passages unchanged.
+- Confidence ≥ 70: proceed
+- Confidence < 70: ask user to specify language
+
+### AI Probability Estimation
+Rapid scan. Assign points per marker found:
+
+| Signal | Points |
+|--------|--------|
+| Throat-clearing opener present | +25 |
+| 3+ burned words in first 200 words | +20 |
+| Fake transition ("Moreover" / «Более того» etc.) | +10 each |
+| Hedge prefix ("It is important to note" / «Следует отметить») | +10 each |
+| Conclusion regurgitation present | +15 |
+| Symmetrical paragraphs detected (3+ same visual weight) | +15 |
+| Adjective pileup (3+ before a noun) | +10 |
+| Rhetorical question padding | +10 each |
+
+**Score interpretation:**
+
+| Score | Verdict | Action |
+|-------|---------|--------|
+| 0-20 | Likely human-written | **STOP.** Output: "This text scores {score}/100 on AI detection. It appears to be human-written. Running humanization would likely degrade it. If you still want processing, say 'force pipeline'." |
+| 21-50 | Mild AI patterns | Proceed. Consider audit mode first if user is unsure. |
+| 51-80 | Clear AI patterns | Run full pipeline. |
+| 81-100 | Heavy AI generation | Run full pipeline with aggressive cleanup. |
+
+### Already-Human Guard Rule
+
+If AI Probability < 20: **STOP. Do not run pipeline.** Output the diagnostic only. This prevents degradation of legitimately human text.
+
+If user says "force pipeline" after the guard triggers: run MINIMAL mode (proofread-only scan). Flag only unambiguous AI patterns. Annotate output with `[HUMAN-ORIGIN: preserved structure and voice]`.
+
+### Tone Pre-Detection
+Based on content type vocabulary and structure, suggest a tone. User can override.
+
+| Content signals | Likely tone |
+|-----------------|-------------|
+| Technical terms, code, API references | `expert` |
+| B2B language, pricing, ROI claims | `biz` |
+| Personal voice, stories, opinions | `human` |
+| Short form, hooks, punchy endings | `social` |
+| Product features, CTAs, benefit claims | `landing` |
+| Long-form, educational, tutorials | `article` |
+| Before/after data, client results, lessons | `case` |
+
+### Pipeline Recommendation
+Based on diagnostic results, recommend stages:
+
+```
+[PRE-FLIGHT]
+Language: {detected} (confidence: XX%)
+AI Probability: XX/100
+Tone suggested: {tone} (override with explicit tone if desired)
+Recommended: {stages to run}
+Skippable: {stages likely safe to skip}
+```
+
+User can accept the recommendation or override any stage.
 
 ---
 
@@ -304,9 +372,12 @@ After the single re-loop, output the final score regardless. Stop after 2 passes
 ## WHEN NOT TO APPLY
 
 Skip the pipeline entirely if:
-- Text is authored by a known human (attributed, signed)
+- **Pre-flight guard triggered** (AI Probability < 20): text appears human-written. Output diagnostic only.
+- Text is authored by a known human (attributed, signed) — regardless of score
 - Text requires exact preservation (legal, medical, safety)
 - User says "audit only" → run detection scan, output diagnostics, do NOT modify
+
+**Force pipeline override:** If user says "force pipeline" after the pre-flight guard triggers, run proofread-only scan with `[HUMAN-ORIGIN]` annotation. Never run full pipeline on text scoring <20.
 
 Mixed-language text: detect primary language. Do not rewrite quoted foreign-language passages.
 
