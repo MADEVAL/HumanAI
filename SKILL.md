@@ -383,6 +383,114 @@ Mixed-language text: detect primary language. Do not rewrite quoted foreign-lang
 
 ---
 
+## PRESERVATION MODE (Cross-Skill Integration)
+
+When the input comes from another skill in the content pipeline, activate preservation rules BEFORE Stage 1.
+
+### Trigger Detection
+
+If user prompt or context contains any of these signals, activate the corresponding preservation mode:
+
+| Signal | Activate |
+|--------|----------|
+| "RankWise", "SEO-rewrite", "keyword density", "H2/H3 structure" | RankWise Preservation |
+| "MindFluence", "cognitive bias", "persuasion", "bias marker" | MindFluence Preservation |
+| "Triple pipeline", "RankWise + MindFluence + HumanAI" | Dual Preservation |
+
+### RankWise Preservation
+
+**Rule:** RankWise handles SEO structure → HumanAI handles human voice. Do not break SEO.
+
+Before Stage 1, identify and TAG as protected:
+- Keyword-containing H2/H3 headings
+- Keywords in the first 100-150 words
+- Internal link anchors and their placement
+- Meta title and description
+- Keywords in image alt texts (if present)
+
+Protected elements skip Stage 1 cleanup entirely. Normal pipeline resumes at Stage 2.
+
+**Preservation targets:**
+- Keyword density: maintain 0.8%-1.5% (accept ≤5% fluctuation)
+- Internal link anchor text variety: exact-match ≤2
+- Minimum word count: 600+ (unless user requests shorter)
+- Heading structure: preserve C13 hierarchy
+
+**Conflict resolution (SEO vs humanization):**
+1. Preserve keyword placement (K2, K4, K6, K8) — highest priority
+2. Preserve heading structure — second priority
+3. Then apply human voice cleanup
+4. Accept ≤5% density fluctuation as trade-off
+
+**Recommended pipeline:**
+```
+PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm → proofread
+```
+
+### MindFluence Preservation
+
+**Rule:** MindFluence engineers persuasion → HumanAI humanizes the voice. Do not strip psychological structure.
+
+Before Stage 1, identify and TAG as protected:
+- Social proof numbers ("14,327 users" — bias marker, not fluff)
+- Anchoring / pricing figures (reference points for value perception)
+- Authority signals (named sources, credentials, media logos)
+- Scarcity / urgency cues (genuine time/quantity limits)
+- Confirmation hooks and pattern-interrupt openings
+
+Protected elements skip Stage 1 (cleanup) AND Stage 3 (tone changes). Apply Stage 2, 4, 5 only.
+
+**Tone mapping (MindFluence → HumanAI):**
+
+| MindFluence Tone | HumanAI Tone |
+|-----------------|-------------|
+| `bold-sell` | `landing` |
+| `expert-calm` | `expert` |
+| `rebel-edgy` | `social` |
+| `warm-human` | `human` |
+| `luxe-minimal` | `case` |
+
+**Power word exception:** Do NOT delete power words that overlap with burned-word lists. They serve a psychological function. Only remove generic AI patterns (throat-clearing, hedging, fake transitions).
+
+**Recommended pipeline:**
+```
+PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: from MindFluence) → rhythm → proofread
+```
+
+### Dual Preservation (Triple Pipeline)
+
+When BOTH RankWise and MindFluence protections are active:
+
+**Preservation checklist:**
+
+| Preserve | From | Priority |
+|---------|------|----------|
+| Keyword-containing H2/H3 headings | RankWise | Critical |
+| Internal link anchors | RankWise | Critical |
+| Keyword density 0.8%-1.5% | RankWise | High |
+| Social proof numbers | MindFluence | Critical |
+| Anchoring / pricing figures | MindFluence | High |
+| Authority signals | MindFluence | Medium |
+| Scarcity / urgency cues | MindFluence | Medium |
+| Power words | Both | Medium |
+| Minimum word count (600+) | RankWise | Medium |
+
+**Pipeline for dual preservation:**
+```
+PIPELINE: cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread
+```
+
+### Joint Prompt Triggers
+
+The skill recognizes these joint prompts and activates preservation automatically:
+- "SEO-rewrite this (RankWise), then humanize it (HumanAI)"
+- "Humanize the RankWise output below"
+- "HumanAI pass on RankWise content"
+- "MindFluence generated this. Now humanize it with HumanAI."
+- "Triple pipeline: RankWise → MindFluence → HumanAI"
+
+---
+
 ## OUTPUT FORMAT
 
 ```
@@ -414,6 +522,57 @@ No preamble. No "here is your rewritten text." No "I hope this helps." Deliver t
 
 ---
 
+## AUDIT MODE (Enhanced)
+
+When user says "audit only" or "tell me what's wrong, don't rewrite":
+
+Output a structured diagnostic, NOT a rewrite.
+
+### Audit Output Format
+
+```
+[AUDIT REPORT]
+Language: {detected} (confidence: XX%)
+AI Probability: XX/100
+
+CRITICAL (must fix):
+- {marker}: {quote from text}
+- ...
+
+HIGH (strongly recommended):
+- {marker}: {quote}
+- ...
+
+MEDIUM (consider fixing):
+- {marker}: {quote}
+- ...
+
+LOW (cosmetic):
+- {marker}: {quote}
+- ...
+
+SUMMARY:
+- AI markers found: {total}
+- Burned words: {count}
+- Estimated specificity rung: {average}
+- Rhythm issues: {type + count}
+- Tone detected: {tone} (confidence: XX%)
+
+RECOMMENDED PIPELINE: {stages}
+ESTIMATED EFFORT: {N} critical + {N} high items
+```
+
+### Severity Levels
+
+| Level | Criteria |
+|-------|----------|
+| CRITICAL | Throat-clearing opener, conclusion regurgitation, 5+ burned words |
+| HIGH | Fake transitions, hedging language, 3+ adjective pileups, symmetrical paragraphs |
+| MEDIUM | Empty intensifiers, rhetorical question padding, rhythm monotony |
+| LOW | Minor style issues, single burned word in edge case |
+
+---
+
 ## QUICK START
 
 **Full pipeline:**
@@ -437,8 +596,21 @@ natural-skill/
 ├── SKILL.md                        ← This file - orchestrator
 ├── README.md / README.ru.md        ← Documentation (bilingual)
 ├── CHANGELOG.md                    ← Version history
+├── CONTRIBUTING.md                 ← How to add languages/scenarios/tones
+├── KNOWN_LIMITATIONS.md            ← Edge cases and LLM variance
+├── EVAL.md                         ← Quality evaluation framework
 ├── LICENSE                         ← MIT
 ├── .gitignore
+├── scripts/
+│   ├── validate.ps1                ← Integrity checker (PowerShell)
+│   └── validate.sh                 ← Integrity checker (Bash)
+├── .github/workflows/
+│   └── validate.yml                ← CI pipeline
+├── tests/benchmark/                ← Evaluation dataset
+│   ├── annotations.json
+│   ├── ai-texts/  (9 languages)
+│   ├── human-texts/
+│   └── edge-cases/
 ├── shared/
 │   ├── burned-words.md             ← All burned words × 9 languages
 │   ├── ai-markers.md               ← AI detection patterns × 9 languages
