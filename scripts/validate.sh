@@ -83,7 +83,6 @@ for lang in "${LANGUAGES[@]}"; do
     fi
     
     # rhythm-tables.md openers
-    local upper_lang
     upper_lang=$(echo "$lang" | tr '[:lower:]' '[:upper:]')
     if grep -q "Opener categories - $upper_lang" "$REPO_ROOT/shared/rhythm-tables.md" 2>/dev/null; then
         pass "rhythm-tables.md [$lang] openers"
@@ -194,7 +193,10 @@ check "9. Scenario files tone references"
 for f in "$REPO_ROOT/scenarios/"*.md; do
     fname=$(basename "$f")
     if grep -q "Default tone:" "$f" 2>/dev/null; then
-        tone=$(grep "Default tone:" "$f" | sed -n 's/.*`\(.*\)`.*/\1/p' | head -1)
+        tone=$(grep "Default tone:" "$f" | sed -n 's/.*Default tone:\*\* `\([^`]*\)`.*/\1/p')
+        if [[ -z "$tone" ]]; then
+            tone=$(grep "Default tone:" "$f" | sed -n 's/.*Default tone: `\([^`]*\)`.*/\1/p')
+        fi
         if [[ " ${TONES[*]} " =~ " ${tone} " ]]; then
             pass "$fname: tone '$tone' valid"
         else
