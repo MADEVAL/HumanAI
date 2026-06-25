@@ -1,6 +1,6 @@
 ---
 name: human-ai
-description: Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 6-stage pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently "smells like AI."
+description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 6-stage pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
 license: MIT
 compatibility: any-llm
 metadata:
