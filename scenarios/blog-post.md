@@ -35,3 +35,8 @@
 **DE:** Kein Nominalstil. Aktiv statt Passiv. Natürliche Modalpartikeln.
 **FR:** «On» over «nous». Éviter le plan en trois parties. Style conversationnel mais précis.
 **ES/PT/IT/PL:** Active voice, natural connectors, no academic residue.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (AI openers and structure), specificity (blog needs concrete examples), tone (human voice)
+- Often skippable: none for full pipeline
+- Never skip: proofread

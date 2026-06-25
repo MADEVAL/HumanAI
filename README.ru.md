@@ -92,7 +92,7 @@ natural-skill/
 │   ├── rhythm-tables.md            ← Параметры ритма
 │   └── language-template.md        ← Шаблон для добавления языка
 ├── scenarios/                      ← Сценарии под задачи
-│   ├── full-rewrite.md             ← По умолчанию: все 5 стадий
+│   ├── full-rewrite.md             ← По умолчанию: все 6 стадий
 │   ├── blog-post.md                ← Блог-пост
 │   ├── landing-page.md             ← Лендинг
 │   ├── social-post.md              ← Соцсети
@@ -100,8 +100,13 @@ natural-skill/
 │   ├── case-study.md               ← Кейс / портфолио
 │   ├── commercial-offer.md         ← Коммерческое предложение
 │   ├── email.md                    ← Email
-│   ├── technical-doc.md             ← Техническая документация
-│   └── translation-fix.md          ← Де-перевод: убрать акцент
+│   ├── technical-doc.md            ← Техническая документация
+│   ├── translation-fix.md          ← Де-перевод: убрать акцент
+│   ├── press-release.md            ← Пресс-релиз
+│   ├── internal-memo.md            ← Внутренняя служебка
+│   ├── grant-proposal.md           ← Грантовая заявка
+│   ├── creative-writing.md         ← Художественный текст (лёгкое касание)
+│   └── product-update.md           ← Обновление продукта / чейнджлог
 └── examples/                       ← Примеры до/после
     ├── en-blog-post.md
     ├── en-landing.md

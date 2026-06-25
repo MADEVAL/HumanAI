@@ -30,3 +30,8 @@ Context → Problem → Attempt 1 (failed) → Attempt 2 (worked) → Numbers �
 **RU:** Russian case studies tend to skip failures - include them. Builds massive trust. Specific technical details are respected. Keep client quotes real.
 **UK:** Ukrainian business culture appreciates directness. Include failures. Numbers + honest narrative = trust.
 **All languages:** A flawless case study reads as fake. Authenticity > polish.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (case-study cliches), specificity (numbers non-negotiable), tone (case voice with honesty)
+- Often skippable: rhythm (case study structure creates natural variance)
+- Never skip: proofread

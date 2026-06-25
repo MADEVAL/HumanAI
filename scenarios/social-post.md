@@ -31,3 +31,8 @@
 
 **RU:** Measured confidence - bold but not brash. Self-irony works. Russian social is more direct than English.
 **UK:** Ukrainian social = more emotional, community-oriented. Warmth works. Directness fine but less aggressive than RU.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (hedging removal), tone (social voice), rhythm (aggressive fragment/conjunction injection)
+- Often skippable: specificity (social posts are short, one strong detail is enough)
+- Never skip: proofread

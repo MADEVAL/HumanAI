@@ -1,6 +1,6 @@
 ---
 name: human-ai
-description: Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 5-stage pipeline: cleanup → specificity → tone → rhythm → proofread. For articles, posts, landing pages, commercial copy, translations, SEO content - any text that currently "smells like AI."
+description: Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 6-stage pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently "smells like AI."
 license: MIT
 compatibility: any-llm
 metadata:
@@ -13,7 +13,7 @@ metadata:
 > **If the reader forgets a machine was involved, you won.**
 > **Version:** 3.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
-> **Mode:** Pipeline. 5 stages. Flexible - skip with declared reason.
+> **Mode:** Pipeline. 6 stages (pre-flight + 5 processing). Flexible - skip with declared reason.
 
 ---
 
@@ -447,7 +447,7 @@ natural-skill/
 │   ├── rhythm-tables.md            ← Sentence flow parameters
 │   └── language-template.md        ← Template for adding new languages
 ├── scenarios/
-│   ├── full-rewrite.md             ← Default: all 5 stages
+│   ├── full-rewrite.md             ← Default: all 6 stages
 │   ├── blog-post.md                ← Blog post humanization
 │   ├── landing-page.md             ← Landing page humanization
 │   ├── social-post.md              ← Social media post
@@ -456,7 +456,12 @@ natural-skill/
 │   ├── commercial-offer.md         ← B2B commercial offer
 │   ├── email.md                    ← Email humanization
 │   ├── technical-doc.md            ← Technical documentation
-│   └── translation-fix.md          ← De-translation: make it sound native
+│   ├── translation-fix.md          ← De-translation: make it sound native
+│   ├── press-release.md            ← Press release / media announcement
+│   ├── internal-memo.md            ← Internal company memo
+│   ├── grant-proposal.md           ← Grant proposal / funding application
+│   ├── creative-writing.md         ← Creative writing (light touch)
+│   └── product-update.md           ← Product update / changelog
 └── examples/
     ├── en-blog-post.md
     ├── en-landing.md

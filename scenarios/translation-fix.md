@@ -65,3 +65,8 @@ Word-for-word idioms → natural Ukrainian · Russian intermediaries → direct 
 
 ### Any → DE/FR/ES/PT/IT/PL
 Source-language structures → target-language natural equivalents · Punctuation per target convention · Formality per target culture
+
+## Pipeline Recommendations
+- Likely needed: all steps (ghost language detection, rephrasing, punctuation fix)
+- Often skippable: none for translation fix
+- Never skip: step 5 read-aloud test

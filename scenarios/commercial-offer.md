@@ -39,3 +39,8 @@
 ## Output format notes
 
 Preserve proposal structure if present (sections, bullet points) but humanize the language within. Do not flatten a structured proposal into narrative prose.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (enthusiasm removal), specificity (every claim needs evidence), tone (biz directness)
+- Often skippable: rhythm (commercial text is intentionally measured)
+- Never skip: proofread

@@ -33,3 +33,9 @@
 
 ## Output extras
 Include META RECOMMENDATIONS (title ≤60 chars, description ≤155 chars, slug), INTERNAL LINKS opportunities, SCHEMA opportunities.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (SEO template removal), specificity (article depth), tone (article voice)
+- Often skippable: none when SEO structure is involved
+- Never skip: proofread
+- Note: keyword preservation overrides humanization. Never sacrifice SEO structure for voice.

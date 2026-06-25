@@ -92,7 +92,7 @@ natural-skill/
 │   ├── rhythm-tables.md            ← Sentence flow parameters
 │   └── language-template.md        ← Template for adding new languages
 ├── scenarios/                      ← Task-specific playbooks
-│   ├── full-rewrite.md             ← Default: all 5 stages
+│   ├── full-rewrite.md             ← Default: all 6 stages
 │   ├── blog-post.md                ← Blog post humanization
 │   ├── landing-page.md             ← Landing page humanization
 │   ├── social-post.md              ← Social media post
@@ -100,8 +100,13 @@ natural-skill/
 │   ├── case-study.md               ← Case study / portfolio
 │   ├── commercial-offer.md         ← B2B commercial offer
 │   ├── email.md                    ← Email humanization
-│   ├── technical-doc.md             ← Technical documentation
-│   └── translation-fix.md          ← De-translation: make it sound native
+│   ├── technical-doc.md            ← Technical documentation
+│   ├── translation-fix.md          ← De-translation: make it sound native
+│   ├── press-release.md            ← Press release / media announcement
+│   ├── internal-memo.md            ← Internal company memo
+│   ├── grant-proposal.md           ← Grant proposal / funding application
+│   ├── creative-writing.md         ← Creative writing (light touch)
+│   └── product-update.md           ← Product update / changelog
 └── examples/                       ← Annotated before/after examples
     ├── en-blog-post.md
     ├── en-landing.md

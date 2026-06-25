@@ -32,3 +32,8 @@
 **RU:** Russian landing pages suffer from over-explanation. Cut 30% then cut 30% more. CTAs: infinitive or imperative - pick one, stay consistent. Trust through specifics, not enthusiasm.
 **UK:** Ukrainian audience responds to clarity over embellishment. Cut aggressively.
 **All languages:** Test every sentence: "Does the reader need this to decide?" If no → cut.
+
+## Pipeline Recommendations
+- Likely needed: cleanup (aggressive cut of marketing fluff), tone (landing voice)
+- Often skippable: specificity (if product features are already specific)
+- Never skip: proofread
