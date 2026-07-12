@@ -32,7 +32,7 @@
 |----------|-------|
 | Fragment spacing | Vary sentence length naturally |
 | Conjunction spacing | Use conjunction starters naturally |
-| Max consecutive same category | 3 |
+| Max consecutive same category | 2 |
 
 ## Language Notes
 - Auto-detected from text using `shared/ai-markers.md`

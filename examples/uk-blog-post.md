@@ -8,7 +8,7 @@
 
 ---
 
-## ПІСЛЯ (human-ai v3)
+## ПІСЛЯ (human-ai v4)
 
 ```
 [LANG: uk]

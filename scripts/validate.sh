@@ -50,7 +50,7 @@ check "1. SKILL.md YAML Frontmatter"
 SKILL_CONTENT=$(cat "$REPO_ROOT/SKILL.md")
 
 echo "$SKILL_CONTENT" | grep -q "name: human-ai" && pass "name: human-ai" || fail "name field missing"
-echo "$SKILL_CONTENT" | grep -q 'version: "3.0"' && pass "version: 3.0" || fail "version missing"
+echo "$SKILL_CONTENT" | grep -q 'version: "4.0"' && pass "version: 4.0" || fail "version missing or incorrect"
 echo "$SKILL_CONTENT" | grep -q "languages:" && pass "languages field present" || fail "languages missing"
 echo "$SKILL_CONTENT" | grep -q "pipeline_stages: 5" && pass "pipeline_stages: 5" || fail "pipeline_stages missing"
 
@@ -243,7 +243,7 @@ TREE_FILES=(
     "scenarios/commercial-offer.md" "scenarios/email.md" "scenarios/technical-doc.md"
     "scenarios/translation-fix.md"
     "scripts/validate.ps1" "scripts/validate.sh"
-    "scripts/zerogpt-detect.ps1" "scripts/zerogpt-detect.sh" "scripts/run-benchmark.ps1"
+    "scripts/zerogpt-detect.ps1" "scripts/zerogpt-detect.sh" "scripts/run-benchmark.ps1" "scripts/run-benchmark.sh"
     "examples/en-blog-post.md" "examples/en-landing.md" "examples/en-social.md"
     "examples/ru-blog-post.md" "examples/ru-landing.md" "examples/ru-social.md"
     "examples/uk-blog-post.md" "examples/uk-social.md"

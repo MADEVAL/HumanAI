@@ -1,6 +1,6 @@
 ---
 name: human-ai
-description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 5-stage pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
+description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. Full pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
 license: MIT
 compatibility: any-llm
 metadata:
@@ -13,7 +13,7 @@ metadata:
 > **If the reader forgets a machine was involved, you won.**
 > **Version:** 4.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
-> **Mode:** Pipeline. 5 stages (pre-flight + 4 processing). Flexible — skip with declared reason.
+> **Mode:** Pipeline. 6 phases (pre-flight diagnostic + 5 processing stages). Flexible — skip with declared reason.
 > **Standalone:** self-contained. All critical rules and top-15 per-language data are embedded. Full lists available via GitHub URLs at the bottom.
 
 ---
@@ -143,13 +143,29 @@ Skippable: {stages likely safe to skip}
 |------|-------------|
 | en | "In today's...", "Moreover", "seamless/robust/leverage", em-dash, 3-adj pileups |
 | ru | «В современном...», «данный/являться/осуществлять», «следует отметить», em-dash |
-| uk | «У сучасному...», «даний/являтися/здійснювати», Russianisms, em-dash |
+| uk | «У сучасному...», «даний/являтися/здійснювати», «важливо зазначити», Russianisms, em-dash |
 | de | «In der heutigen...», «Darüber hinaus», «optimieren», Nominalstil, em-dash |
 | fr | «Dans le monde...», «De plus/En outre», «Il est important de noter», em-dash |
 | es | «En el mundo actual...», «Además/Asimismo», «Cabe destacar», gerund overuse, em-dash |
 | pt | «No mundo digital...», «Além disso/Ademais», «É importante notar», em-dash |
 | it | «Nel mondo digitale...», «Inoltre/Per di più», «Si rende necessario», em-dash |
 | pl | «W dzisiejszym świecie...», «Ponadto/Co więcej», «Należy podkreślić», em-dash |
+
+### What human text looks like (per language)
+
+These are the targets — when you're done humanizing, the output should read like this:
+
+| Lang | Human text sounds like |
+|------|------------------------|
+| en | Varied sentence length (3 to 30+ words). Contractions: don't, we'll, it's, should've. Sentences starting with And, But, So, Or. Fragments. Yes. Like this. Concrete details, parenthetical asides. The writer's actual opinion, not a balanced survey. |
+| ru | Микс коротких (2-4 слова) и длинных (15-25 слов) предложений. «Мы сделали. Работает. Дальше.» Прямота без грубости. Конкретные примеры с цифрами. Самоирония в неформальном контексте. Без эм-тире — это не русская типографика. |
+| uk | Чиста технічна українська, жодних русизмів. Тепліша за російську, але без солодкуватості. Природні звороти: «до речі», «чесно кажучи», «давайте розберемось». Короткі речення поруч із розлогими поясненнями. |
+| de | Direkte Sprache. Kein Nominalstil. Kurze Sätze: «Wir haben getestet. Es funktioniert.» Fakten tragen Gewicht, nicht Adjektive. Modalpartikeln in Maßen: «doch», «ja», «halt». |
+| fr | Précision sans rhétorique. Phrases déclaratives: «On a testé. Voilà ce qui marche.» Pas d'enthousiasme forcé. «Du coup», «en fait», «franchement» en dose naturelle. Pas de plan en trois parties. |
+| es | Directo, sin adornos. «Probamos X. Funcionó. Aquí están los datos.» Frases cortas mezcladas con explicaciones. Regionalismos bienvenidos según audiencia. Cuidado con el gerundio excesivo y «el mismo/la misma» como pronombre. |
+| pt | Direto, sem firulas. PT-BR: «A gente testou. Rodou. Tá funcionando.» Auto-depreciação leve é sinal humano. Gerúndio brasileiro é natural, não é AI tell. «Olha», «na real», «tipo assim» para tom conversacional. |
+| it | Preciso, senza entusiasmo. «Abbiamo provato X. Ha funzionato. Ecco perché.» «Allora», «cioè», «sai com'è» come connettori naturali. Attenzione al «si passivante». Periodi lunghi tollerati più che in inglese, ma variare la lunghezza. |
+| pl | Precyzja ponad entuzjazm. «Przetestowaliśmy. Działa. Oto dlaczego.» Naturalne wtrącenia: «no wiesz», «szczerze mówiąc», «w sumie». Końcówki -ować nie są automatycznie AI, ale ich nagromadzenie tak. Ironia i sarkazm działają. |
 
 ---
 
@@ -675,7 +691,11 @@ Mixed-language text: detect primary language. Do not rewrite quoted foreign-lang
 Brief: 3-5 bullet points on what was changed and why.
 
 [STAGE SCORES]
-Cleanup: XX/100 | Specificity: XX/100 | Tone: XX/100 | Rhythm: XX/100 | Proofread: XX/100
+Cleanup: XX/100 (burned-word + AI-tell clearance, checks 1+9 from self-eval)
+Specificity: XX/100 (claims at rung 2+, check 8)
+Tone: XX/100 (profile consistency, check 7)
+Rhythm: XX/100 (sentence variety, opener rotation, paragraph weight, checks 2+3+4+5+6)
+Proofread: XX/100 (read-aloud naturalness, check 10)
 Re-loop: yes/no, stage(s) re-run, final score (if applicable)
 
 [FACTUAL NOTES]
@@ -817,9 +837,12 @@ natural-skill/
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/validate.ps1` | Integrity checker for skill files |
+| `scripts/validate.ps1` | Integrity checker for skill files (PowerShell) |
+| `scripts/validate.sh` | Integrity checker for skill files (Bash) |
 | `scripts/morph-check.ps1` | Morphological validator (non-existent words) |
 | `scripts/readability-check.ps1` | ReadSightPy readability validator |
-| `scripts/zerogpt-detect.ps1` | ZeroGPT AI detection |
-| `scripts/run-benchmark.ps1` | Full benchmark runner |
+| `scripts/zerogpt-detect.ps1` | ZeroGPT AI detection (PowerShell) |
+| `scripts/zerogpt-detect.sh` | ZeroGPT AI detection (Bash) |
+| `scripts/run-benchmark.ps1` | Full benchmark runner (PowerShell) |
+| `scripts/run-benchmark.sh` | Full benchmark runner (Bash) |
 | `scripts/run-eval.ps1` | External EVAL.md LLM evaluation runner |

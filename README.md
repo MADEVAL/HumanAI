@@ -98,9 +98,14 @@ natural-skill/
 ├── scripts/                      ← Automation scripts
 │   ├── validate.ps1                ← Integrity checker (PowerShell)
 │   ├── validate.sh                 ← Integrity checker (Bash)
+│   ├── morph-check.ps1             ← Morphological word validator
+│   ├── readability-check.ps1       ← ReadSightPy readability validator
+│   ├── clause-check.ps1            ← Clause-count validator
 │   ├── zerogpt-detect.ps1          ← ZeroGPT AI detection (PowerShell)
 │   ├── zerogpt-detect.sh           ← ZeroGPT AI detection (Bash)
-│   └── run-benchmark.ps1           ← External benchmark runner
+│   ├── run-benchmark.ps1           ← External benchmark runner (PowerShell)
+│   ├── run-benchmark.sh            ← External benchmark runner (Bash)
+│   ├── run-eval.ps1                ← External EVAL.md LLM evaluation
 ├── tests/benchmark/               ← Evaluation dataset
 │   ├── annotations.json
 │   ├── zerogpt-results.json        ← ZeroGPT external validation results
@@ -108,7 +113,7 @@ natural-skill/
 │   ├── human-texts/
 │   └── edge-cases/
 ├── scenarios/                      ← Task-specific playbooks
-│   ├── full-rewrite.md             ← Default: all 6 stages
+│   ├── full-rewrite.md             ← Default: the full pipeline (5 stages)
 │   ├── blog-post.md                ← Blog post humanization
 │   ├── landing-page.md             ← Landing page humanization
 │   ├── social-post.md              ← Social media post
@@ -124,14 +129,15 @@ natural-skill/
 │   ├── creative-writing.md         ← Creative writing (light touch)
 │   └── product-update.md           ← Product update / changelog
 └── examples/                       ← Annotated before/after examples
-    ├── en-blog-post.md
-    ├── en-landing.md
-    ├── en-social.md
-    ├── ru-blog-post.md
-    ├── ru-landing.md
-    ├── ru-social.md
-    ├── uk-blog-post.md
-    └── uk-social.md
+    ├── en-blog-post.md / en-landing.md / en-social.md
+    ├── ru-blog-post.md / ru-landing.md / ru-social.md
+    ├── uk-blog-post.md / uk-social.md
+    ├── de-blog-post.md / de-email.md
+    ├── fr-blog-post.md / fr-social.md
+    ├── es-blog-post.md / es-landing.md
+    ├── it-blog-post.md / it-landing.md
+    ├── pt-blog-post.md / pt-social.md
+    └── pl-blog-post.md / pl-social.md
 ```
 
 ---

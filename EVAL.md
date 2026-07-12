@@ -1,6 +1,6 @@
 # EVAL - Quality Evaluation Framework for HUMAN-AI
 
-> **NEW in v3.0:** ZeroGPT external validator integration. Run `scripts/run-benchmark.ps1` with a ZeroGPT API key to get independent AI detection scores.
+> **ZeroGPT external validator integration.** Run `scripts/run-benchmark.ps1` with a ZeroGPT API key to get independent AI detection scores. See also `scripts/readability-check.ps1` and `scripts/morph-check.ps1` for multi-layer validation.
 
 > Load this prompt alongside SKILL.md output to score the humanization result.
 > The evaluator is a separate prompt to avoid self-assessment bias.

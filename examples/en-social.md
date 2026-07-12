@@ -8,7 +8,7 @@ In today's competitive business environment, effective communication is more imp
 
 ---
 
-## AFTER (human-ai v3)
+## AFTER (human-ai v4)
 
 ```
 [LANG: en]

@@ -381,40 +381,39 @@ scripts/run-eval.ps1
 ## 8. ФИКСЫ КОНСИСТЕНТНОСТИ
 
 ### 8.1 Версионирование
-- `README.md:3` badge `version-1.0` → `version-3.0`
-- `KNOWN_LIMITATIONS.md:11` «v4» → удалить, заменить на актуальную версию
+- ✓ `README.md:3` badge `version-1.0` → `version-4.0` — выполнено
+- ✓ `KNOWN_LIMITATIONS.md` — ссылка на «v4» удалена, заменена на актуальную версию — выполнено
 
 ### 8.2 Валидатор — дополнить список сценариев
-`scripts/validate.ps1:295-303` — добавить в `$treeFiles` недостающие сценарии:
-`press-release.md`, `internal-memo.md`, `grant-proposal.md`, `product-update.md`
+✓ `scripts/validate.ps1:295-303` — добавлены `press-release.md`, `internal-memo.md`, `grant-proposal.md`, `product-update.md` — выполнено
 
 ### 8.3 Bash-версия run-benchmark
-Создать `scripts/run-benchmark.sh` — аналог `run-benchmark.ps1` для Linux/Mac.
+✓ Создан `scripts/run-benchmark.sh` — аналог `run-benchmark.ps1` для Linux/Mac — выполнено
 
 ---
 
 ## 9. ДОРОЖНАЯ КАРТА
 
 ### Фаза 1 (ближайшая) — базовая инструментализация
-- [ ] Самодостаточный SKILL.md: вшить топ-данные × 9 языков, заменить ссылки на raw-url
-- [ ] Морфо-валидатор RU: `scripts/morph-check.ps1` + `shared/morph/` (whitelist + blacklist)
-- [ ] Интеграция ReadSightPy: `scripts/readability-check.ps1`
-- [ ] Расширение `validate.ps1` (сценарии + badge fix + проверка SKILL.md ↔ shared/)
-- [ ] Pre-flight guard: правила минимального размера и взвешенного порога
+- [x] Самодостаточный SKILL.md: вшить топ-данные × 9 языков, заменить ссылки на raw-url
+- [x] Морфо-валидатор RU: `scripts/morph-check.ps1` + `shared/morph/` (whitelist + blacklist)
+- [x] Интеграция ReadSightPy: `scripts/readability-check.ps1`
+- [x] Расширение `validate.ps1` (сценарии + badge fix + проверка SKILL.md ↔ shared/)
+- [x] Pre-flight guard: правила минимального размера и взвешенного порога
 
 ### Фаза 2 (средняя) — покрытие и унификация
 - [ ] Морфо-валидаторы UK + EN + DE (pymorphy3 + spaCy)
-- [ ] Унификация 15 сценариев под единый формат
-- [ ] 12 новых AI-тестов для DE/FR/ES/PT/IT/PL
-- [ ] 12 новых примеров (examples/)
-- [ ] Edge-case аннотации в annotations.json
-- [ ] `scripts/run-benchmark.sh` (Bash)
-- [ ] `scripts/run-eval.ps1` (внешний EVAL-раннер)
+- [x] Унификация 15 сценариев под единый формат
+- [x] 12 новых AI-тестов для DE/FR/ES/PT/IT/PL
+- [x] 12 новых примеров (examples/)
+- [x] Edge-case аннотации в annotations.json
+- [x] `scripts/run-benchmark.sh` (Bash)
+- [x] `scripts/run-eval.ps1` (внешний EVAL-раннер)
 
 ### Фаза 3 (дальняя) — продвинутая валидация
 - [ ] Морфо-валидаторы FR, ES, PT, IT, PL (spaCy)
-- [ ] Clause-count валидатор: `scripts/clause-check.ps1`
-- [ ] `readability-baseline.json` + интеграция в benchmark
+- [x] Clause-count валидатор: `scripts/clause-check.ps1`
+- [x] `readability-baseline.json` + интеграция в benchmark
 - [ ] CI: добавить morph-check + readability-check в `validate.yml`
 
 ---

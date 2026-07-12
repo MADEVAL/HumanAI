@@ -8,7 +8,7 @@
 
 ---
 
-## ПОСЛЕ (human-ai v3)
+## ПОСЛЕ (human-ai v4)
 
 ```
 [LANG: ru]

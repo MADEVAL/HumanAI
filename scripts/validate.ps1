@@ -30,7 +30,7 @@ $Stage5Checks = @{
 # ============================================
 Write-Host ""
 Write-Check "1. SKILL.md YAML Frontmatter"
-$skillContent = Get-Content (Join-Path $RepoRoot "SKILL.md") -Raw
+$skillContent = Get-Content (Join-Path $RepoRoot "SKILL.md") -Raw -Encoding UTF8
 
 if ($skillContent -match "name:\s+human-ai") { Write-Pass "name: human-ai" } else { Write-Fail "name field missing or incorrect" }
 if ($skillContent -match 'version:\s+"4\.0"') { Write-Pass "version: 4.0" } else { Write-Fail "version field missing or incorrect" }
@@ -53,10 +53,10 @@ $LangNames["pt"] = "Portuguese"
 $LangNames["it"] = "Italian"
 $LangNames["pl"] = "Polish"
 
-$bwContent = Get-Content (Join-Path $RepoRoot "shared\burned-words.md") -Raw
-$amContent = Get-Content (Join-Path $RepoRoot "shared\ai-markers.md") -Raw
-$slContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw
-$rtContent = Get-Content (Join-Path $RepoRoot "shared\rhythm-tables.md") -Raw
+$bwContent = Get-Content (Join-Path $RepoRoot "shared\burned-words.md") -Raw -Encoding UTF8
+$amContent = Get-Content (Join-Path $RepoRoot "shared\ai-markers.md") -Raw -Encoding UTF8
+$slContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
+$rtContent = Get-Content (Join-Path $RepoRoot "shared\rhythm-tables.md") -Raw -Encoding UTF8
 
 foreach ($lang in $Languages) {
     $name = $LangNames[$lang]
@@ -104,7 +104,7 @@ foreach ($lang in $Languages) {
 Write-Host ""
 Write-Check "3. Tone profile coverage (7 profiles x 9 languages)"
 
-$tpContent = Get-Content (Join-Path $RepoRoot "shared\tone-profiles.md") -Raw
+$tpContent = Get-Content (Join-Path $RepoRoot "shared\tone-profiles.md") -Raw -Encoding UTF8
 $langMarkers = @{}
 $langMarkers["en"] = "EN markers"; $langMarkers["ru"] = "RU markers"
 $langMarkers["uk"] = "UK markers"; $langMarkers["de"] = "DE markers"
@@ -166,7 +166,7 @@ foreach ($lang in $Languages) {
 Write-Host ""
 Write-Check "6. Verify flags (SKILL.md + specificity-ladder.md)"
 
-$specContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw
+$specContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
 
 foreach ($lang in $Languages) {
     $flag = $VerifyFlags[$lang]
@@ -212,8 +212,8 @@ $ruNativeNames["pt"] = "Português"
 $ruNativeNames["it"] = "Italiano"
 $ruNativeNames["pl"] = "Polski"
 
-$readmeEn = Get-Content (Join-Path $RepoRoot "README.md") -Raw
-$readmeRu = Get-Content (Join-Path $RepoRoot "README.ru.md") -Raw
+$readmeEn = Get-Content (Join-Path $RepoRoot "README.md") -Raw -Encoding UTF8
+$readmeRu = Get-Content (Join-Path $RepoRoot "README.ru.md") -Raw -Encoding UTF8
 
 foreach ($lang in $Languages) {
     $name = $LangNames[$lang]
@@ -237,8 +237,7 @@ Write-Check "9. Scenario files tone references"
 $scenarioDir = Join-Path $RepoRoot "scenarios"
 $scenarioFiles = Get-ChildItem $scenarioDir -Filter "*.md"
 foreach ($file in $scenarioFiles) {
-    $content = Get-Content $file.FullName -Raw
-    $defaultTonePattern = "Default tone:"
+    $content = Get-Content $file.FullName -Raw -Encoding UTF8
     if ($content.Contains($defaultTonePattern)) {
         # Extract tone from backticks after "Default tone:"
         $toneMatch = [regex]::Match($content, 'Default tone:\*\*\s*`(\w+)`')
@@ -270,7 +269,7 @@ foreach ($file in $allMdFiles) {
     $fname = $file.Name
     # ai-markers and burned-words reference em-dash as bad examples
     if ($fname -eq "ai-markers.md" -or $fname -eq "burned-words.md") { continue }
-    $content = Get-Content $file.FullName -Raw
+    $content = Get-Content $file.FullName -Raw -Encoding UTF8
     $count = ([regex]::Matches($content, "[\u2014\u2013]")).Count
     if ($count -gt 0) {
         if ($Verbose) { Write-Warn ($fname + ": " + $count + " em-dash(es)") }
@@ -337,7 +336,7 @@ foreach ($zgScript in $zgScripts) {
 # Check ZeroGPT API key reference in scripts
 $runBenchPath = Join-Path $RepoRoot "scripts\run-benchmark.ps1"
 if (Test-Path $runBenchPath) {
-    $runContent = Get-Content $runBenchPath -Raw
+    $runContent = Get-Content $runBenchPath -Raw -Encoding UTF8
     if ($runContent -match "zerogpt") {
         Write-Pass "run-benchmark.ps1 references ZeroGPT"
     } else {
@@ -348,7 +347,7 @@ if (Test-Path $runBenchPath) {
 # Check that EVAL.md mentions ZeroGPT
 $evalPath = Join-Path $RepoRoot "EVAL.md"
 if (Test-Path $evalPath) {
-    $evalContent = Get-Content $evalPath -Raw
+    $evalContent = Get-Content $evalPath -Raw -Encoding UTF8
     if ($evalContent -match "ZeroGPT|zerogpt-detect|external.validator") {
         Write-Pass "EVAL.md references ZeroGPT external validator"
     } else {

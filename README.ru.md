@@ -92,7 +92,7 @@ natural-skill/
 │   ├── rhythm-tables.md            ← Параметры ритма
 │   └── language-template.md        ← Шаблон для добавления языка
 ├── scenarios/                      ← Сценарии под задачи
-│   ├── full-rewrite.md             ← По умолчанию: все 6 стадий
+│   ├── full-rewrite.md             ← Весь пайплайн (5 стадий)
 │   ├── blog-post.md                ← Блог-пост
 │   ├── landing-page.md             ← Лендинг
 │   ├── social-post.md              ← Соцсети
@@ -107,15 +107,23 @@ natural-skill/
 │   ├── grant-proposal.md           ← Грантовая заявка
 │   ├── creative-writing.md         ← Художественный текст (лёгкое касание)
 │   └── product-update.md           ← Обновление продукта / чейнджлог
+├── scripts/
+│   ├── validate.ps1 / .sh          ← Проверка целостности
+│   ├── morph-check.ps1             ← Морфологический валидатор
+│   ├── readability-check.ps1       ← Валидатор читаемости
+│   ├── zerogpt-detect.ps1 / .sh    ← ZeroGPT AI-детекция
+│   ├── run-benchmark.ps1 / .sh     ← Внешний бенчмарк
+│   └── run-eval.ps1                ← Внешний EVAL-раннер
 └── examples/                       ← Примеры до/после
-    ├── en-blog-post.md
-    ├── en-landing.md
-    ├── en-social.md
-    ├── ru-blog-post.md
-    ├── ru-landing.md
-    ├── ru-social.md
-    ├── uk-blog-post.md
-    └── uk-social.md
+    ├── en-blog-post.md / en-landing.md / en-social.md
+    ├── ru-blog-post.md / ru-landing.md / ru-social.md
+    ├── uk-blog-post.md / uk-social.md
+    ├── de-blog-post.md / de-email.md
+    ├── fr-blog-post.md / fr-social.md
+    ├── es-blog-post.md / es-landing.md
+    ├── it-blog-post.md / it-landing.md
+    ├── pt-blog-post.md / pt-social.md
+    └── pl-blog-post.md / pl-social.md
 ```
 
 ---
