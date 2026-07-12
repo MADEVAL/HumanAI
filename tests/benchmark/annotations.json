@@ -214,6 +214,177 @@
       "expected_tone": "human",
       "rhythm_issues": ["bureaucratic nominalization"]
     },
+    "ai-texts/de/email.md": {
+      "language": "de",
+      "ai_probability": 88,
+      "markers": {
+        "openers": ["Sehr geehrte Damen und Herren"],
+        "burned_words": ["optimieren", "Synergie", "ganzheitliche", "revolutionär", "skalierbar", "Game-Changer"],
+        "fake_transitions": ["Darüber hinaus", "Des Weiteren"],
+        "hedging": ["Es ist wichtig zu betonen"],
+        "conclusion_regurgitation": ["Zusammenfassend lässt sich sagen"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["Nominalstil", "passive constructions"]
+    },
+    "ai-texts/de/landing.md": {
+      "language": "de",
+      "ai_probability": 92,
+      "markers": {
+        "openers": ["In der heutigen digitalen Welt"],
+        "burned_words": ["optimiert", "nahtlos", "innovative", "revolutionäre", "robust", "skalierbare", "state-of-the-art", "Best-in-Class"],
+        "fake_transitions": ["Darüber hinaus"],
+        "hedging": [],
+        "conclusion_regurgitation": []
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "landing",
+      "rhythm_issues": ["symmetrical structure", "no fragments"]
+    },
+    "ai-texts/fr/email.md": {
+      "language": "fr",
+      "ai_probability": 90,
+      "markers": {
+        "openers": ["Madame, Monsieur"],
+        "burned_words": ["optimiser", "holistique", "transparente", "révolutionnaire", "synergie", "disruptif"],
+        "fake_transitions": ["De plus", "En outre"],
+        "hedging": ["Il convient de noter que", "Force est de constater que"],
+        "conclusion_regurgitation": ["En conclusion"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["over-formal constructions", "en termes de overuse"]
+    },
+    "ai-texts/fr/social.md": {
+      "language": "fr",
+      "ai_probability": 82,
+      "markers": {
+        "openers": ["Dans un monde en constante évolution"],
+        "burned_words": ["optimiser", "innovante", "holistique", "écosystème"],
+        "fake_transitions": ["De plus"],
+        "hedging": ["Il est important de noter"],
+        "conclusion_regurgitation": [],
+        "rhetorical_padding": ["Prêt à transformer votre approche ?"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "social",
+      "rhythm_issues": ["no fragments", "uniform sentence length"]
+    },
+    "ai-texts/es/email.md": {
+      "language": "es",
+      "ai_probability": 86,
+      "markers": {
+        "openers": ["En el mundo actual"],
+        "burned_words": ["optimizar", "sin fisuras", "holístico", "revolucionario", "integral", "sinergia"],
+        "fake_transitions": ["Además", "Asimismo"],
+        "hedging": ["Cabe destacar"],
+        "conclusion_regurgitation": ["En conclusión"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["gerundio excesivo", "sin embargo overuse"]
+    },
+    "ai-texts/es/landing.md": {
+      "language": "es",
+      "ai_probability": 91,
+      "markers": {
+        "openers": ["En la era digital"],
+        "burned_words": ["optimiza", "sin fisuras", "robusta", "de vanguardia", "integral", "escalable", "revolucionaria"],
+        "fake_transitions": ["Además"],
+        "hedging": [],
+        "conclusion_regurgitation": []
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "landing",
+      "rhythm_issues": ["symmetrical structure", "no fragments"]
+    },
+    "ai-texts/pt/email.md": {
+      "language": "pt",
+      "ai_probability": 87,
+      "markers": {
+        "openers": ["No cenário atual"],
+        "burned_words": ["otimizar", "holística", "inovador", "sinergia", "alavancar", "ecossistema"],
+        "fake_transitions": ["Além disso", "Ademais"],
+        "hedging": ["É importante notar"],
+        "conclusion_regurgitation": ["Em conclusão"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["gerúndio excessivo", "o mesmo/a mesma pronoun"]
+    },
+    "ai-texts/pt/social.md": {
+      "language": "pt",
+      "ai_probability": 80,
+      "markers": {
+        "openers": ["No mundo digital de hoje"],
+        "burned_words": ["otimizar", "inovador", "revolucionário", "disruptivo"],
+        "fake_transitions": ["Além disso"],
+        "hedging": ["Vale ressaltar"],
+        "conclusion_regurgitation": [],
+        "rhetorical_padding": ["Quer saber mais?"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "social",
+      "rhythm_issues": ["uniform sentences", "no punch ending"]
+    },
+    "ai-texts/it/email.md": {
+      "language": "it",
+      "ai_probability": 89,
+      "markers": {
+        "openers": ["Nel panorama attuale"],
+        "burned_words": ["ottimizzare", "senza soluzione di continuità", "innovativo", "rivoluzionario", "sinergia", "scalabile"],
+        "fake_transitions": ["Inoltre", "Per di più"],
+        "hedging": ["Si rende necessario evidenziare"],
+        "conclusion_regurgitation": ["In conclusione"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["si passivante eccessivo", "over-formal constructions"]
+    },
+    "ai-texts/it/landing.md": {
+      "language": "it",
+      "ai_probability": 93,
+      "markers": {
+        "openers": ["Nel mondo digitale di oggi"],
+        "burned_words": ["ottimizza", "senza soluzione di continuità", "innovativa", "all'avanguardia", "robusta", "scalabile", "completa"],
+        "fake_transitions": ["Inoltre"],
+        "hedging": [],
+        "conclusion_regurgitation": []
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "landing",
+      "rhythm_issues": ["symmetrical structure", "no fragments"]
+    },
+    "ai-texts/pl/email.md": {
+      "language": "pl",
+      "ai_probability": 88,
+      "markers": {
+        "openers": ["W dzisiejszym cyfrowym świecie"],
+        "burned_words": ["optymalizować", "holistyczny", "innowacyjny", "rewolucyjny", "kompleksowe rozwiązanie", "wykorzystywać"],
+        "fake_transitions": ["Ponadto", "Co więcej"],
+        "hedging": ["Należy podkreślić", "Warto zauważyć"],
+        "conclusion_regurgitation": ["Podsumowując"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "biz",
+      "rhythm_issues": ["nadmierna nominalizacja", "English calques"]
+    },
+    "ai-texts/pl/social.md": {
+      "language": "pl",
+      "ai_probability": 83,
+      "markers": {
+        "openers": ["W dzisiejszych czasach"],
+        "burned_words": ["optymalizować", "innowacyjny", "przełomowy", "kompleksowe"],
+        "fake_transitions": ["Ponadto"],
+        "hedging": ["Należy zauważyć"],
+        "conclusion_regurgitation": [],
+        "rhetorical_padding": ["Chcesz dowiedzieć się więcej?"]
+      },
+      "expected_rung_improvement": "0-1 to 2+",
+      "expected_tone": "social",
+      "rhythm_issues": ["uniform sentences", "no fragments"]
+    },
     "human-texts/en-blog.md": {
       "language": "en",
       "ai_probability": 8,
