@@ -90,6 +90,7 @@ natural-skill/
 │   ├── tone-profiles.md            ← 7 тонов × 9 языков
 │   ├── specificity-ladder.md       ← Абстракция → конкретика
 │   ├── rhythm-tables.md            ← Параметры ритма
+│   ├── cultural-matrix.md          ← Культурные нормы × 9 языков
 │   └── language-template.md        ← Шаблон для добавления языка
 ├── scenarios/                      ← Сценарии под задачи
 │   ├── full-rewrite.md             ← Весь пайплайн (5 стадий)

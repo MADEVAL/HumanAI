@@ -102,7 +102,43 @@ foreach ($lang in $Languages) {
 
 # ============================================
 Write-Host ""
-Write-Check "3. Tone profile coverage (7 profiles x 9 languages)"
+Write-Check "3. Cultural matrix language coverage"
+
+$cmPath = Join-Path $RepoRoot "shared\cultural-matrix.md"
+if (Test-Path $cmPath) {
+    Write-Pass "cultural-matrix.md exists"
+    $cmContent = Get-Content $cmPath -Raw -Encoding UTF8
+    foreach ($lang in $Languages) {
+        $name = $LangNames[$lang]
+        if ($cmContent -match ("### " + [regex]::Escape($name))) {
+            Write-Pass ("cultural-matrix.md [" + $lang + "]")
+        } else {
+            Write-Warn ("cultural-matrix.md [" + $lang + "] section not found")
+        }
+    }
+    # Check master table has all 9 columns
+    $tableColumns = ($cmContent -split "`n" | Select-String -Pattern "\| Dimension" -Context 0,2)[0].Line
+    if ($tableColumns) {
+        $columnCount = ([regex]::Matches($tableColumns, "\|")).Count - 1
+        if ($columnCount -ge 9) {
+            Write-Pass "cultural-matrix.md master table: $columnCount language columns (need >=9)"
+        } else {
+            Write-Warn "cultural-matrix.md master table: $columnCount columns (need >=9)"
+        }
+    }
+    # Check formality table has all 9
+    if ($cmContent -match "EN.*RU.*UK.*DE.*FR.*ES.*PT.*IT.*PL") {
+        Write-Pass "cultural-matrix.md cross-language summary table present"
+    } else {
+        Write-Warn "cultural-matrix.md cross-language summary incomplete"
+    }
+} else {
+    Write-Fail "cultural-matrix.md not found in shared/"
+}
+
+# ============================================
+Write-Host ""
+Write-Check "5. Tone profile coverage (7 profiles x 9 languages)"
 
 $tpContent = Get-Content (Join-Path $RepoRoot "shared\tone-profiles.md") -Raw -Encoding UTF8
 $langMarkers = @{}
@@ -137,7 +173,7 @@ foreach ($tone in $Tones) {
 
 # ============================================
 Write-Host ""
-Write-Check "4. SKILL.md Stage 0 language detection table"
+Write-Check "6. SKILL.md Stage 0 language detection table"
 
 foreach ($lang in $Languages) {
     $tablePattern = "\| " + $lang + " \|"
@@ -150,7 +186,7 @@ foreach ($lang in $Languages) {
 
 # ============================================
 Write-Host ""
-Write-Check "5. SKILL.md Stage 5 language-specific checks"
+Write-Check "7. SKILL.md Stage 5 language-specific checks"
 
 foreach ($lang in $Languages) {
     $checkStr = $Stage5Checks[$lang]
@@ -164,7 +200,7 @@ foreach ($lang in $Languages) {
 
 # ============================================
 Write-Host ""
-Write-Check "6. Verify flags (SKILL.md + specificity-ladder.md)"
+Write-Check "8. Verify flags (SKILL.md + specificity-ladder.md)"
 
 $specContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
 
@@ -187,7 +223,7 @@ foreach ($lang in $Languages) {
 
 # ============================================
 Write-Host ""
-Write-Check "7. SKILL.md output format language codes"
+Write-Check "9. SKILL.md output format language codes"
 
 $langListPattern = "LANG: en / ru / uk / de / fr / es / pt / it / pl"
 if ($skillContent -match [regex]::Escape($langListPattern)) {
@@ -198,7 +234,7 @@ if ($skillContent -match [regex]::Escape($langListPattern)) {
 
 # ============================================
 Write-Host ""
-Write-Check "8. README language table rows"
+Write-Check "10. README language table rows"
 
 # Native names for RU readme check
 $ruNativeNames = @{}
@@ -232,7 +268,7 @@ foreach ($lang in $Languages) {
 
 # ============================================
 Write-Host ""
-Write-Check "9. Scenario files tone references"
+Write-Check "11. Scenario files tone references"
 
 $scenarioDir = Join-Path $RepoRoot "scenarios"
 $scenarioFiles = Get-ChildItem $scenarioDir -Filter "*.md"
@@ -261,7 +297,7 @@ foreach ($file in $scenarioFiles) {
 
 # ============================================
 Write-Host ""
-Write-Check "10. Em-dash policy check"
+Write-Check "12. Em-dash policy check"
 
 $allMdFiles = Get-ChildItem $RepoRoot -Recurse -Include "*.md" | Where-Object { $_.FullName -notlike "*\.git\*" }
 $emDashTotal = 0
@@ -285,12 +321,13 @@ if ($emDashTotal -eq 0) {
 
 # ============================================
 Write-Host ""
-Write-Check "11. File tree consistency"
+Write-Check "13. File tree consistency"
 
 $treeFiles = @(
     "SKILL.md","README.md","README.ru.md","CHANGELOG.md","EVAL.md","KNOWN_LIMITATIONS.md","LICENSE",".gitignore","PLAN.md",
     "shared/burned-words.md","shared/ai-markers.md","shared/tone-profiles.md",
     "shared/specificity-ladder.md","shared/rhythm-tables.md","shared/language-template.md",
+    "shared/cultural-matrix.md",
     "scenarios/full-rewrite.md","scenarios/blog-post.md","scenarios/landing-page.md",
     "scenarios/social-post.md","scenarios/seo-article.md","scenarios/case-study.md",
     "scenarios/commercial-offer.md","scenarios/email.md","scenarios/technical-doc.md",
@@ -321,7 +358,7 @@ foreach ($f in $treeFiles) {
 
 # ============================================
 Write-Host ""
-Write-Check "12. ZeroGPT integration scripts"
+Write-Check "14. ZeroGPT integration scripts"
 
 $zgScripts = @("zerogpt-detect.ps1", "zerogpt-detect.sh", "run-benchmark.ps1")
 foreach ($zgScript in $zgScripts) {
@@ -365,7 +402,7 @@ if (Test-Path $annotationsPath) {
 
 # ============================================
 Write-Host ""
-Write-Check "13. SKILL.md self-containment — embedded data vs shared/ links"
+Write-Check "15. SKILL.md self-containment — embedded data vs shared/ links"
 
 if ($skillContent -match "raw.githubusercontent.com") {
     Write-Pass "SKILL.md contains GitHub raw URLs for deep data"
@@ -387,6 +424,14 @@ if ($skillContent -match "readability-check\.ps1") {
 } else {
     Write-Warn "SKILL.md missing readability-check reference"
 }
+if ($skillContent -match "cultural-matrix\.md") {
+    Write-Pass "SKILL.md references cultural-matrix.md"
+} else {
+    Write-Warn "SKILL.md missing cultural-matrix.md reference"
+}
+
+# Fix the undefined variable in scenario checks (check 11)
+$defaultTonePattern = "Default tone"
 
 # ============================================
 Write-Host ""

@@ -94,6 +94,7 @@ natural-skill/
 │   ├── tone-profiles.md            ← 7 tones × 9 languages
 │   ├── specificity-ladder.md       ← Abstraction → concrete framework
 │   ├── rhythm-tables.md            ← Sentence flow parameters
+│   ├── cultural-matrix.md          ← Per-language cultural norms × 9
 │   └── language-template.md        ← Template for adding new languages
 ├── scripts/                      ← Automation scripts
 │   ├── validate.ps1                ← Integrity checker (PowerShell)

@@ -167,6 +167,8 @@ These are the targets — when you're done humanizing, the output should read li
 | it | Preciso, senza entusiasmo. «Abbiamo provato X. Ha funzionato. Ecco perché.» «Allora», «cioè», «sai com'è» come connettori naturali. Attenzione al «si passivante». Periodi lunghi tollerati più che in inglese, ma variare la lunghezza. |
 | pl | Precyzja ponad entuzjazm. «Przetestowaliśmy. Działa. Oto dlaczego.» Naturalne wtrącenia: «no wiesz», «szczerze mówiąc», «w sumie». Końcówki -ować nie są automatycznie AI, ale ich nagromadzenie tak. Ironia i sarkazm działają. |
 
+> **Cultural depth:** The human reading your text has cultural expectations beyond grammar. What builds trust for a Polish reader (konkret, dane, certyfikaty) kills it for an Italian (superlativi). What signals humanity in Brazilian Portuguese (auto-depreciação leve) signals unprofessionalism in German. See `shared/cultural-matrix.md` for the full per-language cultural map: trust mechanics, formality norms, humor tolerance, platform-specific behavior, and taboos.
+
 ---
 
 ## STAGE 1: ANTI-AI CLEANUP
@@ -373,6 +375,15 @@ Set the voice. Every text has a speaker.
 3. Default fallback → `human`
 
 Tone is set ONCE at Stage 3. Do not re-detect in later stages.
+
+### Cultural calibration
+Before applying tone, consult `shared/cultural-matrix.md` for the target language:
+- **Trust mechanics** — what builds/breaks credibility in this culture
+- **Formality & address** — вы/ты, vous/tu, Sie/du, você/Senhor(a), Lei/tu, Pan-Pani/Ty
+- **Humor tolerance** — self-irony (RU, PT), dry wit (EN, DE), sarcasm (PL), none in formal (biz all langs)
+- **Platform norms** — LinkedIn vs Twitter vs Telegram behavior per language
+
+Tone profiles below contain per-language markers. The cultural matrix ensures those markers are applied with cultural awareness, not just linguistically.
 
 ### 7 tone profiles
 
@@ -601,6 +612,18 @@ Last sentence has actual information? Not summary? Good.
 
 **PL:** «Należy podkreślić» survived? Kill. Em-dash → kropka/przecinek. Nadmierna nominalizacja → czasowniki.
 
+### 5.4b Cultural taboos scan (use `shared/cultural-matrix.md`)
+For the detected language, scan against the "Taboos & pitfalls" section in the cultural matrix. These are per-language AI tells not covered by universal burned-word lists:
+- **EN:** Fake balance ("On one hand... on the other"), "Not only... but also..."
+- **RU:** «рады предложить», «наша миссия», pseudo-academic reflexive verbs
+- **UK:** Russianisms, surzhyk, Soviet bureaucratic residue («у зв'язку з», «з метою»)
+- **DE:** English loanwords («getriggert», «geboostet»), English quotation marks
+- **FR:** Anglicized marketing jargon («scalable», «disruptif»), 3-part academic plan
+- **ES:** «El mismo/la misma» as pronoun, «sin embargo» overuse, forced subjunctive
+- **PT:** «Através de» instead of «com», «O mesmo/a mesma» as pronoun
+- **IT:** «Si passivante» eccessivo, «nonostante/sebbene/tuttavia» pileup
+- **PL:** English calques («dedykowany», «serwis»), «w ramach/w zakresie» chains
+
 ### 5.5 Final scan — top 10 AI tells (must be 0 or near-zero)
 
 1. "Seamless" / its translations — 0
@@ -815,7 +838,7 @@ natural-skill/
 ├── PLAN.md                         ← Improvement roadmap
 ├── README.md / README.ru.md        ← Documentation (bilingual)
 ├── EVAL.md                         ← External LLM evaluation framework
-├── shared/                         ← Full data files (30+ words per list, 250-line tone profiles)
+├── shared/                         ← Full data files (30+ words per list, 250-line tone profiles, cultural matrix)
 ├── scenarios/                      ← 15 task-specific playbooks
 ├── examples/                       ← Annotated before/after examples
 ├── scripts/                        ← Validation + external tools
@@ -831,6 +854,7 @@ natural-skill/
 | Full tone profiles (7 × 9) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/tone-profiles.md |
 | Specificity ladder (all examples) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/specificity-ladder.md |
 | Rhythm tables (full parameters) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/rhythm-tables.md |
+| Cultural matrix (9 languages) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/cultural-matrix.md |
 | EVAL framework | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/EVAL.md |
 
 ### External validation tools (run separately — not LLM tasks):
