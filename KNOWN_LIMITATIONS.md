@@ -8,7 +8,7 @@ LLMs cannot reliably count exact words. The rhythm system uses clause-count and 
 
 ## Language Depth
 
-English, Russian, Ukrainian, and German have the deepest coverage with native-level tone markers and cultural notes. French, Spanish, Portuguese, Italian, and Polish have been enhanced in v4 but may still have gaps compared to the primary four languages. Community contributions from native speakers are welcome.
+English, Russian, Ukrainian, and German have the deepest coverage with native-level tone markers and cultural notes. French, Spanish, Portuguese, Italian, and Polish may still have gaps compared to the primary four languages. Community contributions from native speakers are welcome.
 
 ## Edge Cases
 

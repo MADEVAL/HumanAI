@@ -1,6 +1,6 @@
 # HUMAN-AI — Text Humanization Engine
 
-[![Version](https://img.shields.io/badge/version-1.0-blue)]()
+[![Version](https://img.shields.io/badge/version-4.0-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Compatibility](https://img.shields.io/badge/compatibility-any%20LLM-purple)]()
 

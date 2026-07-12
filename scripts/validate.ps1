@@ -1,4 +1,4 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # HUMAN-AI Integrity Validator (PowerShell 5.1+)
 # Validates cross-references and language coverage across all skill files.
 # Usage: powershell -File scripts/validate.ps1 [-Verbose]
@@ -33,7 +33,7 @@ Write-Check "1. SKILL.md YAML Frontmatter"
 $skillContent = Get-Content (Join-Path $RepoRoot "SKILL.md") -Raw
 
 if ($skillContent -match "name:\s+human-ai") { Write-Pass "name: human-ai" } else { Write-Fail "name field missing or incorrect" }
-if ($skillContent -match 'version:\s+"3\.0"') { Write-Pass "version: 3.0" } else { Write-Fail "version field missing or incorrect" }
+if ($skillContent -match 'version:\s+"4\.0"') { Write-Pass "version: 4.0" } else { Write-Fail "version field missing or incorrect" }
 if ($skillContent -match "languages:") { Write-Pass "languages field present" } else { Write-Fail "languages field missing" }
 if ($skillContent -match "pipeline_stages:\s+5") { Write-Pass "pipeline_stages: 5" } else { Write-Fail "pipeline_stages field missing or incorrect" }
 
@@ -289,18 +289,26 @@ Write-Host ""
 Write-Check "11. File tree consistency"
 
 $treeFiles = @(
-    "SKILL.md","README.md","README.ru.md","CHANGELOG.md","EVAL.md","KNOWN_LIMITATIONS.md","LICENSE",".gitignore",
+    "SKILL.md","README.md","README.ru.md","CHANGELOG.md","EVAL.md","KNOWN_LIMITATIONS.md","LICENSE",".gitignore","PLAN.md",
     "shared/burned-words.md","shared/ai-markers.md","shared/tone-profiles.md",
     "shared/specificity-ladder.md","shared/rhythm-tables.md","shared/language-template.md",
     "scenarios/full-rewrite.md","scenarios/blog-post.md","scenarios/landing-page.md",
     "scenarios/social-post.md","scenarios/seo-article.md","scenarios/case-study.md",
     "scenarios/commercial-offer.md","scenarios/email.md","scenarios/technical-doc.md",
-    "scenarios/translation-fix.md",
+    "scenarios/translation-fix.md","scenarios/press-release.md","scenarios/internal-memo.md",
+    "scenarios/grant-proposal.md","scenarios/creative-writing.md","scenarios/product-update.md",
     "scripts/validate.ps1","scripts/validate.sh",
-    "scripts/zerogpt-detect.ps1","scripts/zerogpt-detect.sh","scripts/run-benchmark.ps1",
+    "scripts/zerogpt-detect.ps1","scripts/zerogpt-detect.sh","scripts/run-benchmark.ps1","scripts/run-benchmark.sh",
+    "scripts/morph-check.ps1","scripts/readability-check.ps1","scripts/run-eval.ps1","scripts/clause-check.ps1",
     "examples/en-blog-post.md","examples/en-landing.md","examples/en-social.md",
     "examples/ru-blog-post.md","examples/ru-landing.md","examples/ru-social.md",
-    "examples/uk-blog-post.md","examples/uk-social.md"
+    "examples/uk-blog-post.md","examples/uk-social.md",
+    "examples/de-blog-post.md","examples/de-email.md",
+    "examples/fr-blog-post.md","examples/fr-social.md",
+    "examples/es-blog-post.md","examples/es-landing.md",
+    "examples/pt-blog-post.md","examples/pt-social.md",
+    "examples/it-blog-post.md","examples/it-landing.md",
+    "examples/pl-blog-post.md","examples/pl-social.md"
 )
 
 foreach ($f in $treeFiles) {
@@ -354,6 +362,31 @@ if (Test-Path $annotationsPath) {
     Write-Pass "annotations.json exists (benchmark data)"
 } else {
     Write-Fail "annotations.json missing"
+}
+
+# ============================================
+Write-Host ""
+Write-Check "13. SKILL.md self-containment — embedded data vs shared/ links"
+
+if ($skillContent -match "raw.githubusercontent.com") {
+    Write-Pass "SKILL.md contains GitHub raw URLs for deep data"
+} else {
+    Write-Warn "SKILL.md missing GitHub raw URLs for deep data"
+}
+if ($skillContent -match "Top burned words") {
+    Write-Pass "SKILL.md has embedded burned-words table"
+} else {
+    Write-Warn "SKILL.md may be missing embedded burned-words"
+}
+if ($skillContent -match "morph-check\.ps1") {
+    Write-Pass "SKILL.md references morph-check.ps1"
+} else {
+    Write-Warn "SKILL.md missing morph-check reference"
+}
+if ($skillContent -match "readability-check\.ps1") {
+    Write-Pass "SKILL.md references readability-check.ps1"
+} else {
+    Write-Warn "SKILL.md missing readability-check reference"
 }
 
 # ============================================

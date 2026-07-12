@@ -10,3 +10,14 @@ jobs:
         run: pwsh scripts/validate.ps1 -Verbose
       - name: Run Bash validator
         run: bash scripts/validate.sh --verbose
+      - name: Check SKILL.md self-containment
+        shell: pwsh
+        run: |
+          $content = Get-Content SKILL.md -Raw
+          if ($content -match "raw.githubusercontent.com") { Write-Host "PASS: GitHub raw URLs present" } else { Write-Host "WARN: Missing GitHub raw URLs" }
+          if ($content -match "Top burned words") { Write-Host "PASS: Embedded burned words" } else { Write-Host "WARN: Missing embedded burned words" }
+      - name: List new scripts
+        shell: pwsh
+        run: |
+          $scripts = @("morph-check.ps1","readability-check.ps1","run-eval.ps1","clause-check.ps1","run-benchmark.sh")
+          foreach ($s in $scripts) { if (Test-Path "scripts/$s") { Write-Host "OK: $s" } else { Write-Host "MISSING: $s" } }

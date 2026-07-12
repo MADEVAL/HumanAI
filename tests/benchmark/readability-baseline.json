@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "description": "Readability baseline metrics for HUMAN-AI benchmark texts. Each entry maps a test file to expected readability scores (Flesch, LIX, Fog) BEFORE humanization.",
+  "engine": "ReadSightPy >= 1.0.0",
+  "entries": {
+    "ai-texts/en/blog-post.md": { "flesch": 45, "lix": 48, "fog": 16.5, "note": "Heavy AI — academic tone, long sentences" },
+    "ai-texts/en/landing.md": { "flesch": 50, "lix": 45, "fog": 14.0, "note": "Marketing fluff — burned words everywhere" },
+    "ai-texts/en/social.md": { "flesch": 55, "lix": 42, "fog": 12.0, "note": "LinkedIn AI post" },
+    "ai-texts/en/email.md": { "flesch": 48, "lix": 46, "fog": 15.0, "note": "B2B cold email — hope this finds you well" },
+    "ai-texts/en/tech-doc.md": { "flesch": 40, "lix": 50, "fog": 17.0, "note": "Technical doc — leaked AI" },
+    "ai-texts/ru/blog-post.md": { "flesch": 35, "lix": 52, "fog": 18.0, "note": "Russian AI blog — канцелярит" },
+    "ai-texts/ru/landing.md": { "flesch": 38, "lix": 50, "fog": 16.0, "note": "Russian AI landing page" },
+    "ai-texts/ru/social.md": { "flesch": 42, "lix": 44, "fog": 13.0, "note": "Russian AI social post" },
+    "ai-texts/uk/blog-post.md": { "flesch": 36, "lix": 51, "fog": 17.5, "note": "Ukrainian AI blog — Russianisms" }
+  }
+}
