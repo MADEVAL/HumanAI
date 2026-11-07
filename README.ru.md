@@ -234,9 +234,11 @@ MIT
 ## Описание для GitHub
 
 ```
-AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Активная версия v4.1: pre-flight → cleanup → specificity → tone → rhythm → proofread. Skills.sh: https://www.skills.sh/madeval/humanai
+AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Активная версия v4.1: pre-flight → cleanup → specificity → tone → rhythm → proofread.
 ```
 
 ## Теги для GitHub
 
 `ai` `anti-ai` `copywriting` `humanization` `humanizer` `llm` `multilingual` `prompt-engineering` `skill` `text-rewriting`
+
+Skills.sh: https://www.skills.sh/madeval/humanai
