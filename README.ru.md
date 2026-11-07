@@ -1,4 +1,6 @@
-# HUMAN-AI - Движок очеловечивания текста
+# Human-AI Legacy - Движок очеловечивания текста
+
+> **Статус:** Legacy v3. Заменён скилом `human-ai` 4.1 в Natural-skill. Не устанавливайте оба.
 
 [skills.sh page](https://www.skills.sh/madeval/humanai)
 
@@ -12,9 +14,9 @@ AI skill-система, которая переписывает машинно-
 
 ## Что это?
 
-**HUMAN-AI** - это системный промпт (skill) для любой LLM: GPT, Claude, Gemini, DeepSeek, open-source моделей. Он превращает AI-текст, который «пахнет машиной», в текст, который читается так, будто его написал компетентный человек.
+**Human-AI Legacy** - это системный промпт (skill) для любой LLM: GPT, Claude, Gemini, DeepSeek, open-source моделей. Он превращает AI-текст, который «пахнет машиной», в текст, который читается так, будто его написал компетентный человек.
 
-AI пишет с отпечатком: одинаковый ритм, одинаковая структура, одни и те же сожжённые слова, одна и та же мёртвая идеальность. HUMAN-AI стирает этот отпечаток - не делая текст «менее AI-шным», а делая его *более человеческим*.
+AI пишет с отпечатком: одинаковый ритм, одинаковая структура, одни и те же сожжённые слова, одна и та же мёртвая идеальность. Human-AI Legacy стирает этот отпечаток - не делая текст «менее AI-шным», а делая его *более человеческим*.
 
 ---
 
@@ -83,36 +85,17 @@ AI пишет с отпечатком: одинаковый ритм, одина
 ## Архитектура
 
 ```
-natural-skill/
-├── SKILL.md                        ← Оркестратор (полный пайплайн)
+HumanAI/
+├── skills/human-ai-legacy/         ← рабочий пакет скилла
+│   ├── SKILL.md                    ← Оркестратор (полный пайплайн)
+│   ├── agents/openai.yaml          ← Манифест OpenAI-агента
+│   ├── shared/                     ← Данные для 9 языков
+│   ├── scenarios/                  ← Сценарии под задачи
+│   └── examples/                   ← Примеры до/после
+├── install.py                      ← Установщик для Claude, OpenCode, Cursor, .agents
 ├── README.md / README.ru.md        ← Документация
-├── shared/
-│   ├── burned-words.md             ← Все сожжённые слова × 9 языков
-│   ├── ai-markers.md               ← Паттерны обнаружения × 9 языков
-│   ├── tone-profiles.md            ← 7 тонов × 9 языков
-│   ├── specificity-ladder.md       ← Абстракция → конкретика
-│   ├── rhythm-tables.md            ← Параметры ритма
-│   └── language-template.md        ← Шаблон для добавления языка
-├── scenarios/                      ← Сценарии под задачи
-│   ├── full-rewrite.md             ← По умолчанию: все 5 стадий
-│   ├── blog-post.md                ← Блог-пост
-│   ├── landing-page.md             ← Лендинг
-│   ├── social-post.md              ← Соцсети
-│   ├── seo-article.md              ← SEO-контент
-│   ├── case-study.md               ← Кейс / портфолио
-│   ├── commercial-offer.md         ← Коммерческое предложение
-│   ├── email.md                    ← Email
-│   ├── technical-doc.md             ← Техническая документация
-│   └── translation-fix.md          ← Де-перевод: убрать акцент
-└── examples/                       ← Примеры до/после
-    ├── en-blog-post.md
-    ├── en-landing.md
-    ├── en-social.md
-    ├── ru-blog-post.md
-    ├── ru-landing.md
-    ├── ru-social.md
-    ├── uk-blog-post.md
-    └── uk-social.md
+├── CHANGELOG.md                    ← История версий
+└── LICENSE
 ```
 
 ---
@@ -191,15 +174,24 @@ natural-skill/
 
 ## Установка
 
+Установщик копирует `skills/human-ai-legacy/` в выбранный каталог агента:
+
+```bash
+python install.py --target all
+python install.py --list
+python install.py --check
+python install.py --target project --dry-run
+```
+
 ### OpenCode
 ```
-human-ai/ → .opencode/skills/          (проект)
-               → ~/.config/opencode/skills/  (глобально)
+human-ai-legacy/ → .opencode/skills/          (проект)
+                    → ~/.config/opencode/skills/  (глобально)
 ```
 
 ### Claude Code
 ```
-human-ai/ → ~/.claude/skills/
+human-ai-legacy/ → ~/.claude/skills/
 ```
 
 ### Любая LLM (автономно)
@@ -223,11 +215,11 @@ human-ai/ → ~/.claude/skills/
 
 ## Интеграция
 
-HUMAN-AI спроектирован для совместной работы с двумя другими скиллами - [RankWise](https://github.com/MADEVAL/RankWise) (SEO-движок контента) и [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге). Вместе они образуют полный конвейер создания контента.
+Human-AI Legacy спроектирован для совместной работы с двумя другими скиллами - [RankWise](https://github.com/MADEVAL/RankWise) (SEO-движок контента) и [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге). Вместе они образуют полный конвейер создания контента.
 
 ### С RankWise (SEO)
 
-**Правило:** RankWise → SEO-структура → HUMAN-AI → человеческий голос. Не ломать SEO.
+**Правило:** RankWise → SEO-структура → Human-AI Legacy → человеческий голос. Не ломать SEO.
 
 - **Не удаляйте и не меняйте H2/H3 с ключами.** Только переписывайте текст вокруг них.
 - **Сохраняйте плотность ключей 0.8%-1.5%.**
@@ -237,18 +229,18 @@ HUMAN-AI спроектирован для совместной работы с 
 
 ### С MindFluence (Когнитивные искажения)
 
-**Правило:** MindFluence → убеждение → HUMAN-AI → человеческий голос. Не удалять психологическую структуру.
+**Правило:** MindFluence → убеждение → Human-AI Legacy → человеческий голос. Не удалять психологическую структуру.
 
 - **Не удаляйте bias-маркеры:** цифры соцдоказательства, якорные цены, сигналы авторитета, триггеры дефицита.
 - **Не удаляйте power words,** даже если они пересекаются со списком burned-words - они несут психологическую функцию.
 - Маппинг тонов: `warm-human` → `human`, `expert-calm` → `expert`, `bold-sell` → `landing`
 - Используйте `PIPELINE: cleanup(skipped: bias) → specificity → tone(skipped: MindFluence) → rhythm → proofread`
 
-### Тройной конвейер (RankWise → MindFluence → HumanAI)
+### Тройной конвейер (RankWise → MindFluence → human-ai-legacy)
 
 1. **RankWise** → SEO-бриф: ключи, структура заголовков, ссылки
 2. **MindFluence** → убедительный текст внутри SEO-скелета
-3. **HumanAI** → очеловечивание с сохранением SEO + bias-маркеров
+3. **human-ai-legacy** → очеловечивание с сохранением SEO + bias-маркеров
 4. **RankWise Audit** → финальная проверка 49 факторов
 
 ---
@@ -256,3 +248,15 @@ HUMAN-AI спроектирован для совместной работы с 
 ## Лицензия
 
 MIT
+
+---
+
+## Описание для GitHub
+
+```
+AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Legacy v3; активная версия - human-ai 4.1. Skills.sh: https://www.skills.sh/madeval/humanai
+```
+
+## Теги для GitHub
+
+`ai` `anti-ai` `copywriting` `humanization` `humanizer` `llm` `multilingual` `prompt-engineering` `skill` `text-rewriting`

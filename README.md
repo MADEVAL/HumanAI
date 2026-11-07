@@ -1,4 +1,8 @@
-# HUMAN-AI - Text Humanization Engine
+# Human-AI Legacy - Text Humanization Engine
+
+[![Version](https://img.shields.io/badge/version-3.0.0-lightgrey)](CHANGELOG.md)
+
+> **Status:** Legacy v3. Replaced by `human-ai` 4.1 in Natural-skill. Do not install both.
 
 [skills.sh page](https://www.skills.sh/madeval/humanai)
 
@@ -12,15 +16,15 @@ An AI skill system that rewrites machine-generated text to sound human-written -
 
 ## What is this?
 
-**HUMAN-AI** is a system prompt (skill) for any LLM - GPT, Claude, Gemini, DeepSeek, or any capable model. It transforms AI-generated text that "smells like AI" into text that reads like a competent human wrote it.
+**Human-AI Legacy** is a system prompt (skill) for any LLM - GPT, Claude, Gemini, DeepSeek, or any capable model. It transforms AI-generated text that "smells like AI" into text that reads like a competent human wrote it.
 
-AI writes with a fingerprint: same rhythm, same structure, same burned words, same dead perfection. HUMAN-AI strips that fingerprint - not by making text "less AI", but by making it *more human*.
+AI writes with a fingerprint: same rhythm, same structure, same burned words, same dead perfection. Human-AI Legacy strips that fingerprint - not by making text "less AI", but by making it *more human*.
 
 ---
 
 ## How it works
 
-1. **Load `SKILL.md`** as a system prompt into any LLM.
+1. **Load `skills/human-ai-legacy/SKILL.md`** as a system prompt into any LLM.
 2. **Give a task:** "Rewrite this to sound human. Language: de." / "Make this a case study. EN." / "Just clean the AI patterns."
 3. **Get output** with language detected, tone set, pipeline stages applied, and changelog.
 
@@ -83,36 +87,17 @@ Each tone has per-language markers: fragment frequencies, conjunction rules, for
 ## Architecture
 
 ```
-natural-skill/
-├── SKILL.md                        ← Main orchestrator (full pipeline)
+HumanAI/
+├── skills/human-ai-legacy/         ← runtime skill package
+│   ├── SKILL.md                    ← Main orchestrator (full pipeline)
+│   ├── agents/openai.yaml          ← OpenAI agent manifest
+│   ├── shared/                     ← Data files for 9 languages
+│   ├── scenarios/                  ← Task-specific playbooks
+│   └── examples/                   ← Annotated before/after examples
+├── install.py                      ← Installer for Claude, OpenCode, Cursor, .agents
 ├── README.md / README.ru.md        ← This documentation
-├── shared/
-│   ├── burned-words.md             ← All burned words × 9 languages
-│   ├── ai-markers.md               ← Detection patterns × 9 languages
-│   ├── tone-profiles.md            ← 7 tones × 9 languages
-│   ├── specificity-ladder.md       ← Abstraction → concrete framework
-│   ├── rhythm-tables.md            ← Sentence flow parameters
-│   └── language-template.md        ← Template for adding new languages
-├── scenarios/                      ← Task-specific playbooks
-│   ├── full-rewrite.md             ← Default: all 5 stages
-│   ├── blog-post.md                ← Blog post humanization
-│   ├── landing-page.md             ← Landing page humanization
-│   ├── social-post.md              ← Social media post
-│   ├── seo-article.md              ← SEO content humanization
-│   ├── case-study.md               ← Case study / portfolio
-│   ├── commercial-offer.md         ← B2B commercial offer
-│   ├── email.md                    ← Email humanization
-│   ├── technical-doc.md             ← Technical documentation
-│   └── translation-fix.md          ← De-translation: make it sound native
-└── examples/                       ← Annotated before/after examples
-    ├── en-blog-post.md
-    ├── en-landing.md
-    ├── en-social.md
-    ├── ru-blog-post.md
-    ├── ru-landing.md
-    ├── ru-social.md
-    ├── uk-blog-post.md
-    └── uk-social.md
+├── CHANGELOG.md                    ← Version history
+└── LICENSE
 ```
 
 ---
@@ -184,26 +169,35 @@ Here's what the four good ones have in common. And why the other eight failed.
 
 - Any capable LLM with a system prompt / custom instructions field
 - For full skill functionality: a skill system that loads files from a folder (OpenCode, Claude Code)
-- For standalone: copy `SKILL.md` as system prompt - contains complete pipeline
+- For standalone: copy `skills/human-ai-legacy/SKILL.md` as a system prompt - contains the complete pipeline
 - No API keys, no tools, no dependencies - pure prompt engineering
 
 ---
 
 ## Installation
 
+The installer copies `skills/human-ai-legacy/` into the selected agent directory:
+
+```bash
+python install.py --target all
+python install.py --list
+python install.py --check
+python install.py --target project --dry-run
+```
+
 ### OpenCode
 ```
-human-ai/ → .opencode/skills/          (project)
-               → ~/.config/opencode/skills/  (global)
+human-ai-legacy/ → .opencode/skills/          (project)
+                    → ~/.config/opencode/skills/  (global)
 ```
 
 ### Claude Code
 ```
-human-ai/ → ~/.claude/skills/
+human-ai-legacy/ → ~/.claude/skills/
 ```
 
 ### Any LLM (standalone)
-Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per-language detail.
+Copy contents of `skills/human-ai-legacy/SKILL.md` as a system prompt. Add `shared/` files for richer per-language detail.
 
 ---
 
@@ -223,21 +217,21 @@ Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per
 
 ## Integration
 
-HUMAN-AI is designed to work with two other skills - [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
+Human-AI Legacy is designed to work with two other skills - [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
 
 ### Joint Prompt Triggers
 
-HUMAN-AI recognizes these joint prompts and activates preservation rules automatically:
+Human-AI Legacy recognizes these joint prompts and activates preservation rules automatically:
 
-- "SEO-rewrite this (RankWise), then humanize it (HumanAI)"
+- "SEO-rewrite this (RankWise), then humanize it (human-ai-legacy)"
 - "Humanize the RankWise output below"
-- "HumanAI pass on RankWise content"
-- "MindFluence generated this. Now humanize it with HumanAI."
-- "Triple pipeline: RankWise → MindFluence → HumanAI"
+- "human-ai-legacy pass on RankWise content"
+- "MindFluence generated this. Now humanize it with human-ai-legacy."
+- "Triple pipeline: RankWise → MindFluence → human-ai-legacy"
 
 ### With RankWise (SEO)
 
-**The rule:** RankWise handles SEO structure → HumanAI handles human voice. Do not break SEO.
+**The rule:** RankWise handles SEO structure → human-ai-legacy handles human voice. Do not break SEO.
 
 **Preservation rules when processing RankWise content:**
 
@@ -248,7 +242,7 @@ HUMAN-AI recognizes these joint prompts and activates preservation rules automat
 - **During Stage 1 (cleanup):** skip deletion of keywords, internal links, and schema-relevant elements.
 - **Meta title/description:** already SEO-optimized. Do not humanize them.
 
-**Conflict resolution (RankWise vs HumanAI instincts):**
+**Conflict resolution (RankWise vs human-ai-legacy instincts):**
 1. Preserve keyword placement (K2, K4, K6, K8) - highest priority
 2. Preserve heading structure (C13) - second priority
 3. Then apply human voice cleanup
@@ -268,11 +262,11 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 
 ### With MindFluence (Cognitive Bias Marketing)
 
-**The rule:** MindFluence engineers persuasion → HumanAI humanizes the voice. Do not strip psychological structure.
+**The rule:** MindFluence engineers persuasion → human-ai-legacy humanizes the voice. Do not strip psychological structure.
 
-**Tone mapping (MindFluence → HumanAI):**
+**Tone mapping (MindFluence → human-ai-legacy):**
 
-| MindFluence Tone | HumanAI Tone |
+| MindFluence Tone | human-ai-legacy Tone |
 |-----------------|-------------|
 | `bold-sell` | `landing` |
 | `expert-calm` | `expert` |
@@ -293,16 +287,16 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: MindFluence tone) → rhythm → proofread
 ```
 
-### Triple Pipeline (RankWise → MindFluence → HumanAI)
+### Triple Pipeline (RankWise → MindFluence → human-ai-legacy)
 
 **Recommended order and protocol:**
 
 1. **RankWise Brief** → SEO structure, keyword placement, heading hierarchy, link plan
 2. **MindFluence** → Cognitive bias copy within the SEO skeleton, section-by-section bias annotations
-3. **HumanAI** → Humanize the voice while preserving BOTH SEO signals AND bias structure
+3. **human-ai-legacy** → Humanize the voice while preserving BOTH SEO signals AND bias structure
 4. **RankWise Audit** → Final 49-factor verification
 
-**Triple-pipeline preservation checklist for HumanAI:**
+**Triple-pipeline preservation checklist for human-ai-legacy:**
 
 | Preserve | From | Why |
 |---------|------|-----|
@@ -321,11 +315,11 @@ PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: Min
 Triple pipeline:
 1) RankWise SEO brief for [topic]. Keyword: [kw]. Language: [xx].
 2) MindFluence generate from that brief. Tone: [expert-calm/warm-human/bold-sell].
-3) HumanAI humanize the MindFluence output. Preserve SEO structure + bias markers.
+3) human-ai-legacy humanize the MindFluence output. Preserve SEO structure + bias markers.
 4) RankWise audit the final result.
 ```
 
-**HumanAI invocation for triple pipeline:**
+**human-ai-legacy invocation for triple pipeline:**
 ```
 PIPELINE: cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread
 ```
@@ -335,3 +329,15 @@ PIPELINE: cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: 
 ## License
 
 MIT
+
+---
+
+## GitHub Description
+
+```
+AI skill for rewriting machine-generated text to sound human-written across 9 languages. Legacy v3; active version is human-ai 4.1. Skills.sh: https://www.skills.sh/madeval/humanai
+```
+
+## GitHub Tags
+
+`ai` `anti-ai` `copywriting` `humanization` `humanizer` `llm` `multilingual` `prompt-engineering` `skill` `text-rewriting`

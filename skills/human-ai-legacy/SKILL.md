@@ -1,16 +1,19 @@
 ---
-name: human-ai
-description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 5-stage pipeline: cleanup → specificity → tone → rhythm → proofread. For articles, posts, landing pages, commercial copy, translations, SEO content - any text that currently smells like AI."
+name: human-ai-legacy
+description: "Legacy v3 of the human-ai text humanization skill. Rewrites AI-generated text so it sounds human-written in 9 languages. Use only for historical comparison or when the v4 skill is unavailable. Do NOT use for new work - use human-ai 4.1 in Natural-skill instead."
 license: MIT
-compatibility: Plain Markdown. Optional Python 3.10+ for the validation scripts in scripts/.
+compatibility: Plain Markdown. No external dependencies.
 metadata:
   author: Yevhen Leonidov
   version: "3.0.0"
   languages: [en, ru, uk, de, fr, es, pt, it, pl]
   pipeline_stages: 5
+  repository: "https://github.com/MADEVAL/HumanAI"
 ---
-# HUMAN-AI - Text Humanization Engine
 
+# Human-AI Legacy - Text Humanization Engine
+
+> **Status:** Legacy v3. Replaced by `human-ai` 4.1 in Natural-skill. Do not install both.
 > **If the reader forgets a machine was involved, you won.**
 > **Version:** 3.0.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
@@ -18,33 +21,44 @@ metadata:
 
 ---
 
-## THE THREE LAWS OF HUMAN TEXT
+## When Not to Use
 
-### Law 1: Imperfection is the signal
+Skip the pipeline entirely if:
+- Text is authored by a known human (attributed, signed)
+- Text requires exact preservation (legal, medical, safety)
+- User says "audit only" -> run detection scan, output diagnostics, do NOT modify
+
+Mixed-language text: detect primary language. Do not rewrite quoted foreign-language passages.
+
+---
+
+## The Three Laws of Human Text
+
+### Law 1: Imperfection Is the Signal
 AI produces text that is too consistent. Same rhythm. Same structure. Same formality. Same everything. Humans are inconsistent. A sharp 4-word sentence, then a meandering 28-word one. A paragraph starting with "But". A fragment. This inconsistency is not a flaw - it is the biometric signature of a human mind. Your job: introduce **structured variance**, not chaos.
 
-### Law 2: Specificity is credibility
+### Law 2: Specificity Is Credibility
 AI generalizes - it has no lived experience. Humans specify. "Effective solutions" → "patched the memory leak in 40 minutes". "Improves workflow" → "saves 3 hours per report". Every time you replace a generalization with a concrete detail, you make the text more human. This is the highest-leverage technique.
 
-### Law 3: Competence doesn't announce itself
+### Law 3: Competence Doesn't Announce Itself
 AI says: "robust, cutting-edge platform". Humans say: "we patch bugs within 4 hours". Describe what you do. The quality is self-evident. No adjectives about quality - show the quality.
 
 ---
 
-## THE PIPELINE
+## The Pipeline
 
 ```
 anti-ai-cleanup → specificity → tone → rhythm → proofread
 ```
 
-### Why this order
+### Why This Order
 1. **Cleanup first** - remove AI patterns before anything else. Don't build human text on a robot skeleton.
 2. **Specificity second** - concrete details must exist before tone, because tone wraps around content.
 3. **Tone third** - once content is solid, shape the voice.
 4. **Rhythm fourth** - fine-tune sentence flow after voice is set.
 5. **Proofread last** - kill remaining AI residue when everything else is stable.
 
-### Skip policy
+### Skip Policy
 Stages run sequentially. **Skip a stage only with declared reason.** Declare skips in output header: `[PIPELINE: cleanup → specificity(skipped: already rung 2+) → tone → rhythm → proofread]`
 
 Skip if:
@@ -56,7 +70,28 @@ Skip if:
 
 ---
 
-## LANGUAGE DETECTION
+## Output Contract
+
+```
+[LANG: en / ru / uk / de / fr / es / pt / it / pl]
+[TONE: expert / biz / human / social / landing / article / case]
+[PIPELINE: stages applied with skip notes]
+
+[THE TEXT]
+
+---
+[CHANGELOG]
+Brief: 3-5 bullet points on what was changed and why.
+
+[FACTUAL NOTES]
+(Optional - flag inaccuracies, do not silently fix.)
+```
+
+No preamble. No "here is your rewritten text." No "I hope this helps." Deliver text, changelog, stop.
+
+---
+
+## Language Detection
 
 Detect language before processing. Different languages have different AI tells. Reference: `shared/ai-markers.md` for complete detection patterns per language.
 
@@ -76,7 +111,7 @@ Detect language before processing. Different languages have different AI tells. 
 
 ---
 
-## STAGE 1: ANTI-AI CLEANUP
+## Stage 1: Anti-AI Cleanup
 
 ### Objective
 Remove all detectable AI patterns. This is mechanical. Be ruthless.
@@ -118,7 +153,7 @@ Delete generic transition questions: "What does this mean for you?" etc. Keep ge
 
 ---
 
-## STAGE 2: SPECIFICITY ENRICHMENT
+## Stage 2: Specificity Enrichment
 
 ### Objective
 Replace abstract claims with concrete details. Highest-impact stage.
@@ -148,7 +183,7 @@ See `shared/specificity-ladder.md` for full descriptions and per-language exampl
 
 ---
 
-## STAGE 3: TONE NATURALIZER
+## Stage 3: Tone Naturalizer
 
 ### Objective
 Set the voice. Every text has a speaker. Full profiles: `shared/tone-profiles.md`
@@ -177,7 +212,7 @@ See `shared/tone-profiles.md` and `shared/rhythm-tables.md` for: fragment freque
 
 ---
 
-## STAGE 4: RHYTHM EDITOR
+## Stage 4: Rhythm Editor
 
 ### Objective
 Break the machine rhythm. AI = metronome. Human = jazz. Full parameters: `shared/rhythm-tables.md`
@@ -201,7 +236,7 @@ No three consecutive paragraphs of identical visual weight. Break one.
 
 ---
 
-## STAGE 5: FINAL PROOFREAD
+## Stage 5: Final Proofread
 
 ### 5.1 Read-aloud test (internal simulation)
 Every sentence: would you say this to a colleague? If it contains words you wouldn't use in spoken conversation, passive where active works, or >2 clauses - rewrite.
@@ -250,39 +285,7 @@ Max 2 full proofread passes. If after 2 passes a word remains legitimately (quot
 
 ---
 
-## WHEN NOT TO USE
-
-Skip the pipeline entirely if:
-- Text is authored by a known human (attributed, signed)
-- Text requires exact preservation (legal, medical, safety)
-- User says "audit only" → run detection scan, output diagnostics, do NOT modify
-
-Mixed-language text: detect primary language. Do not rewrite quoted foreign-language passages.
-
----
-
-## OUTPUT CONTRACT
-
-```
-[LANG: en / ru / uk / de / fr / es / pt / it / pl]
-[TONE: expert / biz / human / social / landing / article / case]
-[PIPELINE: stages applied with skip notes]
-
-[THE TEXT]
-
----
-[CHANGELOG]
-Brief: 3-5 bullet points on what was changed and why.
-
-[FACTUAL NOTES]
-(Optional - flag inaccuracies, do not silently fix.)
-```
-
-No preamble. No "here is your rewritten text." No "I hope this helps." Deliver text, changelog, stop.
-
----
-
-## QUICK START
+## Quick Start
 
 **Full pipeline:**
 > "Rewrite this to sound human. Language: ru."
@@ -298,42 +301,20 @@ No preamble. No "here is your rewritten text." No "I hope this helps." Deliver t
 
 ---
 
-## FILES IN THIS SKILL
+## Files
 
 ```
-human-ai/
-├── SKILL.md                        ← This file - orchestrator
+HumanAI/
+├── skills/human-ai-legacy/         ← runtime skill package
+│   ├── SKILL.md                    ← This file - orchestrator
+│   ├── agents/openai.yaml          ← OpenAI agent manifest
+│   ├── shared/                     ← Data files for 9 languages
+│   ├── scenarios/                  ← 10 task-specific playbooks
+│   └── examples/                   ← Annotated before/after examples
+├── install.py                      ← Installer for Claude, OpenCode, Cursor, .agents
 ├── README.md / README.ru.md        ← Documentation (bilingual)
 ├── CHANGELOG.md                    ← Version history
-├── LICENSE                         ← MIT
-├── .gitignore
-├── shared/
-│   ├── burned-words.md             ← All burned words × 9 languages
-│   ├── ai-markers.md               ← AI detection patterns × 9 languages
-│   ├── tone-profiles.md            ← 7 tones with language markers
-│   ├── specificity-ladder.md       ← Abstraction → concrete framework
-│   ├── rhythm-tables.md            ← Sentence flow parameters
-│   └── language-template.md        ← Template for adding new languages
-├── scenarios/
-│   ├── full-rewrite.md             ← Default: all 5 stages
-│   ├── blog-post.md                ← Blog post humanization
-│   ├── landing-page.md             ← Landing page humanization
-│   ├── social-post.md              ← Social media post
-│   ├── seo-article.md              ← SEO content humanization
-│   ├── case-study.md               ← Case study / portfolio
-│   ├── commercial-offer.md         ← B2B commercial offer
-│   ├── email.md                    ← Email humanization
-│   ├── technical-doc.md            ← Technical documentation
-│   └── translation-fix.md          ← De-translation: make it sound native
-└── examples/
-    ├── en-blog-post.md
-    ├── en-landing.md
-    ├── en-social.md
-    ├── ru-blog-post.md
-    ├── ru-landing.md
-    ├── ru-social.md
-    ├── uk-blog-post.md
-    └── uk-social.md
+└── LICENSE                         ← MIT
 ```
 
 Each `shared/` file is a data-reference. The full pipeline works without loading them - the SKILL.md above contains all rules. Load shared files for richer per-language detail.

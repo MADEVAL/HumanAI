@@ -3,13 +3,18 @@
 ## Unreleased
 
 ### Changed
+- Renamed the skill to `human-ai-legacy`; the active skill is `human-ai` 4.1 in Natural-skill.
+- Moved the runtime skill to `skills/human-ai-legacy/` to match the suite layout.
+- Added `install.py`, Claude and Cursor plugin manifests, and an OpenAI agent manifest.
+- `compatibility` no longer claims a `scripts/` folder that does not exist.
+- `WHEN NOT TO USE` moved to the top; `OUTPUT CONTRACT` moved before the stages.
+- Section headings normalized to Title Case.
 - Version normalized to three-part semver (3.0.0).
 - Frontmatter normalized: quoted description, environment-based `compatibility`, `metadata.author`.
 - Long dashes replaced with hyphens across documentation.
-- Section canon: `WHEN NOT TO USE`, `OUTPUT CONTRACT`.
 - Canonical placeholder vocabulary documented: `[VERIFY: ...]`, `[DATA NEEDED: ...]`, `[N]`, `[illustrative]`.
 
-## v3.0.0 - 2025-06-21
+## [3.0.0] - 2025-06-21
 
 ### Architecture Overhaul
 - Complete repository restructure: MindFluence-style architecture

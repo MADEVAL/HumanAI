@@ -1,0 +1,16 @@
+{
+  "name": "human-ai-legacy",
+  "displayName": "Human-AI Legacy",
+  "description": "Legacy v3 of the human-ai text humanization skill. Use human-ai 4.1 instead.",
+  "version": "3.0.0",
+  "author": {
+    "name": "Yevhen Leonidov",
+    "url": "https://github.com/MADEVAL"
+  },
+  "homepage": "https://github.com/MADEVAL/HumanAI",
+  "repository": "https://github.com/MADEVAL/HumanAI",
+  "license": "MIT",
+  "skills": [
+    "./skills/human-ai-legacy"
+  ]
+}
