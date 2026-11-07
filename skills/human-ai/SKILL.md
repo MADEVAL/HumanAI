@@ -11,6 +11,7 @@ metadata:
   phases: 6
   repository: "https://github.com/MADEVAL/HumanAI"
 ---
+
 # Human-AI - Text Humanization Engine
 
 > **If the reader forgets a machine was involved, you won.**
@@ -833,12 +834,12 @@ human-ai invocation: `cleanup(skipped: SEO+bias elements) → specificity → to
 
 ---
 
-## Files
+## Reference Files
 
 ### This skill is self-contained - the SKILL.md above embeds all critical rules and top-15 per-language data. Paths below are relative to this `SKILL.md`. For deep processing, the following files are available:
 
 ```
-Natural-skill/
+human-ai/
 ├── skills/human-ai/                ← runtime skill package
 │   ├── SKILL.md                    ← This file - self-contained orchestrator (v4.1.0)
 │   ├── EVAL.md                     ← External LLM evaluation framework

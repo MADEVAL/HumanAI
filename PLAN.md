@@ -453,8 +453,8 @@ scripts/run-eval.ps1
 Для углублённой обработки SKILL.md содержит прямые raw-ссылки:
 
 ```
-> Полный список burned words: https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/burned-words.md
-> Tone profiles: https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/tone-profiles.md
+> Полный список burned words: https://raw.githubusercontent.com/MADEVAL/HumanAI/main/skills/human-ai/shared/burned-words.md
+> Tone profiles: https://raw.githubusercontent.com/MADEVAL/HumanAI/main/skills/human-ai/shared/tone-profiles.md
 ```
 
 LLM может сходить по ссылке (web fetch) и прочитать полный список, если задача требует глубокой зачистки.

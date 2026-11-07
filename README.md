@@ -1,6 +1,6 @@
 # HUMAN-AI - Text Humanization Engine
 
-> **Repository status:** `Natural-skill` is the active source of truth; `HumanAI` is a legacy clone of the same remote, kept in sync manually.
+> **Repository status:** `human-ai` is the active source of truth; `HumanAI` is a backup clone of the same remote, kept in sync manually.
 
 [![Version](https://img.shields.io/badge/version-4.1.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -88,7 +88,7 @@ Each tone has per-language markers: fragment frequencies, conjunction rules, for
 ## Architecture
 
 ```
-Natural-skill/
+human-ai/
 ├── skills/human-ai/                ← runtime skill package
 │   ├── SKILL.md                    ← Main orchestrator (full pipeline)
 │   ├── EVAL.md                     ← External evaluation framework
