@@ -1,5 +1,7 @@
 # HUMAN-AI - Text Humanization Engine
 
+[skills.sh page](https://www.skills.sh/madeval/humanai)
+
 \[ **English** | [Русский](README.ru.md) \]
 
 > **If the reader forgets a machine was involved, you won.**
@@ -191,13 +193,13 @@ Here's what the four good ones have in common. And why the other eight failed.
 
 ### OpenCode
 ```
-natural-skill/ → .opencode/skills/          (project)
+human-ai/ → .opencode/skills/          (project)
                → ~/.config/opencode/skills/  (global)
 ```
 
 ### Claude Code
 ```
-natural-skill/ → ~/.claude/skills/
+human-ai/ → ~/.claude/skills/
 ```
 
 ### Any LLM (standalone)
@@ -221,7 +223,7 @@ Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per
 
 ## Integration
 
-HUMAN-AI is designed to work with two other skills — [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
+HUMAN-AI is designed to work with two other skills - [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
 
 ### Joint Prompt Triggers
 
@@ -240,20 +242,20 @@ HUMAN-AI recognizes these joint prompts and activates preservation rules automat
 **Preservation rules when processing RankWise content:**
 
 - **Do NOT delete or alter H2/H3 headings** that contain SEO keywords. Only rewrite the sentences surrounding them.
-- **Preserve keyword density of 0.8%–1.5%.** If keyword instances are removed during cleanup, add equivalent keyword-adjacent language elsewhere.
+- **Preserve keyword density of 0.8%-1.5%.** If keyword instances are removed during cleanup, add equivalent keyword-adjacent language elsewhere.
 - **Maintain minimum 600 words** (unless user explicitly requests shorter).
-- **Keep internal link anchors and placement** — they are deliberately positioned for SEO.
+- **Keep internal link anchors and placement** - they are deliberately positioned for SEO.
 - **During Stage 1 (cleanup):** skip deletion of keywords, internal links, and schema-relevant elements.
 - **Meta title/description:** already SEO-optimized. Do not humanize them.
 
 **Conflict resolution (RankWise vs HumanAI instincts):**
-1. Preserve keyword placement (K2, K4, K6, K8) — highest priority
-2. Preserve heading structure (C13) — second priority
+1. Preserve keyword placement (K2, K4, K6, K8) - highest priority
+2. Preserve heading structure (C13) - second priority
 3. Then apply human voice cleanup
 4. Accept ≤5% density fluctuation as acceptable trade-off
 
-**SEO-safe markers — do NOT delete during cleanup:**
-- Keywords in the first 100–150 words
+**SEO-safe markers - do NOT delete during cleanup:**
+- Keywords in the first 100-150 words
 - Keywords in H2 headings
 - Keywords in image alt texts (if present)
 - Internal link anchor text variety (exact-match ≤2)
@@ -281,8 +283,8 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 **Preservation rules when processing MindFluence content:**
 
 - **Do NOT strip bias markers:** social proof numbers, anchoring prices, authority signals, scarcity cues, confirmation hooks.
-- **Do NOT delete power words** that overlap with burned-word lists — they serve a psychological function.
-- **Do NOT break "hook" openings** — they are deliberately patterned for System 1 capture.
+- **Do NOT delete power words** that overlap with burned-word lists - they serve a psychological function.
+- **Do NOT break "hook" openings** - they are deliberately patterned for System 1 capture.
 - **Preserve social proof specificity:** "14,327 users this week" is a bias marker, not fluff.
 - **During Stage 1 (cleanup):** skip cleanup of persuasion elements. Only remove generic AI patterns (throat-clearing, hedging, fake transitions).
 
@@ -306,8 +308,8 @@ PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: Min
 |---------|------|-----|
 | Keyword-containing H2/H3 headings | RankWise | SEO hierarchy breaks if altered |
 | Internal link anchors | RankWise | Deliberate link-juice structure |
-| Keyword density 0.8%–1.5% | RankWise | Under/over triggers ranking penalties |
-| Social proof numbers | MindFluence | "14,327 users" — bias, not fluff |
+| Keyword density 0.8%-1.5% | RankWise | Under/over triggers ranking penalties |
+| Social proof numbers | MindFluence | "14,327 users" - bias, not fluff |
 | Anchoring / pricing figures | MindFluence | Reference points for value perception |
 | Authority signals | MindFluence | Named sources, credentials, media logos |
 | Scarcity / urgency cues | MindFluence | Genuine time/quantity limits |

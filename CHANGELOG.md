@@ -1,6 +1,15 @@
 # Changelog
 
-## v3.0 - 2025-06-21
+## Unreleased
+
+### Changed
+- Version normalized to three-part semver (3.0.0).
+- Frontmatter normalized: quoted description, environment-based `compatibility`, `metadata.author`.
+- Long dashes replaced with hyphens across documentation.
+- Section canon: `WHEN NOT TO USE`, `OUTPUT CONTRACT`.
+- Canonical placeholder vocabulary documented: `[VERIFY: ...]`, `[DATA NEEDED: ...]`, `[N]`, `[illustrative]`.
+
+## v3.0.0 - 2025-06-21
 
 ### Architecture Overhaul
 - Complete repository restructure: MindFluence-style architecture

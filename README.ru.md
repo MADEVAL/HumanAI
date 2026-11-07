@@ -1,5 +1,7 @@
 # HUMAN-AI - Движок очеловечивания текста
 
+[skills.sh page](https://www.skills.sh/madeval/humanai)
+
 \[ [English](README.md) | **Русский** \]
 
 > **Если читатель забыл, что к тексту прикасалась машина - вы победили.**
@@ -191,13 +193,13 @@ natural-skill/
 
 ### OpenCode
 ```
-natural-skill/ → .opencode/skills/          (проект)
+human-ai/ → .opencode/skills/          (проект)
                → ~/.config/opencode/skills/  (глобально)
 ```
 
 ### Claude Code
 ```
-natural-skill/ → ~/.claude/skills/
+human-ai/ → ~/.claude/skills/
 ```
 
 ### Любая LLM (автономно)
@@ -221,24 +223,24 @@ natural-skill/ → ~/.claude/skills/
 
 ## Интеграция
 
-HUMAN-AI спроектирован для совместной работы с двумя другими скиллами — [RankWise](https://github.com/MADEVAL/RankWise) (SEO-движок контента) и [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге). Вместе они образуют полный конвейер создания контента.
+HUMAN-AI спроектирован для совместной работы с двумя другими скиллами - [RankWise](https://github.com/MADEVAL/RankWise) (SEO-движок контента) и [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге). Вместе они образуют полный конвейер создания контента.
 
 ### С RankWise (SEO)
 
 **Правило:** RankWise → SEO-структура → HUMAN-AI → человеческий голос. Не ломать SEO.
 
 - **Не удаляйте и не меняйте H2/H3 с ключами.** Только переписывайте текст вокруг них.
-- **Сохраняйте плотность ключей 0.8%–1.5%.**
+- **Сохраняйте плотность ключей 0.8%-1.5%.**
 - **Минимум 600 слов** (если не указано иначе).
 - **Сохраняйте внутренние ссылки и их размещение.**
-- **Meta title/description не очеловечивайте** — они уже SEO-оптимизированы.
+- **Meta title/description не очеловечивайте** - они уже SEO-оптимизированы.
 
 ### С MindFluence (Когнитивные искажения)
 
 **Правило:** MindFluence → убеждение → HUMAN-AI → человеческий голос. Не удалять психологическую структуру.
 
 - **Не удаляйте bias-маркеры:** цифры соцдоказательства, якорные цены, сигналы авторитета, триггеры дефицита.
-- **Не удаляйте power words,** даже если они пересекаются со списком burned-words — они несут психологическую функцию.
+- **Не удаляйте power words,** даже если они пересекаются со списком burned-words - они несут психологическую функцию.
 - Маппинг тонов: `warm-human` → `human`, `expert-calm` → `expert`, `bold-sell` → `landing`
 - Используйте `PIPELINE: cleanup(skipped: bias) → specificity → tone(skipped: MindFluence) → rhythm → proofread`
 

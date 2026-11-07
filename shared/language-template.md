@@ -65,7 +65,7 @@
 
 ### Punctuation
 
-- **Em-dash (—):** AI tell. Replace always. (Unified policy - DO NOT change this line.)
+- **Em-dash:** AI tell. Replace always. (Unified policy - DO NOT change this line.)
 - `[other language-specific punctuation tells]`
 
 ### Human [Language] sounds like

@@ -1,17 +1,18 @@
 ---
 name: human-ai
-description: Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 5-stage pipeline: cleanup → specificity → tone → rhythm → proofread. For articles, posts, landing pages, commercial copy, translations, SEO content - any text that currently "smells like AI."
+description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. 5-stage pipeline: cleanup → specificity → tone → rhythm → proofread. For articles, posts, landing pages, commercial copy, translations, SEO content - any text that currently smells like AI."
 license: MIT
-compatibility: any-llm
+compatibility: Plain Markdown. Optional Python 3.10+ for the validation scripts in scripts/.
 metadata:
-  version: "3.0"
+  author: Yevhen Leonidov
+  version: "3.0.0"
   languages: [en, ru, uk, de, fr, es, pt, it, pl]
   pipeline_stages: 5
 ---
 # HUMAN-AI - Text Humanization Engine
 
 > **If the reader forgets a machine was involved, you won.**
-> **Version:** 3.0
+> **Version:** 3.0.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
 > **Mode:** Pipeline. 5 stages. Flexible - skip with declared reason.
 
@@ -55,7 +56,7 @@ Skip if:
 
 ---
 
-## STAGE 0: LANGUAGE DETECTION
+## LANGUAGE DETECTION
 
 Detect language before processing. Different languages have different AI tells. Reference: `shared/ai-markers.md` for complete detection patterns per language.
 
@@ -143,7 +144,7 @@ See `shared/specificity-ladder.md` - Abstraction Detector section.
 See `shared/specificity-ladder.md` for full descriptions and per-language examples: Show-Don't-Tell Swap, Mechanism Reveal, Number Injection, Scenario Example, Comparison Ground, Negative Space Detail.
 
 ### No-invention rule
-**You may:** supply plausible examples with domain-typical detail, suggest numbers with verify flag. **You may NOT:** invent facts, statistics, customer names, features not claimed. Flag format per language: `[VERIFY]` / `[ПРОВЕРИТЬ]` / `[ПЕРЕВІРИТИ]` / `[PRÜFEN]` / `[VÉRIFIER]` / `[VERIFICAR]` / `[VERIFICARE]` / `[SPRAWDZIĆ]`.
+**You may:** supply plausible examples with domain-typical detail, suggest numbers with verify flag. **You may NOT:** invent facts, statistics, customer names, features not claimed. Flag format per language: `[VERIFY: ...]` / `[ПРОВЕРИТЬ: ...]` / `[ПЕРЕВІРИТИ: ...]` / `[PRÜFEN: ...]` / `[VÉRIFIER: ...]` / `[VERIFICAR: ...]` / `[VERIFICARE: ...]` / `[SPRAWDZIĆ: ...]`. Canonical placeholders: `[VERIFY: ...]`, `[DATA NEEDED: ...]`, `[N]`, `[illustrative]`.
 
 ---
 
@@ -249,7 +250,7 @@ Max 2 full proofread passes. If after 2 passes a word remains legitimately (quot
 
 ---
 
-## WHEN NOT TO APPLY
+## WHEN NOT TO USE
 
 Skip the pipeline entirely if:
 - Text is authored by a known human (attributed, signed)
@@ -260,7 +261,7 @@ Mixed-language text: detect primary language. Do not rewrite quoted foreign-lang
 
 ---
 
-## OUTPUT FORMAT
+## OUTPUT CONTRACT
 
 ```
 [LANG: en / ru / uk / de / fr / es / pt / it / pl]
@@ -300,7 +301,7 @@ No preamble. No "here is your rewritten text." No "I hope this helps." Deliver t
 ## FILES IN THIS SKILL
 
 ```
-natural-skill/
+human-ai/
 ├── SKILL.md                        ← This file - orchestrator
 ├── README.md / README.ru.md        ← Documentation (bilingual)
 ├── CHANGELOG.md                    ← Version history

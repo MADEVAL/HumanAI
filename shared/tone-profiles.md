@@ -8,13 +8,13 @@
 
 | Tone | Fragments /100w | Conjunction openers /100w | Short sent. every |
 |------|-----------------|---------------------------|-------------------|
-| expert | 0.5–1 | 1–2 | 5–7 sentences |
-| biz | 0–0.5 | 0–1 | 6–8 sentences |
-| human | 1–2 | 2–4 | 3–5 sentences |
-| social | 1.5–3 | 2–3 | 2–3 sentences |
-| landing | 1–1.5 | 1–2 | 3–4 sentences |
-| article | 0.5–1 | 1.5–3 | 4–6 sentences |
-| case | 0.5–1 | 1–2 | 4–5 sentences |
+| expert | 0.5-1 | 1-2 | 5-7 sentences |
+| biz | 0-0.5 | 0-1 | 6-8 sentences |
+| human | 1-2 | 2-4 | 3-5 sentences |
+| social | 1.5-3 | 2-3 | 2-3 sentences |
+| landing | 1-1.5 | 1-2 | 3-4 sentences |
+| article | 0.5-1 | 1.5-3 | 4-6 sentences |
+| case | 0.5-1 | 1-2 | 4-5 sentences |
 
 ---
 
