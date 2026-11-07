@@ -9,7 +9,7 @@
       "name": "human-ai",
       "source": "./",
       "description": "Rewrite AI-generated text so it sounds human-written in 9 languages.",
-      "version": "4.1.0",
+      "version": "4.1.1",
       "homepage": "https://github.com/MADEVAL/HumanAI",
       "repository": "https://github.com/MADEVAL/HumanAI"
     }

@@ -12,6 +12,13 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 REPO_ROOT="$(cd "$SKILL_ROOT/../.." && pwd)"
+if [[ -f "$REPO_ROOT/skills/human-ai/SKILL.md" && -f "$REPO_ROOT/CHANGELOG.md" ]]; then
+    IS_REPO=true
+    SCAN_ROOT="$REPO_ROOT"
+else
+    IS_REPO=false
+    SCAN_ROOT="$SKILL_ROOT"
+fi
 
 ERRORS=0
 WARNINGS=0
@@ -35,6 +42,11 @@ declare -A LANG_NAMES=(
     [fr]="French" [es]="Spanish" [pt]="Portuguese" [it]="Italian" [pl]="Polish"
 )
 
+declare -A RU_NATIVE_NAMES=(
+    [en]="English" [ru]="Русский" [uk]="Українська" [de]="Deutsch"
+    [fr]="Français" [es]="Español" [pt]="Português" [it]="Italiano" [pl]="Polski"
+)
+
 declare -A VERIFY_FLAGS=(
     [en]="\[VERIFY" [ru]="\[ПРОВЕРИТЬ" [uk]="\[ПЕРЕВІРИТИ" [de]="\[PRÜFEN"
     [fr]="\[VÉRIFIER" [es]="\[VERIFICAR" [pt]="\[VERIFICAR" [it]="\[VERIFICARE" [pl]="\[SPRAWDZIĆ"
@@ -50,10 +62,10 @@ echo ""
 check "1. SKILL.md YAML Frontmatter"
 SKILL_CONTENT=$(cat "$SKILL_ROOT/SKILL.md")
 
-echo "$SKILL_CONTENT" | grep -q "name: human-ai" && pass "name: human-ai" || fail "name field missing"
-echo "$SKILL_CONTENT" | grep -q 'version: "4.1.0"' && pass "version: 4.1.0" || fail "version missing or incorrect"
-echo "$SKILL_CONTENT" | grep -q "languages:" && pass "languages field present" || fail "languages missing"
-echo "$SKILL_CONTENT" | grep -q "pipeline_stages: 5" && pass "pipeline_stages: 5" || fail "pipeline_stages missing"
+grep -q "name: human-ai" <<< "$SKILL_CONTENT" && pass "name: human-ai" || fail "name field missing"
+grep -q 'version: "4.1.1"' <<< "$SKILL_CONTENT" && pass "version: 4.1.1" || fail "version missing or incorrect"
+grep -q "languages:" <<< "$SKILL_CONTENT" && pass "languages field present" || fail "languages missing"
+grep -q "pipeline_stages: 5" <<< "$SKILL_CONTENT" && pass "pipeline_stages: 5" || fail "pipeline_stages missing"
 
 # ============================================
 echo ""
@@ -112,7 +124,7 @@ declare -A LANG_MARKERS=(
 for tone in "${TONES[@]}"; do
     for lang in "${LANGUAGES[@]}"; do
         marker="${LANG_MARKERS[$lang]}"
-        if echo "$TP_CONTENT" | grep -q "$marker"; then
+        if grep -q "$marker" <<< "$TP_CONTENT"; then
             if $VERBOSE; then pass "tone-profiles.md [$tone/$lang]"; fi
         else
             fail "tone-profiles.md [$tone/$lang] missing ($marker)"
@@ -125,7 +137,7 @@ echo ""
 check "4. SKILL.md Stage 0 language detection table"
 
 for lang in "${LANGUAGES[@]}"; do
-    if echo "$SKILL_CONTENT" | grep -q "| $lang |"; then
+    if grep -q "| $lang |" <<< "$SKILL_CONTENT"; then
         pass "Stage 0 table: $lang"
     else
         fail "Stage 0 table: $lang missing"
@@ -138,7 +150,7 @@ check "5. SKILL.md Stage 5 language-specific checks"
 
 for lang in "${LANGUAGES[@]}"; do
     check_str="${STAGE5_CHECKS[$lang]}"
-    if echo "$SKILL_CONTENT" | grep -q "\*\*$check_str\*\*"; then
+    if grep -q "\*\*$check_str\*\*" <<< "$SKILL_CONTENT"; then
         pass "Stage 5 check: $lang"
     else
         fail "Stage 5 check: $lang missing"
@@ -152,12 +164,12 @@ check "6. Verify flags (SKILL.md + specificity-ladder.md)"
 SPEC_CONTENT=$(cat "$SKILL_ROOT/shared/specificity-ladder.md")
 for lang in "${LANGUAGES[@]}"; do
     flag="${VERIFY_FLAGS[$lang]}"
-    if echo "$SKILL_CONTENT" | grep -q "$flag"; then
+    if grep -q "$flag" <<< "$SKILL_CONTENT"; then
         pass "SKILL.md verify flag: $lang"
     else
         fail "SKILL.md verify flag: $lang missing"
     fi
-    if echo "$SPEC_CONTENT" | grep -q "$flag"; then
+    if grep -q "$flag" <<< "$SPEC_CONTENT"; then
         pass "specificity-ladder.md verify flag: $lang"
     else
         fail "specificity-ladder.md verify flag: $lang missing"
@@ -168,7 +180,7 @@ done
 echo ""
 check "7. SKILL.md output format language codes"
 
-if echo "$SKILL_CONTENT" | grep -q "LANG: en / ru / uk / de / fr / es / pt / it / pl"; then
+if grep -q "LANG: en / ru / uk / de / fr / es / pt / it / pl" <<< "$SKILL_CONTENT"; then
     pass "Output format LANG line contains all 9 codes"
 else
     fail "Output format LANG line incomplete"
@@ -178,14 +190,19 @@ fi
 echo ""
 check "8. README language table rows"
 
-README_EN=$(cat "$REPO_ROOT/README.md")
-README_RU=$(cat "$REPO_ROOT/README.ru.md")
+if [[ -f "$REPO_ROOT/README.md" && -f "$REPO_ROOT/README.ru.md" ]]; then
+    README_EN=$(cat "$REPO_ROOT/README.md")
+    README_RU=$(cat "$REPO_ROOT/README.ru.md")
 
-for lang in "${LANGUAGES[@]}"; do
-    name="${LANG_NAMES[$lang]}"
-    echo "$README_EN" | grep -q "$name" && pass "README.md: $name" || warn "README.md: $name not in table"
-    echo "$README_RU" | grep -q "$name" && pass "README.ru.md: $name" || warn "README.ru.md: $name not in table"
-done
+    for lang in "${LANGUAGES[@]}"; do
+        name="${LANG_NAMES[$lang]}"
+        grep -q "$name" <<< "$README_EN" && pass "README.md: $name" || warn "README.md: $name not in table"
+        native="${RU_NATIVE_NAMES[$lang]}"
+        grep -q "$native" <<< "$README_RU" && pass "README.ru.md: $native" || warn "README.ru.md: $native not in table"
+    done
+else
+    warn "README files are not installed; language table check skipped"
+fi
 
 # ============================================
 echo ""
@@ -225,7 +242,7 @@ while IFS= read -r -d '' f; do
         EM_COUNT=$((EM_COUNT + count))
         if $VERBOSE; then warn "$(basename "$f"): $count em-dash(es)"; fi
     fi
-done < <(find "$REPO_ROOT" -name "*.md" -print0 2>/dev/null)
+done < <(find "$SCAN_ROOT" -name "*.md" -print0 2>/dev/null)
 
 if [[ "$EM_COUNT" -eq 0 ]]; then
     pass "No em-dashes found in skill content files"
@@ -281,10 +298,14 @@ else
 fi
 
 # Check annotations.json still present
-if [[ -f "$REPO_ROOT/tests/benchmark/annotations.json" ]]; then
-    pass "annotations.json exists (benchmark data)"
+if $IS_REPO; then
+    if [[ -f "$REPO_ROOT/tests/benchmark/annotations.json" ]]; then
+        pass "annotations.json exists (benchmark data)"
+    else
+        fail "annotations.json missing"
+    fi
 else
-    fail "annotations.json missing"
+    warn "annotations.json is not installed; benchmark data check skipped"
 fi
 
 # ============================================

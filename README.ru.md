@@ -236,7 +236,7 @@ MIT
 ## Описание для GitHub
 
 ```
-AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Активная версия v4.1: pre-flight → cleanup → specificity → tone → rhythm → proofread.
+AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Активная версия v4.1.1: pre-flight → cleanup → specificity → tone → rhythm → proofread.
 ```
 
 ## Теги для GitHub

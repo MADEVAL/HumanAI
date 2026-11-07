@@ -2,7 +2,7 @@
 
 > **Repository status:** `human-ai` is the active source of truth; `HumanAI` is a backup clone of the same remote, kept in sync manually.
 
-[![Version](https://img.shields.io/badge/version-4.1.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-4.1.1-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Compatibility](https://img.shields.io/badge/compatibility-plain%20markdown-purple)](#requirements)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-2ea44f)](https://www.skills.sh/madeval/humanai)
@@ -367,7 +367,7 @@ MIT
 ## GitHub Description
 
 ```
-AI skill for rewriting machine-generated text to sound human-written across 9 languages. Active v4.1: pre-flight → cleanup → specificity → tone → rhythm → proofread.
+AI skill for rewriting machine-generated text to sound human-written across 9 languages. Active v4.1.1: pre-flight → cleanup → specificity → tone → rhythm → proofread.
 ```
 
 ## GitHub Tags

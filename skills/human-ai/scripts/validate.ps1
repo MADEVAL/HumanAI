@@ -9,6 +9,8 @@ param(
 $ErrorActionPreference = "Stop"
 $SkillRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $RepoRoot = Split-Path -Parent (Split-Path -Parent $SkillRoot)
+$IsRepo = (Test-Path (Join-Path $RepoRoot "skills\human-ai\SKILL.md")) -and (Test-Path (Join-Path $RepoRoot "CHANGELOG.md"))
+$ScanRoot = if ($IsRepo) { $RepoRoot } else { $SkillRoot }
 $Errors = 0
 $Warnings = 0
 
@@ -35,7 +37,7 @@ Write-Check "1. SKILL.md YAML Frontmatter"
 $skillContent = Get-Content (Join-Path $SkillRoot "SKILL.md") -Raw -Encoding UTF8
 
 if ($skillContent -match "name:\s+human-ai") { Write-Pass "name: human-ai" } else { Write-Fail "name field missing or incorrect" }
-if ($skillContent -match 'version:\s+"4\.1\.0"') { Write-Pass "version: 4.1.0" } else { Write-Fail "version field missing or incorrect" }
+if ($skillContent -match 'version:\s+"4\.1\.1"') { Write-Pass "version: 4.1.1" } else { Write-Fail "version field missing or incorrect" }
 if ($skillContent -match "languages:") { Write-Pass "languages field present" } else { Write-Fail "languages field missing" }
 if ($skillContent -match "pipeline_stages:\s+5") { Write-Pass "pipeline_stages: 5" } else { Write-Fail "pipeline_stages field missing or incorrect" }
 
@@ -250,22 +252,29 @@ $ruNativeNames["pt"] = "Português"
 $ruNativeNames["it"] = "Italiano"
 $ruNativeNames["pl"] = "Polski"
 
-$readmeEn = Get-Content (Join-Path $RepoRoot "README.md") -Raw -Encoding UTF8
-$readmeRu = Get-Content (Join-Path $RepoRoot "README.ru.md") -Raw -Encoding UTF8
+$readmeEnPath = Join-Path $RepoRoot "README.md"
+$readmeRuPath = Join-Path $RepoRoot "README.ru.md"
 
-foreach ($lang in $Languages) {
-    $name = $LangNames[$lang]
-    if ($readmeEn.Contains($name)) {
-        Write-Pass ("README.md: " + $name)
-    } else {
-        Write-Warn ("README.md: " + $name + " not in language table")
+if ((Test-Path $readmeEnPath) -and (Test-Path $readmeRuPath)) {
+    $readmeEn = Get-Content $readmeEnPath -Raw -Encoding UTF8
+    $readmeRu = Get-Content $readmeRuPath -Raw -Encoding UTF8
+
+    foreach ($lang in $Languages) {
+        $name = $LangNames[$lang]
+        if ($readmeEn.Contains($name)) {
+            Write-Pass ("README.md: " + $name)
+        } else {
+            Write-Warn ("README.md: " + $name + " not in language table")
+        }
+        $nativeName = $ruNativeNames[$lang]
+        if ($readmeRu.Contains($nativeName)) {
+            Write-Pass ("README.ru.md: " + $nativeName)
+        } else {
+            Write-Warn ("README.ru.md: " + $nativeName + " not in language table")
+        }
     }
-    $nativeName = $ruNativeNames[$lang]
-    if ($readmeRu.Contains($nativeName)) {
-        Write-Pass ("README.ru.md: " + $nativeName)
-    } else {
-        Write-Warn ("README.ru.md: " + $nativeName + " not in language table")
-    }
+} else {
+    Write-Warn "README files are not installed; language table check skipped"
 }
 
 # ============================================
@@ -301,7 +310,7 @@ foreach ($file in $scenarioFiles) {
 Write-Host ""
 Write-Check "12. Em-dash policy check"
 
-$allMdFiles = Get-ChildItem $RepoRoot -Recurse -Include "*.md" | Where-Object { $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\tests\benchmark\*" }
+$allMdFiles = Get-ChildItem $ScanRoot -Recurse -Include "*.md" | Where-Object { $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\tests\benchmark\*" }
 $emDashTotal = 0
 foreach ($file in $allMdFiles) {
     $fname = $file.Name
@@ -396,11 +405,15 @@ if (Test-Path $evalPath) {
 }
 
 # Check annotations.json still consistent
-$annotationsPath = Join-Path $RepoRoot "tests\benchmark\annotations.json"
-if (Test-Path $annotationsPath) {
-    Write-Pass "annotations.json exists (benchmark data)"
+if ($IsRepo) {
+    $annotationsPath = Join-Path $RepoRoot "tests\benchmark\annotations.json"
+    if (Test-Path $annotationsPath) {
+        Write-Pass "annotations.json exists (benchmark data)"
+    } else {
+        Write-Fail "annotations.json missing"
+    }
 } else {
-    Write-Fail "annotations.json missing"
+    Write-Warn "annotations.json is not installed; benchmark data check skipped"
 }
 
 # ============================================

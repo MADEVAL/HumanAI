@@ -2,6 +2,13 @@
 
 All notable changes to Human-AI are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [4.1.1] - 2026-11-07
+
+### Fixed
+- `validate.ps1` and `validate.sh` work in both the repository layout and a flat installed skill: README and benchmark checks are skipped when their files are absent, and the em-dash scan stays inside the skill.
+- The Bash validator uses here-strings instead of `echo | grep -q`, avoiding false failures under `set -o pipefail`; the Russian README table is checked with native language names.
+- `install.py` copies `LICENSE` into the installed skill and includes it in `--check`.
+
 ## [4.1.0] - 2026-11-07
 
 ### Changed

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Plain Markdown. Optional Python 3.10+ for the validation scripts in scripts/.
 metadata:
   author: Yevhen Leonidov
-  version: "4.1.0"
+  version: "4.1.1"
   languages: [en, ru, uk, de, fr, es, pt, it, pl]
   pipeline_stages: 5
   phases: 6
@@ -15,7 +15,7 @@ metadata:
 # Human-AI - Text Humanization Engine
 
 > **If the reader forgets a machine was involved, you won.**
-> **Version:** 4.1.0
+> **Version:** 4.1.1
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
 > **Mode:** Pipeline. 6 phases (pre-flight diagnostic + 5 processing stages). Flexible - skip with declared reason.
 > **Standalone:** self-contained. All critical rules and top-15 per-language data are embedded. Full lists are in `shared/` (paths at the bottom).
@@ -841,7 +841,7 @@ human-ai invocation: `cleanup(skipped: SEO+bias elements) → specificity → to
 ```
 human-ai/
 ├── skills/human-ai/                ← runtime skill package
-│   ├── SKILL.md                    ← This file - self-contained orchestrator (v4.1.0)
+│   ├── SKILL.md                    ← This file - self-contained orchestrator (v4.1.1)
 │   ├── EVAL.md                     ← External LLM evaluation framework
 │   ├── shared/                     ← Full data files (30+ words per list, 250-line tone profiles, cultural matrix)
 │   ├── scenarios/                  ← 15 task-specific playbooks
