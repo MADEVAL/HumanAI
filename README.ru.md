@@ -1,6 +1,6 @@
 # HUMAN-AI - Движок очеловечивания текста
 
-> **Статус репозитория:** активный источник истины. `HumanAI` - legacy-клон того же remote, синхронизируется вручную.
+> **Статус репозитория:** активный источник истины - `Natural-skill`; `HumanAI` - legacy-клон того же remote, синхронизируется вручную.
 
 [skills.sh page](https://www.skills.sh/madeval/humanai)
 

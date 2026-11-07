@@ -1,6 +1,6 @@
 # HUMAN-AI - Text Humanization Engine
 
-> **Repository status:** active source of truth. `HumanAI` is a legacy clone of the same remote and is kept in sync manually.
+> **Repository status:** `Natural-skill` is the active source of truth; `HumanAI` is a legacy clone of the same remote, kept in sync manually.
 
 [![Version](https://img.shields.io/badge/version-4.1.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
