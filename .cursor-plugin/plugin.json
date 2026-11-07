@@ -1,0 +1,16 @@
+{
+  "name": "human-ai",
+  "displayName": "Human-AI",
+  "description": "Rewrite AI-generated text so it sounds human-written in 9 languages.",
+  "version": "4.1.0",
+  "author": {
+    "name": "Yevhen Leonidov",
+    "url": "https://github.com/MADEVAL"
+  },
+  "homepage": "https://github.com/MADEVAL/HumanAI",
+  "repository": "https://github.com/MADEVAL/HumanAI",
+  "license": "MIT",
+  "skills": [
+    "./skills/human-ai"
+  ]
+}

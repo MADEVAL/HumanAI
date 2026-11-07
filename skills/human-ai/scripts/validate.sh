@@ -10,7 +10,8 @@ if [[ "${1:-}" == "--verbose" ]]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+SKILL_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$SKILL_ROOT/../.." && pwd)"
 
 ERRORS=0
 WARNINGS=0
@@ -47,10 +48,10 @@ declare -A STAGE5_CHECKS=(
 # ============================================
 echo ""
 check "1. SKILL.md YAML Frontmatter"
-SKILL_CONTENT=$(cat "$REPO_ROOT/SKILL.md")
+SKILL_CONTENT=$(cat "$SKILL_ROOT/SKILL.md")
 
 echo "$SKILL_CONTENT" | grep -q "name: human-ai" && pass "name: human-ai" || fail "name field missing"
-echo "$SKILL_CONTENT" | grep -q 'version: "4.0.0"' && pass "version: 4.0.0" || fail "version missing or incorrect"
+echo "$SKILL_CONTENT" | grep -q 'version: "4.1.0"' && pass "version: 4.1.0" || fail "version missing or incorrect"
 echo "$SKILL_CONTENT" | grep -q "languages:" && pass "languages field present" || fail "languages missing"
 echo "$SKILL_CONTENT" | grep -q "pipeline_stages: 5" && pass "pipeline_stages: 5" || fail "pipeline_stages missing"
 
@@ -62,21 +63,21 @@ for lang in "${LANGUAGES[@]}"; do
     name="${LANG_NAMES[$lang]}"
     
     # burned-words.md
-    if grep -q "## $name" "$REPO_ROOT/shared/burned-words.md" 2>/dev/null; then
+    if grep -q "## $name" "$SKILL_ROOT/shared/burned-words.md" 2>/dev/null; then
         pass "burned-words.md [$lang]"
     else
         fail "burned-words.md [$lang] not found"
     fi
     
     # ai-markers.md
-    if grep -q "## $name" "$REPO_ROOT/shared/ai-markers.md" 2>/dev/null; then
+    if grep -q "## $name" "$SKILL_ROOT/shared/ai-markers.md" 2>/dev/null; then
         pass "ai-markers.md [$lang]"
     else
         fail "ai-markers.md [$lang] not found"
     fi
     
     # specificity-ladder.md
-    if grep -q "### $name" "$REPO_ROOT/shared/specificity-ladder.md" 2>/dev/null; then
+    if grep -q "### $name" "$SKILL_ROOT/shared/specificity-ladder.md" 2>/dev/null; then
         pass "specificity-ladder.md [$lang]"
     else
         warn "specificity-ladder.md [$lang] not found"
@@ -84,14 +85,14 @@ for lang in "${LANGUAGES[@]}"; do
     
     # rhythm-tables.md openers
     upper_lang=$(echo "$lang" | tr '[:lower:]' '[:upper:]')
-    if grep -q "Opener categories - $upper_lang" "$REPO_ROOT/shared/rhythm-tables.md" 2>/dev/null; then
+    if grep -q "Opener categories - $upper_lang" "$SKILL_ROOT/shared/rhythm-tables.md" 2>/dev/null; then
         pass "rhythm-tables.md [$lang] openers"
     else
         warn "rhythm-tables.md [$lang] openers not found"
     fi
     
     # Conjunctions in rhythm-tables.md
-    if grep -q "$upper_lang:" "$REPO_ROOT/shared/rhythm-tables.md" 2>/dev/null; then
+    if grep -q "$upper_lang:" "$SKILL_ROOT/shared/rhythm-tables.md" 2>/dev/null; then
         pass "rhythm-tables.md [$lang] conjunctions"
     else
         warn "rhythm-tables.md [$lang] conjunctions not found"
@@ -102,7 +103,7 @@ done
 echo ""
 check "3. Tone profile coverage (7 profiles x 9 languages)"
 
-TP_CONTENT=$(cat "$REPO_ROOT/shared/tone-profiles.md")
+TP_CONTENT=$(cat "$SKILL_ROOT/shared/tone-profiles.md")
 declare -A LANG_MARKERS=(
     [en]="EN markers" [ru]="RU markers" [uk]="UK markers" [de]="DE markers"
     [fr]="FR markers" [es]="ES markers" [pt]="PT markers" [it]="IT markers" [pl]="PL markers"
@@ -148,7 +149,7 @@ done
 echo ""
 check "6. Verify flags (SKILL.md + specificity-ladder.md)"
 
-SPEC_CONTENT=$(cat "$REPO_ROOT/shared/specificity-ladder.md")
+SPEC_CONTENT=$(cat "$SKILL_ROOT/shared/specificity-ladder.md")
 for lang in "${LANGUAGES[@]}"; do
     flag="${VERIFY_FLAGS[$lang]}"
     if echo "$SKILL_CONTENT" | grep -q "$flag"; then
@@ -190,7 +191,7 @@ done
 echo ""
 check "9. Scenario files tone references"
 
-for f in "$REPO_ROOT/scenarios/"*.md; do
+for f in "$SKILL_ROOT/scenarios/"*.md; do
     fname=$(basename "$f")
     if grep -q "Default tone:" "$f" 2>/dev/null; then
         tone=$(grep "Default tone:" "$f" | sed -n 's/.*Default tone:\*\* `\([^`]*\)`.*/\1/p')
@@ -215,6 +216,8 @@ EM_COUNT=0
 while IFS= read -r -d '' f; do
     # Skip .git directory
     if [[ "$f" == *".git"* ]]; then continue; fi
+    # Benchmark fixtures intentionally contain AI markers, including em-dashes.
+    if [[ "$f" == *"tests/benchmark"* ]]; then continue; fi
     # ai-markers and burned-words reference em-dash as bad examples
     if [[ "$f" == *"ai-markers.md"* ]] || [[ "$f" == *"burned-words.md"* ]]; then continue; fi
     count=$(grep -Pc '[\x{2014}\x{2013}]' "$f" 2>/dev/null || true)
@@ -250,7 +253,7 @@ TREE_FILES=(
 )
 
 for f in "${TREE_FILES[@]}"; do
-    if [[ -f "$REPO_ROOT/$f" ]]; then
+    if [[ -f "$SKILL_ROOT/$f" || -f "$REPO_ROOT/$f" ]]; then
         if $VERBOSE; then pass "File exists: $f"; fi
     else
         warn "File in tree but not on disk: $f"
@@ -263,7 +266,7 @@ check "12. ZeroGPT integration scripts"
 
 ZG_SCRIPTS=("zerogpt-detect.ps1" "zerogpt-detect.sh" "run-benchmark.ps1")
 for zg_script in "${ZG_SCRIPTS[@]}"; do
-    if [[ -f "$REPO_ROOT/scripts/$zg_script" ]]; then
+    if [[ -f "$SKILL_ROOT/scripts/$zg_script" ]]; then
         pass "ZeroGPT script exists: $zg_script"
     else
         fail "ZeroGPT script missing: $zg_script"
@@ -271,7 +274,7 @@ for zg_script in "${ZG_SCRIPTS[@]}"; do
 done
 
 # Check EVAL.md references ZeroGPT
-if grep -q "ZeroGPT\|zerogpt-detect\|external.validator" "$REPO_ROOT/EVAL.md" 2>/dev/null; then
+if grep -q "ZeroGPT\|zerogpt-detect\|external.validator" "$SKILL_ROOT/EVAL.md" 2>/dev/null; then
     pass "EVAL.md references ZeroGPT external validator"
 else
     warn "EVAL.md should reference ZeroGPT external validator"

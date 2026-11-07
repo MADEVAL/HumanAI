@@ -4,7 +4,8 @@
 
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SKILL_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REPO_ROOT="$(cd "$SKILL_ROOT/../.." && pwd)"
 API_KEY="${ZEROGPT_API_KEY:-}"
 OUTPUT_FILE=""
 MAX_TEXTS=0

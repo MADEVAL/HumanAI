@@ -1,0 +1,6 @@
+interface:
+  display_name: "Human-AI"
+  short_description: "Rewrite AI-sounding text so it reads like a human wrote it"
+  default_prompt: "Rewrite this text so it sounds human. Preserve facts and flag anything unverified."
+policy:
+  allow_implicit_invocation: true

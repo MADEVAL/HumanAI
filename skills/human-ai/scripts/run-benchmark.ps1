@@ -22,7 +22,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$SkillRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $SkillRoot)
 
 if (-not $ApiKey) {
     $ApiKey = $env:ZEROGPT_API_KEY

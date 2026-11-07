@@ -15,7 +15,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$SkillRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 if (-not (Test-Path $File -PathType Leaf)) {
     Write-Host "[ERROR] File not found: $File" -ForegroundColor Red
@@ -25,8 +25,8 @@ if (-not (Test-Path $File -PathType Leaf)) {
 $text = Get-Content $File -Raw
 
 # Load whitelist/blacklist if available
-$whitelistFile = Join-Path $RepoRoot "shared/morph/whitelist-$Lang.txt"
-$blacklistFile = Join-Path $RepoRoot "shared/morph/blacklist-$Lang.txt"
+$whitelistFile = Join-Path $SkillRoot "shared/morph/whitelist-$Lang.txt"
+$blacklistFile = Join-Path $SkillRoot "shared/morph/blacklist-$Lang.txt"
 
 $whitelist = @()
 $blacklist = @()
@@ -48,7 +48,7 @@ if (Test-Path $blacklistFile) {
 # Python morph checker - writes results to stdout as JSON
 $pythonScript = @"
 import sys, json, re
-sys.path.insert(0, r'$RepoRoot')
+sys.path.insert(0, r'$SkillRoot')
 
 text = r'''$($text -replace "'", "''")'''
 lang = '$Lang'

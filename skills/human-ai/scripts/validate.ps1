@@ -7,7 +7,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$SkillRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $SkillRoot)
 $Errors = 0
 $Warnings = 0
 
@@ -18,6 +19,7 @@ function Write-Check { param($msg) Write-Host ("[CHECK] " + $msg) -ForegroundCol
 
 $Languages = @("en","ru","uk","de","fr","es","pt","it","pl")
 $Tones = @("expert","biz","human","social","landing","article","case")
+$defaultTonePattern = "Default tone"
 $VerifyFlags = @{
     en = "[VERIFY"; ru = "[ПРОВЕРИТЬ"; uk = "[ПЕРЕВІРИТИ"; de = "[PRÜFEN"
     fr = "[VÉRIFIER"; es = "[VERIFICAR"; pt = "[VERIFICAR"; it = "[VERIFICARE"; pl = "[SPRAWDZIĆ"
@@ -30,10 +32,10 @@ $Stage5Checks = @{
 # ============================================
 Write-Host ""
 Write-Check "1. SKILL.md YAML Frontmatter"
-$skillContent = Get-Content (Join-Path $RepoRoot "SKILL.md") -Raw -Encoding UTF8
+$skillContent = Get-Content (Join-Path $SkillRoot "SKILL.md") -Raw -Encoding UTF8
 
 if ($skillContent -match "name:\s+human-ai") { Write-Pass "name: human-ai" } else { Write-Fail "name field missing or incorrect" }
-if ($skillContent -match 'version:\s+"4\.0\.0"') { Write-Pass "version: 4.0.0" } else { Write-Fail "version field missing or incorrect" }
+if ($skillContent -match 'version:\s+"4\.1\.0"') { Write-Pass "version: 4.1.0" } else { Write-Fail "version field missing or incorrect" }
 if ($skillContent -match "languages:") { Write-Pass "languages field present" } else { Write-Fail "languages field missing" }
 if ($skillContent -match "pipeline_stages:\s+5") { Write-Pass "pipeline_stages: 5" } else { Write-Fail "pipeline_stages field missing or incorrect" }
 
@@ -53,10 +55,10 @@ $LangNames["pt"] = "Portuguese"
 $LangNames["it"] = "Italian"
 $LangNames["pl"] = "Polish"
 
-$bwContent = Get-Content (Join-Path $RepoRoot "shared\burned-words.md") -Raw -Encoding UTF8
-$amContent = Get-Content (Join-Path $RepoRoot "shared\ai-markers.md") -Raw -Encoding UTF8
-$slContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
-$rtContent = Get-Content (Join-Path $RepoRoot "shared\rhythm-tables.md") -Raw -Encoding UTF8
+$bwContent = Get-Content (Join-Path $SkillRoot "shared\burned-words.md") -Raw -Encoding UTF8
+$amContent = Get-Content (Join-Path $SkillRoot "shared\ai-markers.md") -Raw -Encoding UTF8
+$slContent = Get-Content (Join-Path $SkillRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
+$rtContent = Get-Content (Join-Path $SkillRoot "shared\rhythm-tables.md") -Raw -Encoding UTF8
 
 foreach ($lang in $Languages) {
     $name = $LangNames[$lang]
@@ -104,7 +106,7 @@ foreach ($lang in $Languages) {
 Write-Host ""
 Write-Check "3. Cultural matrix language coverage"
 
-$cmPath = Join-Path $RepoRoot "shared\cultural-matrix.md"
+$cmPath = Join-Path $SkillRoot "shared\cultural-matrix.md"
 if (Test-Path $cmPath) {
     Write-Pass "cultural-matrix.md exists"
     $cmContent = Get-Content $cmPath -Raw -Encoding UTF8
@@ -140,7 +142,7 @@ if (Test-Path $cmPath) {
 Write-Host ""
 Write-Check "5. Tone profile coverage (7 profiles x 9 languages)"
 
-$tpContent = Get-Content (Join-Path $RepoRoot "shared\tone-profiles.md") -Raw -Encoding UTF8
+$tpContent = Get-Content (Join-Path $SkillRoot "shared\tone-profiles.md") -Raw -Encoding UTF8
 $langMarkers = @{}
 $langMarkers["en"] = "EN markers"; $langMarkers["ru"] = "RU markers"
 $langMarkers["uk"] = "UK markers"; $langMarkers["de"] = "DE markers"
@@ -202,7 +204,7 @@ foreach ($lang in $Languages) {
 Write-Host ""
 Write-Check "8. Verify flags (SKILL.md + specificity-ladder.md)"
 
-$specContent = Get-Content (Join-Path $RepoRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
+$specContent = Get-Content (Join-Path $SkillRoot "shared\specificity-ladder.md") -Raw -Encoding UTF8
 
 foreach ($lang in $Languages) {
     $flag = $VerifyFlags[$lang]
@@ -270,7 +272,7 @@ foreach ($lang in $Languages) {
 Write-Host ""
 Write-Check "11. Scenario files tone references"
 
-$scenarioDir = Join-Path $RepoRoot "scenarios"
+$scenarioDir = Join-Path $SkillRoot "scenarios"
 $scenarioFiles = Get-ChildItem $scenarioDir -Filter "*.md"
 foreach ($file in $scenarioFiles) {
     $content = Get-Content $file.FullName -Raw -Encoding UTF8
@@ -299,7 +301,7 @@ foreach ($file in $scenarioFiles) {
 Write-Host ""
 Write-Check "12. Em-dash policy check"
 
-$allMdFiles = Get-ChildItem $RepoRoot -Recurse -Include "*.md" | Where-Object { $_.FullName -notlike "*\.git\*" }
+$allMdFiles = Get-ChildItem $RepoRoot -Recurse -Include "*.md" | Where-Object { $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\tests\benchmark\*" }
 $emDashTotal = 0
 foreach ($file in $allMdFiles) {
     $fname = $file.Name
@@ -348,7 +350,8 @@ $treeFiles = @(
 )
 
 foreach ($f in $treeFiles) {
-    $path = Join-Path $RepoRoot $f
+    $path = Join-Path $SkillRoot $f
+    if (-not (Test-Path $path -PathType Leaf)) { $path = Join-Path $RepoRoot $f }
     if (Test-Path $path -PathType Leaf) {
         if ($Verbose) { Write-Pass ("File exists: " + $f) }
     } else {
@@ -362,7 +365,7 @@ Write-Check "14. ZeroGPT integration scripts"
 
 $zgScripts = @("zerogpt-detect.ps1", "zerogpt-detect.sh", "run-benchmark.ps1")
 foreach ($zgScript in $zgScripts) {
-    $zgPath = Join-Path $RepoRoot "scripts\$zgScript"
+    $zgPath = Join-Path $SkillRoot "scripts\$zgScript"
     if (Test-Path $zgPath -PathType Leaf) {
         Write-Pass ("ZeroGPT script exists: " + $zgScript)
     } else {
@@ -371,7 +374,7 @@ foreach ($zgScript in $zgScripts) {
 }
 
 # Check ZeroGPT API key reference in scripts
-$runBenchPath = Join-Path $RepoRoot "scripts\run-benchmark.ps1"
+$runBenchPath = Join-Path $SkillRoot "scripts\run-benchmark.ps1"
 if (Test-Path $runBenchPath) {
     $runContent = Get-Content $runBenchPath -Raw -Encoding UTF8
     if ($runContent -match "zerogpt") {
@@ -382,7 +385,7 @@ if (Test-Path $runBenchPath) {
 }
 
 # Check that EVAL.md mentions ZeroGPT
-$evalPath = Join-Path $RepoRoot "EVAL.md"
+$evalPath = Join-Path $SkillRoot "EVAL.md"
 if (Test-Path $evalPath) {
     $evalContent = Get-Content $evalPath -Raw -Encoding UTF8
     if ($evalContent -match "ZeroGPT|zerogpt-detect|external.validator") {
@@ -429,9 +432,6 @@ if ($skillContent -match "cultural-matrix\.md") {
 } else {
     Write-Warn "SKILL.md missing cultural-matrix.md reference"
 }
-
-# Fix the undefined variable in scenario checks (check 11)
-$defaultTonePattern = "Default tone"
 
 # ============================================
 Write-Host ""

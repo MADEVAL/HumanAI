@@ -22,7 +22,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$SkillRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $SkillRoot)
 
 if (-not $ApiKey) {
     $ApiKey = if ($Provider -eq "openai") { $env:OPENAI_API_KEY } else { $env:ANTHROPIC_API_KEY }
@@ -39,7 +40,7 @@ if (-not (Test-Path $Humanized)) { Write-Host "[ERROR] Humanized not found: $Hum
 $originalText = Get-Content $Original -Raw
 $humanizedText = Get-Content $Humanized -Raw
 
-$evalPrompt = Get-Content (Join-Path $RepoRoot "EVAL.md") -Raw
+$evalPrompt = Get-Content (Join-Path $SkillRoot "EVAL.md") -Raw
 
 if (-not $Model) {
     $Model = if ($Provider -eq "openai") { "gpt-4o" } else { "claude-3-5-sonnet-20241022" }

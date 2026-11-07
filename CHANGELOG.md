@@ -1,15 +1,16 @@
 # Changelog
 
-## [Unreleased]
+## [4.1.0] - 2026-11-07
 
 ### Changed
-- Version normalized to three-part semver (4.0.0).
-- Frontmatter normalized: environment-based `compatibility`, `metadata.author`, `phases: 6`; the validation scripts that use ReadSightPy now declare Python 3.10+.
-- Reference files are read by relative path from the skill folder instead of GitHub raw URLs.
-- Long dashes replaced with hyphens across all documentation.
-- Section canon: `WHEN NOT TO USE`, `OUTPUT CONTRACT`; pre-flight and language detection no longer use negative stage numbers.
+- Moved the runtime skill to `skills/human-ai/` to match the suite layout.
+- Added `install.py`, Claude and Cursor plugin manifests, and an OpenAI agent manifest.
+- `WHEN NOT TO USE` moved to the top; `OUTPUT CONTRACT` moved before the stages.
+- Section headings normalized to Title Case.
+- Validation scripts now resolve the skill root and the repo root separately.
+- Description now states negative triggers and points Ukrainian prose to `humanizer-ua`.
+- Hyphens are the only dash character across the documentation.
 - Canonical placeholder vocabulary documented: `[VERIFY: ...]`, `[DATA NEEDED: ...]`, `[N]`, `[illustrative]`.
-- Install folder documented as `human-ai/` to match the skill name.
 
 ## [4.0.0] - 2026-07-12
 

@@ -1,26 +1,27 @@
 ---
 name: human-ai
-description: "Rewrites AI-generated text so it sounds human-written in 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. Full pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. Use for articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
+description: "Rewrites AI-generated text so it sounds human-written in 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. Full pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. Use for articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.' Do NOT use for text that must stay verbatim (legal, medical, safety) or for editing Ukrainian prose - use humanizer-ua instead."
 license: MIT
 compatibility: Plain Markdown. Optional Python 3.10+ for the validation scripts in scripts/.
 metadata:
   author: Yevhen Leonidov
-  version: "4.0.0"
+  version: "4.1.0"
   languages: [en, ru, uk, de, fr, es, pt, it, pl]
   pipeline_stages: 5
   phases: 6
+  repository: "https://github.com/MADEVAL/HumanAI"
 ---
-# HUMAN-AI - Text Humanization Engine
+# Human-AI - Text Humanization Engine
 
 > **If the reader forgets a machine was involved, you won.**
-> **Version:** 4.0.0
+> **Version:** 4.1.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
 > **Mode:** Pipeline. 6 phases (pre-flight diagnostic + 5 processing stages). Flexible - skip with declared reason.
 > **Standalone:** self-contained. All critical rules and top-15 per-language data are embedded. Full lists are in `shared/` (paths at the bottom).
 
 ---
 
-## THE THREE LAWS OF HUMAN TEXT
+## The Three Laws of Human Text
 
 ### Law 1: Imperfection is the signal
 AI produces text that is too consistent. Same rhythm. Same structure. Same formality. Same everything. Humans are inconsistent. A sharp 4-word sentence, then a meandering 28-word one. A paragraph starting with "But". A fragment. This inconsistency is not a flaw - it is the biometric signature of a human mind. Your job: introduce **structured variance**, not chaos.
@@ -33,13 +34,13 @@ AI says: "robust, cutting-edge platform". Humans say: "we patch bugs within 4 ho
 
 ---
 
-## THE PIPELINE
+## The Pipeline
 
 ```
 pre-flight → cleanup → specificity → tone → rhythm → proofread
 ```
 
-### Why this order
+### Why This Order
 0. **Pre-flight first** - detect language, estimate AI probability. If human-written → STOP. Don't waste pipeline stages.
 1. **Cleanup second** - remove AI patterns before anything else. Don't build human text on a robot skeleton.
 2. **Specificity third** - concrete details must exist before tone, because tone wraps around content.
@@ -47,7 +48,7 @@ pre-flight → cleanup → specificity → tone → rhythm → proofread
 4. **Rhythm fifth** - fine-tune sentence flow after voice is set.
 5. **Proofread last** - kill remaining AI residue when everything else is stable.
 
-### Skip policy
+### Skip Policy
 Stages run sequentially. **Skip a stage only with declared reason.** Declare skips in output header: `[PIPELINE: cleanup → specificity(skipped: already rung 2+) → tone → rhythm → proofread]`
 
 | Stage | Skip if |
@@ -60,7 +61,51 @@ Stages run sequentially. **Skip a stage only with declared reason.** Declare ski
 
 ---
 
-## PRE-FLIGHT CHECK
+## When Not to Use
+
+- **Pre-flight guard triggered** (AI Probability < 20 AND multiple conditions): output diagnostic only
+- Text is authored by a known human (attributed, signed)
+- Text requires exact preservation (legal, medical, safety)
+- User says "audit only" → run detection scan, output diagnostics, do NOT modify
+
+**Force pipeline override:** If user says "force pipeline" after pre-flight guard triggers → proofread-only scan with `[HUMAN-ORIGIN]` annotation. Never run full pipeline on text scoring <20.
+
+Mixed-language text: detect primary language. Do not rewrite quoted foreign-language passages.
+
+---
+
+## Output Contract
+
+```
+[LANG: en / ru / uk / de / fr / es / pt / it / pl]
+[TONE: expert / biz / human / social / landing / article / case]
+[PIPELINE: stages applied with skip notes]
+[QUALITY: XX/100]
+[ISSUES: brief list of remaining issues, if any]
+
+[THE TEXT]
+
+---
+[CHANGELOG]
+Brief: 3-5 bullet points on what was changed and why.
+
+[STAGE SCORES]
+Cleanup: XX/100 (burned-word + AI-tell clearance, checks 1+9 from self-eval)
+Specificity: XX/100 (claims at rung 2+, check 8)
+Tone: XX/100 (profile consistency, check 7)
+Rhythm: XX/100 (sentence variety, opener rotation, paragraph weight, checks 2+3+4+5+6)
+Proofread: XX/100 (read-aloud naturalness, check 10)
+Re-loop: yes/no, stage(s) re-run, final score (if applicable)
+
+[FACTUAL NOTES]
+(Optional - flag inaccuracies, do not silently fix.)
+```
+
+No preamble. No "here is your rewritten text." No "I hope this helps." Deliver text, changelog, stop.
+
+---
+
+## Pre-Flight Check
 
 Before running any pipeline stage, perform a rapid diagnostic scan.
 
@@ -137,7 +182,7 @@ Skippable: {stages likely safe to skip}
 
 ---
 
-## LANGUAGE DETECTION
+## Language Detection
 
 ### Quick detection by dominant markers
 
@@ -173,7 +218,7 @@ These are the targets - when you're done humanizing, the output should read like
 
 ---
 
-## STAGE 1: ANTI-AI CLEANUP
+## Stage 1: Anti-AI Cleanup
 
 ### Objective
 Remove all detectable AI patterns. This is mechanical. Be ruthless.
@@ -300,7 +345,7 @@ Remove all detectable AI patterns. This is mechanical. Be ruthless.
 
 ---
 
-## STAGE 2: SPECIFICITY ENRICHMENT
+## Stage 2: Specificity Enrichment
 
 ### Objective
 Replace abstract claims with concrete details. Highest-impact stage.
@@ -368,7 +413,7 @@ Canonical placeholders: `[VERIFY: ...]` for a claim to check, `[DATA NEEDED: ...
 
 ---
 
-## STAGE 3: TONE NATURALIZER
+## Stage 3: Tone Naturalizer
 
 ### Objective
 Set the voice. Every text has a speaker.
@@ -496,7 +541,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 
 ---
 
-## STAGE 4: RHYTHM EDITOR
+## Stage 4: Rhythm Editor
 
 ### Objective
 Break the machine rhythm. AI = metronome. Human = jazz.
@@ -585,7 +630,7 @@ Fragment: ~1-5w. Short: ~4-12w. Medium: ~12-22w. Long: ~22-30w. Very Long: 30+w 
 
 ---
 
-## STAGE 5: FINAL PROOFREAD
+## Stage 5: Final Proofread
 
 ### 5.1 Read-aloud test (internal simulation)
 Every sentence: would you say this to a colleague? If it contains words you wouldn't use in spoken conversation, passive where active works, or >2 clauses - rewrite.
@@ -689,51 +734,7 @@ Three independent layers beyond self-evaluation:
 
 ---
 
-## WHEN NOT TO USE
-
-- **Pre-flight guard triggered** (AI Probability < 20 AND multiple conditions): output diagnostic only
-- Text is authored by a known human (attributed, signed)
-- Text requires exact preservation (legal, medical, safety)
-- User says "audit only" → run detection scan, output diagnostics, do NOT modify
-
-**Force pipeline override:** If user says "force pipeline" after pre-flight guard triggers → proofread-only scan with `[HUMAN-ORIGIN]` annotation. Never run full pipeline on text scoring <20.
-
-Mixed-language text: detect primary language. Do not rewrite quoted foreign-language passages.
-
----
-
-## OUTPUT CONTRACT
-
-```
-[LANG: en / ru / uk / de / fr / es / pt / it / pl]
-[TONE: expert / biz / human / social / landing / article / case]
-[PIPELINE: stages applied with skip notes]
-[QUALITY: XX/100]
-[ISSUES: brief list of remaining issues, if any]
-
-[THE TEXT]
-
----
-[CHANGELOG]
-Brief: 3-5 bullet points on what was changed and why.
-
-[STAGE SCORES]
-Cleanup: XX/100 (burned-word + AI-tell clearance, checks 1+9 from self-eval)
-Specificity: XX/100 (claims at rung 2+, check 8)
-Tone: XX/100 (profile consistency, check 7)
-Rhythm: XX/100 (sentence variety, opener rotation, paragraph weight, checks 2+3+4+5+6)
-Proofread: XX/100 (read-aloud naturalness, check 10)
-Re-loop: yes/no, stage(s) re-run, final score (if applicable)
-
-[FACTUAL NOTES]
-(Optional - flag inaccuracies, do not silently fix.)
-```
-
-No preamble. No "here is your rewritten text." No "I hope this helps." Deliver text, changelog, stop.
-
----
-
-## AUDIT MODE
+## Audit Mode
 
 When user says "audit only" or "tell me what's wrong, don't rewrite":
 
@@ -782,7 +783,7 @@ ESTIMATED EFFORT: {N} critical + {N} high items
 
 ---
 
-## INTEGRATION: RankWise + MindFluence
+## Integration: RankWise + MindFluence
 
 ### With RankWise (SEO)
 **Rule:** RankWise handles SEO structure → human-ai handles human voice. Do not break SEO.
@@ -820,7 +821,7 @@ human-ai invocation: `cleanup(skipped: SEO+bias elements) → specificity → to
 
 ---
 
-## QUICK START
+## Quick Start
 
 **Full pipeline:** "Rewrite this to sound human. Language: ru."
 
@@ -832,21 +833,22 @@ human-ai invocation: `cleanup(skipped: SEO+bias elements) → specificity → to
 
 ---
 
-## FILES
+## Files
 
 ### This skill is self-contained - the SKILL.md above embeds all critical rules and top-15 per-language data. Paths below are relative to this `SKILL.md`. For deep processing, the following files are available:
 
 ```
-human-ai/
-├── SKILL.md                        ← This file - self-contained orchestrator (v4.0.0)
-├── PLAN.md                         ← Improvement roadmap
-├── README.md / README.ru.md        ← Documentation (bilingual)
-├── EVAL.md                         ← External LLM evaluation framework
-├── shared/                         ← Full data files (30+ words per list, 250-line tone profiles, cultural matrix)
-├── scenarios/                      ← 15 task-specific playbooks
-├── examples/                       ← Annotated before/after examples
-├── scripts/                        ← Validation + external tools
-└── tests/benchmark/                ← Evaluation dataset
+Natural-skill/
+├── skills/human-ai/                ← runtime skill package
+│   ├── SKILL.md                    ← This file - self-contained orchestrator (v4.1.0)
+│   ├── EVAL.md                     ← External LLM evaluation framework
+│   ├── shared/                     ← Full data files (30+ words per list, 250-line tone profiles, cultural matrix)
+│   ├── scenarios/                  ← 15 task-specific playbooks
+│   ├── examples/                   ← Annotated before/after examples
+│   └── scripts/                    ← Validation + external tools
+├── tests/benchmark/                ← Evaluation dataset (dev)
+├── PLAN.md                         ← Improvement roadmap (dev)
+└── README.md / README.ru.md        ← Documentation (bilingual)
 ```
 
 ### Deep data (files in `shared/`, read when the task needs full lists):

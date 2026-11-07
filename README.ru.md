@@ -20,7 +20,7 @@ AI пишет с отпечатком: одинаковый ритм, одина
 
 ## Как работает
 
-1. **Загрузите `SKILL.md`** как системный промпт в любую LLM.
+1. **Загрузите `skills/human-ai/SKILL.md`** как системный промпт в любую LLM.
 2. **Дайте задачу:** «Перепиши чтобы звучало по-человечески. Язык: ru.» / «Сделай из этого кейс. EN.» / «Просто вычисти AI-паттерны.»
 3. **Получите результат** с определённым языком, установленным тоном, пройденными стадиями и чейнджлогом.
 
@@ -83,50 +83,19 @@ AI пишет с отпечатком: одинаковый ритм, одина
 ## Архитектура
 
 ```
-human-ai/
-├── SKILL.md                        ← Оркестратор (полный пайплайн)
+Natural-skill/
+├── skills/human-ai/                ← рабочий пакет скилла
+│   ├── SKILL.md                    ← Оркестратор (полный пайплайн)
+│   ├── EVAL.md                     ← Внешний фреймворк оценки
+│   ├── shared/                     ← Данные для 9 языков
+│   ├── scenarios/                  ← 15 сценариев под задачи
+│   ├── scripts/                    ← Проверки и внешние инструменты
+│   ├── examples/                   ← Примеры до/после
+│   └── agents/openai.yaml          ← Манифест OpenAI-агента
+├── tests/benchmark/                ← Датасет оценки (dev)
+├── install.py                      ← Установщик для Claude, OpenCode, Cursor, .agents
 ├── README.md / README.ru.md        ← Документация
-├── shared/
-│   ├── burned-words.md             ← Все сожжённые слова × 9 языков
-│   ├── ai-markers.md               ← Паттерны обнаружения × 9 языков
-│   ├── tone-profiles.md            ← 7 тонов × 9 языков
-│   ├── specificity-ladder.md       ← Абстракция → конкретика
-│   ├── rhythm-tables.md            ← Параметры ритма
-│   ├── cultural-matrix.md          ← Культурные нормы × 9 языков
-│   └── language-template.md        ← Шаблон для добавления языка
-├── scenarios/                      ← Сценарии под задачи
-│   ├── full-rewrite.md             ← Весь пайплайн (5 стадий)
-│   ├── blog-post.md                ← Блог-пост
-│   ├── landing-page.md             ← Лендинг
-│   ├── social-post.md              ← Соцсети
-│   ├── seo-article.md              ← SEO-контент
-│   ├── case-study.md               ← Кейс / портфолио
-│   ├── commercial-offer.md         ← Коммерческое предложение
-│   ├── email.md                    ← Email
-│   ├── technical-doc.md            ← Техническая документация
-│   ├── translation-fix.md          ← Де-перевод: убрать акцент
-│   ├── press-release.md            ← Пресс-релиз
-│   ├── internal-memo.md            ← Внутренняя служебка
-│   ├── grant-proposal.md           ← Грантовая заявка
-│   ├── creative-writing.md         ← Художественный текст (лёгкое касание)
-│   └── product-update.md           ← Обновление продукта / чейнджлог
-├── scripts/
-│   ├── validate.ps1 / .sh          ← Проверка целостности
-│   ├── morph-check.ps1             ← Морфологический валидатор
-│   ├── readability-check.ps1       ← Валидатор читаемости
-│   ├── zerogpt-detect.ps1 / .sh    ← ZeroGPT AI-детекция
-│   ├── run-benchmark.ps1 / .sh     ← Внешний бенчмарк
-│   └── run-eval.ps1                ← Внешний EVAL-раннер
-└── examples/                       ← Примеры до/после
-    ├── en-blog-post.md / en-landing.md / en-social.md
-    ├── ru-blog-post.md / ru-landing.md / ru-social.md
-    ├── uk-blog-post.md / uk-social.md
-    ├── de-blog-post.md / de-email.md
-    ├── fr-blog-post.md / fr-social.md
-    ├── es-blog-post.md / es-landing.md
-    ├── it-blog-post.md / it-landing.md
-    ├── pt-blog-post.md / pt-social.md
-    └── pl-blog-post.md / pl-social.md
+└── PLAN.md / KNOWN_LIMITATIONS.md  ← Планы и ограничения (dev)
 ```
 
 ---
@@ -199,17 +168,26 @@ human-ai/
 
 - Любая LLM с полем системного промпта
 - Для полной функциональности: skill-система с загрузкой файлов из папки (OpenCode, Claude Code)
-- Автономно: скопируйте `SKILL.md` как системный промпт - пайплайн полный
+- Автономно: скопируйте `skills/human-ai/SKILL.md` как системный промпт - пайплайн полный
 - Без API-ключей, без инструментов, без зависимостей - чистый промпт-инжиниринг
 
 ---
 
 ## Установка
 
+Установщик копирует `skills/human-ai/` в выбранный каталог агента:
+
+```bash
+python install.py --target all
+python install.py --list
+python install.py --check
+python install.py --target project --dry-run
+```
+
 ### OpenCode
 ```
 human-ai/ → .opencode/skills/          (проект)
-              → ~/.config/opencode/skills/  (глобально)
+          → ~/.config/opencode/skills/  (глобально)
 ```
 
 ### Claude Code
@@ -218,7 +196,7 @@ human-ai/ → ~/.claude/skills/
 ```
 
 ### Любая LLM (автономно)
-Скопируйте содержимое `SKILL.md` как системный промпт. Добавьте файлы из `shared/` для большей языковой детализации.
+Скопируйте содержимое `skills/human-ai/SKILL.md` как системный промпт. Добавьте файлы из `shared/` для большей языковой детализации.
 
 ---
 
@@ -250,3 +228,15 @@ HUMAN-AI работает в паре с [MindFluence](https://github.com/MADEVA
 ## Лицензия
 
 MIT
+
+---
+
+## Описание для GitHub
+
+```
+AI-скилл для переписывания машинного текста так, чтобы он звучал по-человечески, на 9 языках. Активная версия v4.1: pre-flight → cleanup → specificity → tone → rhythm → proofread. Skills.sh: https://www.skills.sh/madeval/humanai
+```
+
+## Теги для GitHub
+
+`ai` `anti-ai` `copywriting` `humanization` `humanizer` `llm` `multilingual` `prompt-engineering` `skill` `text-rewriting`
