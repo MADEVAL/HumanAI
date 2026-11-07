@@ -219,14 +219,35 @@ natural-skill/ → ~/.claude/skills/
 
 ---
 
-## Интеграция с MindFluence
+## Интеграция
 
-HUMAN-AI работает в паре с [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге):
+HUMAN-AI спроектирован для совместной работы с двумя другими скиллами — [RankWise](https://github.com/MADEVAL/RankWise) (SEO-движок контента) и [MindFluence](https://github.com/MADEVAL/MindFluence) (когнитивные искажения в маркетинге). Вместе они образуют полный конвейер создания контента.
 
-- MindFluence генерирует убедительный текст с психологическими триггерами
-- HUMAN-AI очеловечивает его, не ломая структуру искажений
+### С RankWise (SEO)
+
+**Правило:** RankWise → SEO-структура → HUMAN-AI → человеческий голос. Не ломать SEO.
+
+- **Не удаляйте и не меняйте H2/H3 с ключами.** Только переписывайте текст вокруг них.
+- **Сохраняйте плотность ключей 0.8%–1.5%.**
+- **Минимум 600 слов** (если не указано иначе).
+- **Сохраняйте внутренние ссылки и их размещение.**
+- **Meta title/description не очеловечивайте** — они уже SEO-оптимизированы.
+
+### С MindFluence (Когнитивные искажения)
+
+**Правило:** MindFluence → убеждение → HUMAN-AI → человеческий голос. Не удалять психологическую структуру.
+
+- **Не удаляйте bias-маркеры:** цифры соцдоказательства, якорные цены, сигналы авторитета, триггеры дефицита.
+- **Не удаляйте power words,** даже если они пересекаются со списком burned-words — они несут психологическую функцию.
 - Маппинг тонов: `warm-human` → `human`, `expert-calm` → `expert`, `bold-sell` → `landing`
-- Используйте `PIPELINE: cleanup → specificity → tone(skipped) → rhythm → proofread` чтобы сохранить тон MindFluence
+- Используйте `PIPELINE: cleanup(skipped: bias) → specificity → tone(skipped: MindFluence) → rhythm → proofread`
+
+### Тройной конвейер (RankWise → MindFluence → HumanAI)
+
+1. **RankWise** → SEO-бриф: ключи, структура заголовков, ссылки
+2. **MindFluence** → убедительный текст внутри SEO-скелета
+3. **HumanAI** → очеловечивание с сохранением SEO + bias-маркеров
+4. **RankWise Audit** → финальная проверка 49 факторов
 
 ---
 
