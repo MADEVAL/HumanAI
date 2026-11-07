@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate skill (PowerShell)
+        shell: pwsh
+        run: pwsh skills/human-ai/scripts/validate.ps1
+      - name: Validate skill (Bash)
+        run: bash skills/human-ai/scripts/validate.sh

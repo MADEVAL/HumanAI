@@ -1,15 +1,17 @@
 # HUMAN-AI - Text Humanization Engine
 
+> **Repository status:** active source of truth. `HumanAI` is a legacy clone of the same remote and is kept in sync manually.
+
 [![Version](https://img.shields.io/badge/version-4.1.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Compatibility](https://img.shields.io/badge/compatibility-plain%20markdown-purple)]()
+[![Compatibility](https://img.shields.io/badge/compatibility-plain%20markdown-purple)](#requirements)
 [![skills.sh](https://img.shields.io/badge/skills.sh-listed-2ea44f)](https://www.skills.sh/madeval/humanai)
 
 \[ **English** | [Русский](README.ru.md) \]
 
 > **If the reader forgets a machine was involved, you won.**
 
-An AI skill system that rewrites machine-generated text to sound human-written - across 9 languages. Detects and removes AI fingerprints through a 5-stage pipeline.
+An AI skill system that rewrites machine-generated text to sound human-written - across 9 languages. Detects and removes AI fingerprints through a 5-stage pipeline. **Skill class:** orchestrator - self-contained `SKILL.md` plus on-demand references.
 
 ---
 
@@ -96,7 +98,7 @@ Natural-skill/
 │   ├── examples/                   ← Annotated before/after examples
 │   └── agents/openai.yaml          ← OpenAI agent manifest
 ├── tests/benchmark/                ← Evaluation dataset (dev)
-├── install.py                      ← Installer for Claude, OpenCode, Cursor, .agents
+├── install.py                      ← Installer for Claude, OpenCode, Codex, .agents
 ├── README.md / README.ru.md        ← This documentation
 └── PLAN.md / KNOWN_LIMITATIONS.md  ← Roadmap and limits (dev)
 ```

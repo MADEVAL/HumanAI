@@ -1,0 +1,17 @@
+{
+  "name": "human-ai",
+  "owner": {
+    "name": "Yevhen Leonidov",
+    "url": "https://github.com/MADEVAL"
+  },
+  "plugins": [
+    {
+      "name": "human-ai",
+      "source": "./",
+      "description": "Rewrite AI-generated text so it sounds human-written in 9 languages.",
+      "version": "4.1.0",
+      "homepage": "https://github.com/MADEVAL/HumanAI",
+      "repository": "https://github.com/MADEVAL/HumanAI"
+    }
+  ]
+}
