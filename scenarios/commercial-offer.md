@@ -4,11 +4,11 @@
 **Default tone:** `biz`
 
 ## Key Priorities
-1. No small talk, no warm-up — start with what you do. "We build X for companies that need Y"
-2. Claims with evidence — every claim backed by a number, example, or mechanism. No "best-in-class" without specifics
-3. Politeness through clarity, not pleasantries — "Here's what we do. Here's the timeline. Here's the cost"
+1. No small talk, no warm-up - start with what you do. "We build X for companies that need Y"
+2. Claims with evidence - every claim backed by a number, example, or mechanism. No "best-in-class" without specifics
+3. Politeness through clarity, not pleasantries - "Here's what we do. Here's the timeline. Here's the cost"
 4. Direct questions are fine: "What do you want to see in 6 months?" / "What's the current bottleneck?"
-5. Respect the reader's time — every paragraph should answer a real question they have
+5. Respect the reader's time - every paragraph should answer a real question they have
 
 ## What to Cut
 - "We are thrilled to..."
@@ -18,7 +18,7 @@
 - Any claim without evidence or example
 
 ## What to Preserve
-- Proposal structure (sections, bullet points) — humanize the language within, do not flatten into narrative prose
+- Proposal structure (sections, bullet points) - humanize the language within, do not flatten into narrative prose
 - Specific numbers, timelines, and deliverables
 - Pricing and terms
 - Client-specific details and requirements

@@ -118,7 +118,7 @@ try {
     }
 
     Write-Host ""
-    Write-Host "[EVAL REPORT — External LLM]" -ForegroundColor Cyan
+    Write-Host "[EVAL REPORT - External LLM]" -ForegroundColor Cyan
     Write-Host "Model: $($json.model)"
     Write-Host ""
     Write-Host $json.content

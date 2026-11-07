@@ -27,7 +27,7 @@ Quel 23 % non aveva più budget. Né data scientist migliori. Hanno fatto una co
 
 Ecco come funziona.
 
-Un team di assistenza da 12 persone. 400 ticket al giorno. Prima dell'IA: tempo medio di risposta — 7 ore. I responsabili passavano 3 ore al giorno ad assegnare i ticket. Dopo: l'IA legge la richiesta, scrive una bozza di risposta e la gira alla persona giusta. I responsabili smettono di assegnare. Gli agenti smettono di scrivere la stessa risposta 40 volte. Il tempo di risposta scende a 90 minuti.
+Un team di assistenza da 12 persone. 400 ticket al giorno. Prima dell'IA: tempo medio di risposta - 7 ore. I responsabili passavano 3 ore al giorno ad assegnare i ticket. Dopo: l'IA legge la richiesta, scrive una bozza di risposta e la gira alla persona giusta. I responsabili smettono di assegnare. Gli agenti smettono di scrivere la stessa risposta 40 volte. Il tempo di risposta scende a 90 minuti.
 
 La tecnologia non è stata la parte difficile. La parte difficile è stata resistere alla tentazione di «cambiare tutto» nella prima settimana.
 
@@ -38,6 +38,6 @@ La tecnologia non è stata la parte difficile. La parte difficile è stata resis
 - Transizioni eliminate: Inoltre, Peraltro, D'altro canto, È importante sottolineare
 - «In conclusione» rimosso
 - Specificità: 200 team, 23/41/36 %, 12 persone, 400 ticket/giorno, 7h→90min [VERIFICARE: numeri illustrativi]
-- Tono: human — diretto, basato su dati, esempio concreto
+- Tono: human - diretto, basato su dati, esempio concreto
 - Ritmo: frammenti + frasi di lunghezza variabile, rotture di ritmo intenzionali
 ```

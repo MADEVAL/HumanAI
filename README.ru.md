@@ -1,5 +1,7 @@
 # HUMAN-AI - Движок очеловечивания текста
 
+[skills.sh page](https://www.skills.sh/madeval/humanai)
+
 \[ [English](README.md) | **Русский** \]
 
 > **Если читатель забыл, что к тексту прикасалась машина - вы победили.**
@@ -81,7 +83,7 @@ AI пишет с отпечатком: одинаковый ритм, одина
 ## Архитектура
 
 ```
-natural-skill/
+human-ai/
 ├── SKILL.md                        ← Оркестратор (полный пайплайн)
 ├── README.md / README.ru.md        ← Документация
 ├── shared/
@@ -206,13 +208,13 @@ natural-skill/
 
 ### OpenCode
 ```
-natural-skill/ → .opencode/skills/          (проект)
-               → ~/.config/opencode/skills/  (глобально)
+human-ai/ → .opencode/skills/          (проект)
+              → ~/.config/opencode/skills/  (глобально)
 ```
 
 ### Claude Code
 ```
-natural-skill/ → ~/.claude/skills/
+human-ai/ → ~/.claude/skills/
 ```
 
 ### Любая LLM (автономно)

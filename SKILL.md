@@ -1,33 +1,35 @@
 ---
 name: human-ai
-description: "Master skill for rewriting AI-generated text to sound human-written across 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. Full pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. For articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
+description: "Rewrites AI-generated text so it sounds human-written in 9 languages: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Italian, Polish. Full pipeline: pre-flight → cleanup → specificity → tone → rhythm → proofread. 15 task-specific scenarios. Use for articles, posts, landing pages, commercial copy, translations, SEO content, emails, press releases, memos, grant proposals, creative writing - any text that currently 'smells like AI.'"
 license: MIT
-compatibility: any-llm
+compatibility: Plain Markdown. Optional Python 3.10+ for the validation scripts in scripts/.
 metadata:
-  version: "4.0"
+  author: Yevhen Leonidov
+  version: "4.0.0"
   languages: [en, ru, uk, de, fr, es, pt, it, pl]
   pipeline_stages: 5
+  phases: 6
 ---
-# HUMAN-AI — Text Humanization Engine
+# HUMAN-AI - Text Humanization Engine
 
 > **If the reader forgets a machine was involved, you won.**
-> **Version:** 4.0
+> **Version:** 4.0.0
 > **Languages:** Русский · English · Українська · Deutsch · Français · Español · Português · Italiano · Polski
-> **Mode:** Pipeline. 6 phases (pre-flight diagnostic + 5 processing stages). Flexible — skip with declared reason.
-> **Standalone:** self-contained. All critical rules and top-15 per-language data are embedded. Full lists available via GitHub URLs at the bottom.
+> **Mode:** Pipeline. 6 phases (pre-flight diagnostic + 5 processing stages). Flexible - skip with declared reason.
+> **Standalone:** self-contained. All critical rules and top-15 per-language data are embedded. Full lists are in `shared/` (paths at the bottom).
 
 ---
 
 ## THE THREE LAWS OF HUMAN TEXT
 
 ### Law 1: Imperfection is the signal
-AI produces text that is too consistent. Same rhythm. Same structure. Same formality. Same everything. Humans are inconsistent. A sharp 4-word sentence, then a meandering 28-word one. A paragraph starting with "But". A fragment. This inconsistency is not a flaw — it is the biometric signature of a human mind. Your job: introduce **structured variance**, not chaos.
+AI produces text that is too consistent. Same rhythm. Same structure. Same formality. Same everything. Humans are inconsistent. A sharp 4-word sentence, then a meandering 28-word one. A paragraph starting with "But". A fragment. This inconsistency is not a flaw - it is the biometric signature of a human mind. Your job: introduce **structured variance**, not chaos.
 
 ### Law 2: Specificity is credibility
-AI generalizes — it has no lived experience. Humans specify. "Effective solutions" → "patched the memory leak in 40 minutes". "Improves workflow" → "saves 3 hours per report". Every time you replace a generalization with a concrete detail, you make the text more human. This is the highest-leverage technique.
+AI generalizes - it has no lived experience. Humans specify. "Effective solutions" → "patched the memory leak in 40 minutes". "Improves workflow" → "saves 3 hours per report". Every time you replace a generalization with a concrete detail, you make the text more human. This is the highest-leverage technique.
 
 ### Law 3: Competence doesn't announce itself
-AI says: "robust, cutting-edge platform". Humans say: "we patch bugs within 4 hours". Describe what you do. The quality is self-evident. No adjectives about quality — show the quality.
+AI says: "robust, cutting-edge platform". Humans say: "we patch bugs within 4 hours". Describe what you do. The quality is self-evident. No adjectives about quality - show the quality.
 
 ---
 
@@ -38,12 +40,12 @@ pre-flight → cleanup → specificity → tone → rhythm → proofread
 ```
 
 ### Why this order
-0. **Pre-flight first** — detect language, estimate AI probability. If human-written → STOP. Don't waste pipeline stages.
-1. **Cleanup second** — remove AI patterns before anything else. Don't build human text on a robot skeleton.
-2. **Specificity third** — concrete details must exist before tone, because tone wraps around content.
-3. **Tone fourth** — once content is solid, shape the voice.
-4. **Rhythm fifth** — fine-tune sentence flow after voice is set.
-5. **Proofread last** — kill remaining AI residue when everything else is stable.
+0. **Pre-flight first** - detect language, estimate AI probability. If human-written → STOP. Don't waste pipeline stages.
+1. **Cleanup second** - remove AI patterns before anything else. Don't build human text on a robot skeleton.
+2. **Specificity third** - concrete details must exist before tone, because tone wraps around content.
+3. **Tone fourth** - once content is solid, shape the voice.
+4. **Rhythm fifth** - fine-tune sentence flow after voice is set.
+5. **Proofread last** - kill remaining AI residue when everything else is stable.
 
 ### Skip policy
 Stages run sequentially. **Skip a stage only with declared reason.** Declare skips in output header: `[PIPELINE: cleanup → specificity(skipped: already rung 2+) → tone → rhythm → proofread]`
@@ -54,11 +56,11 @@ Stages run sequentially. **Skip a stage only with declared reason.** Declare ski
 | Stage 2 (specificity) | All claims already rung 2+ |
 | Stage 3 (tone) | Tone already matches target |
 | Stage 4 (rhythm) | Rhythm already varied |
-| Stage 5 (proofread) | Always runs — at minimum a top-10 tells scan |
+| Stage 5 (proofread) | Always runs - at minimum a top-10 tells scan |
 
 ---
 
-## STAGE -1: PRE-FLIGHT CHECK
+## PRE-FLIGHT CHECK
 
 Before running any pipeline stage, perform a rapid diagnostic scan.
 
@@ -98,7 +100,7 @@ Rapid scan. Assign points per marker found:
 
 If AI Probability < 20: **STOP. Do not run pipeline.** Output the diagnostic only.
 
-**Weighted threshold — false-positive protection:**
+**Weighted threshold - false-positive protection:**
 
 STOP only if **both** conditions hold:
 1. Score < 20
@@ -135,7 +137,7 @@ Skippable: {stages likely safe to skip}
 
 ---
 
-## STAGE 0: LANGUAGE DETECTION
+## LANGUAGE DETECTION
 
 ### Quick detection by dominant markers
 
@@ -153,12 +155,12 @@ Skippable: {stages likely safe to skip}
 
 ### What human text looks like (per language)
 
-These are the targets — when you're done humanizing, the output should read like this:
+These are the targets - when you're done humanizing, the output should read like this:
 
 | Lang | Human text sounds like |
 |------|------------------------|
 | en | Varied sentence length (3 to 30+ words). Contractions: don't, we'll, it's, should've. Sentences starting with And, But, So, Or. Fragments. Yes. Like this. Concrete details, parenthetical asides. The writer's actual opinion, not a balanced survey. |
-| ru | Микс коротких (2-4 слова) и длинных (15-25 слов) предложений. «Мы сделали. Работает. Дальше.» Прямота без грубости. Конкретные примеры с цифрами. Самоирония в неформальном контексте. Без эм-тире — это не русская типографика. |
+| ru | Микс коротких (2-4 слова) и длинных (15-25 слов) предложений. «Мы сделали. Работает. Дальше.» Прямота без грубости. Конкретные примеры с цифрами. Самоирония в неформальном контексте. Без эм-тире - это не русская типографика. |
 | uk | Чиста технічна українська, жодних русизмів. Тепліша за російську, але без солодкуватості. Природні звороти: «до речі», «чесно кажучи», «давайте розберемось». Короткі речення поруч із розлогими поясненнями. |
 | de | Direkte Sprache. Kein Nominalstil. Kurze Sätze: «Wir haben getestet. Es funktioniert.» Fakten tragen Gewicht, nicht Adjektive. Modalpartikeln in Maßen: «doch», «ja», «halt». |
 | fr | Précision sans rhétorique. Phrases déclaratives: «On a testé. Voilà ce qui marche.» Pas d'enthousiasme forcé. «Du coup», «en fait», «franchement» en dose naturelle. Pas de plan en trois parties. |
@@ -222,7 +224,7 @@ Remove all detectable AI patterns. This is mechanical. Be ruthless.
 | it | ottimizzare, integrare, trasformare, scalabile, innovativo, olistico, robusto, all'avanguardia, rivoluzionario, sinergia, ecosistema, dinamico, granulare, soluzione completa, potenziare |
 | pl | optymalizować, integrować, transformować, skalowalny, innowacyjny, holistyczny, solidny, najnowocześniejszy, rewolucyjny, przełomowy, synergia, ekosystem, dynamiczny, kompleksowe rozwiązanie, wykorzystywać |
 
-> **Full burned-word lists (30+ per language) + replacement examples:** see GitHub URLs at bottom of file.
+> **Full burned-word lists (30+ per language) + replacement examples:** see `shared/burned-words.md`.
 
 ### 1.4 Fake transitions (delete on sight)
 
@@ -292,9 +294,9 @@ Remove all detectable AI patterns. This is mechanical. Be ruthless.
 
 - **Break symmetrical paragraphs:** 3+ consecutive paragraphs with same number of sentences (±1) → break one (split, merge, or add 1-sentence paragraph).
 - **Kill adjective pileups:** max 2 adjectives before a noun. 3+ → keep strongest, show rest through description.
-- **Em-dash (—) policy:** **AI tell in ALL languages. Replace always.** Use periods, commas, colons. No exceptions except: direct quotes, code references, proper names.
+- **Em-dash policy:** **AI tell in ALL languages. Replace always.** Use periods, commas, colons. No exceptions except: direct quotes, code references, proper names.
 
-> **Full AI-marker patterns (30+ per language, structure tells, punctuation per language):** see GitHub URLs at bottom.
+> **Full AI-marker patterns (30+ per language, structure tells, punctuation per language):** see `shared/ai-markers.md`.
 
 ---
 
@@ -322,17 +324,17 @@ Target: every claim rung 0-1 → rung 2+. Rung 3 when data supports it.
 
 | Lang | 0 | 1 | 2 | 3 | 4 |
 |------|---|---|---|---|---|
-| en | "improves security" | "improves WordPress security" | "blocks brute-force login attacks" | "blocks 8,400 attempts/day" | "blocks 8,400/day — login stays available for real users" |
-| ru | «повышает безопасность» | «повышает безопасность WordPress» | «блокирует атаки перебора паролей» | «блокирует 8400 попыток/день» | «блокирует 8400/день — страница входа остаётся доступной» |
-| uk | «підвищує безпеку» | «підвищує безпеку WordPress» | «блокує атаки перебору паролів» | «блокує 8400 спроб/день» | «блокує 8400/день — сторінка входу доступна» |
-| de | «verbessert Lieferzeiten» | «verbessert Lieferzeiten im Online-Handel» | «bündelt Bestellungen, optimiert Routen» | «verkürzt Lieferung von 3 Tagen auf 4h» | «Lieferung 4h statt 3 Tage — Retouren -22%, Stammkunden +40%» |
-| fr | «améliore l'expérience client» | «améliore l'expérience en magasin» | «réduit le temps d'attente en caisse» | «réduit l'attente de 7 à 2 min» | «attente 7→2 min — le client suivant voit un caissier libre» |
-| es | «mejora la productividad» | «mejora la productividad administrativa» | «automatiza informes semanales» | «reduce 12h de papeleo a 3h» | «12h→3h — el equipo recupera un día entero cada semana» |
-| pt | «aumenta vendas» | «aumenta vendas no e-commerce» | «integra PIX e mostra frete em tempo real» | «de 40 a 127 pedidos/dia em 3 meses» | «40→127 pedidos/dia — abandono de carrinho caiu de 68% para 12%» |
-| it | «ottimizza la produzione» | «ottimizza la linea di imbottigliamento» | «riduce scarti regolando temperatura e velocità» | «riduce scarti del 18%» | «-18% scarti — risparmio 47.000€/anno [VERIFY]» |
-| pl | «usprawnia obsługę klienta» | «usprawnia obsługę w dziale supportu» | «automatyzuje odpowiedzi na częste zapytania» | «skraca czas z 48h do 4h, automatyzując 70%» | «odpowiedź w 4h zamiast 48h — 70% spraw zamkniętych bez eskalacji» |
+| en | "improves security" | "improves WordPress security" | "blocks brute-force login attacks" | "blocks 8,400 attempts/day" | "blocks 8,400/day - login stays available for real users" |
+| ru | «повышает безопасность» | «повышает безопасность WordPress» | «блокирует атаки перебора паролей» | «блокирует 8400 попыток/день» | «блокирует 8400/день - страница входа остаётся доступной» |
+| uk | «підвищує безпеку» | «підвищує безпеку WordPress» | «блокує атаки перебору паролів» | «блокує 8400 спроб/день» | «блокує 8400/день - сторінка входу доступна» |
+| de | «verbessert Lieferzeiten» | «verbessert Lieferzeiten im Online-Handel» | «bündelt Bestellungen, optimiert Routen» | «verkürzt Lieferung von 3 Tagen auf 4h» | «Lieferung 4h statt 3 Tage - Retouren -22%, Stammkunden +40%» |
+| fr | «améliore l'expérience client» | «améliore l'expérience en magasin» | «réduit le temps d'attente en caisse» | «réduit l'attente de 7 à 2 min» | «attente 7→2 min - le client suivant voit un caissier libre» |
+| es | «mejora la productividad» | «mejora la productividad administrativa» | «automatiza informes semanales» | «reduce 12h de papeleo a 3h» | «12h→3h - el equipo recupera un día entero cada semana» |
+| pt | «aumenta vendas» | «aumenta vendas no e-commerce» | «integra PIX e mostra frete em tempo real» | «de 40 a 127 pedidos/dia em 3 meses» | «40→127 pedidos/dia - abandono de carrinho caiu de 68% para 12%» |
+| it | «ottimizza la produzione» | «ottimizza la linea di imbottigliamento» | «riduce scarti regolando temperatura e velocità» | «riduce scarti del 18%» | «-18% scarti - risparmio 47.000€/anno [VERIFY]» |
+| pl | «usprawnia obsługę klienta» | «usprawnia obsługę w dziale supportu» | «automatyzuje odpowiedzi na częste zapytania» | «skraca czas z 48h do 4h, automatyzując 70%» | «odpowiedź w 4h zamiast 48h - 70% spraw zamkniętych bez eskalacji» |
 
-### Abstraction triggers (scan for these — all languages)
+### Abstraction triggers (scan for these - all languages)
 
 "improves/enhances/boosts" without mechanism · "efficient/productivity/performance/quality" without measurement · "solution/platform/ecosystem/framework" without concrete description · "state-of-the-art/advanced/modern" without specifics · "better/faster/stronger/smarter" without comparison · "helps you/allows you to/enables" without saying HOW · "user-friendly/intuitive/easy to use" without what makes it so · "comprehensive/complete/end-to-end/all-in-one" without what's included · "real-time" without what happens in real time · "scalable" without to what scale
 
@@ -341,12 +343,14 @@ Target: every claim rung 0-1 → rung 2+. Rung 3 when data supports it.
 1. **Show-Don't-Tell Swap:** "Our support is fast" → "We reply within 4 hours. Weekends too. Most issues solved in one reply."
 2. **Mechanism Reveal:** "The algorithm detects anomalies" → "The algorithm compares each data point against the 90-day rolling average. Points outside 2.5 standard deviations get flagged."
 3. **Number Injection:** "handles thousands of requests" → "handles ~12,000 requests/sec under normal load [VERIFY: confirm throughput]"
-4. **Scenario Example:** "The tool prevents shipping errors" → "A warehouse worker scans a box. The tablet shows a green check — right item, right address. Last month that happened 37 times."
+4. **Scenario Example:** "The tool prevents shipping errors" → "A warehouse worker scans a box. The tablet shows a green check - right item, right address. Last month that happened 37 times."
 5. **Comparison Ground:** "Fast" → "Loads under 200ms. Industry average: 800ms."
 6. **Negative Space Detail:** "A complete platform" → "We build your backend, API, database. We don't build your mobile app. We have partners for that."
 
 ### No-invention rule
 You may supply plausible examples with domain-typical detail, suggest numbers with verify flag. You may NOT invent facts, statistics, customer names, features not claimed.
+
+Canonical placeholders: `[VERIFY: ...]` for a claim to check, `[DATA NEEDED: ...]` for missing input, `[N]` for a missing number, `[illustrative]` for hypothetical examples.
 
 ### Verify flag format
 
@@ -370,7 +374,7 @@ You may supply plausible examples with domain-typical detail, suggest numbers wi
 Set the voice. Every text has a speaker.
 
 ### Tone selection
-1. User-specified — always honored
+1. User-specified - always honored
 2. Context auto-detect
 3. Default fallback → `human`
 
@@ -378,10 +382,10 @@ Tone is set ONCE at Stage 3. Do not re-detect in later stages.
 
 ### Cultural calibration
 Before applying tone, consult `shared/cultural-matrix.md` for the target language:
-- **Trust mechanics** — what builds/breaks credibility in this culture
-- **Formality & address** — вы/ты, vous/tu, Sie/du, você/Senhor(a), Lei/tu, Pan-Pani/Ty
-- **Humor tolerance** — self-irony (RU, PT), dry wit (EN, DE), sarcasm (PL), none in formal (biz all langs)
-- **Platform norms** — LinkedIn vs Twitter vs Telegram behavior per language
+- **Trust mechanics** - what builds/breaks credibility in this culture
+- **Formality & address** - вы/ты, vous/tu, Sie/du, você/Senhor(a), Lei/tu, Pan-Pani/Ty
+- **Humor tolerance** - self-irony (RU, PT), dry wit (EN, DE), sarcasm (PL), none in formal (biz all langs)
+- **Platform norms** - LinkedIn vs Twitter vs Telegram behavior per language
 
 Tone profiles below contain per-language markers. The cultural matrix ensures those markers are applied with cultural awareness, not just linguistically.
 
@@ -411,8 +415,8 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 
 ### Per-tone key markers (all languages)
 
-#### `expert` — The Practitioner
-- **EN:** "The problem is...", "Here's what happens...", moderate contractions (we'll, it's — yes; gonna — no)
+#### `expert` - The Practitioner
+- **EN:** "The problem is...", "Here's what happens...", moderate contractions (we'll, it's - yes; gonna - no)
 - **RU:** Brevity, shorter sentences than EN. Technical terms per industry norm. Мы default. Minimal adjectives.
 - **UK:** Clean technical Ukrainian, no Russianisms. Slightly warmer than RU. Мы default.
 - **DE:** Direkt. Kein Nominalstil. «Wir haben getestet. Es funktioniert.» Minimal adjectives.
@@ -422,7 +426,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** «Abbiamo provato X. Ha funzionato. Ecco perché.» Attenzione al «si passivante».
 - **PL:** «Przetestowaliśmy. Działa. Oto dlaczego.» Żargon tylko jeśli odbiorca zna.
 
-#### `biz` — The Consultant
+#### `biz` - The Consultant
 - **EN:** Limited contractions. No: "partner with us", "journey", "passionate about"
 - **RU:** Вы always. Direct questions. No: «рады предложить», «с удовольствием»
 - **UK:** Ви always. European business style. No: «раді запропонувати», «наша місія»
@@ -433,7 +437,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** Lei sempre. Dati con contesto. No «siamo lieti», «la nostra missione».
 - **PL:** Pan/Pani zawsze. Dane z datą. Bez «z przyjemnością», «naszą misją jest».
 
-#### `human` — The Smart Friend
+#### `human` - The Smart Friend
 - **EN:** All contractions, incl. "gonna" (max 1/500w). Sentence 2w to 30+. Conjunction starters freely.
 - **RU:** Stay slightly more formal than EN. Default вы. Fragments work: «Сделали. Работает. Смотрим дальше.»
 - **UK:** Naturally warmer than RU. Fillers: «до речі», «чесно кажучи», «давайте розберемось».
@@ -444,7 +448,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** «Allora», «cioè», «sai com'è», «guarda». Domande retoriche: «Ha senso?» Meno si passivante.
 - **PL:** «No wiesz», «szczerze mówiąc», «w sumie». Naturalne przejścia: «No i co z tego?», «I teraz uwaga».
 
-#### `social` — The Scroller
+#### `social` - The Scroller
 - **EN:** 3-12w sentences. One longer for explanation. All contractions. Fragments encouraged.
 - **RU:** Measured confidence. Self-irony works. Short lines, big claims, sharp transitions.
 - **UK:** More emotional, community-oriented. Shorter paragraphs than EN. Natural conversational flow.
@@ -455,9 +459,9 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** «Guarda.» «Il punto è questo.» Frasi 3-10 parole. Chiudere con osservazione, non riassunto.
 - **PL:** «Słuchaj.» «Rzecz w tym, że...» Krótkie zdania 3-10 słów. Ironia i sarkazm działają.
 
-#### `landing` — The Seller
+#### `landing` - The Seller
 - **EN:** Headline <12w. "Start building" not "Get started today". Fragments 1-1.5/100w.
-- **RU:** Cut 30% then cut 30% more. CTAs: infinitive or imperative — pick one. Trust through specifics.
+- **RU:** Cut 30% then cut 30% more. CTAs: infinitive or imperative - pick one. Trust through specifics.
 - **UK:** Clarity over embellishment. Cut aggressively. Довіра через конкретику.
 - **DE:** «Jetzt starten» nicht «Starten Sie noch heute». Vertrauen durch Fakten.
 - **FR:** «Commencez» pas «N'attendez plus». Confiance par preuves: chiffres, logos clients, certification.
@@ -466,7 +470,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** «Inizia ora» non «Non aspettare». Italiani diffidano dei superlativi. Tagliare 40-60%.
 - **PL:** «Zacznij teraz» nie «Nie czekaj». Polak sprawdza konkrety zanim kupi. Ciąć bezlitośnie.
 
-#### `article` — The Explainer
+#### `article` - The Explainer
 - **EN:** Opens with problem, not context. "Let's look at the data." "But there's a catch."
 - **RU:** Fight academic tone. Write like explaining to a smart colleague. Section breaks with questions.
 - **UK:** European, less Soviet baggage. Natural section flow. Questions as section breaks.
@@ -477,9 +481,9 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** «Guardiamo i dati.» «Ma c'è un problema.» Troppi «nonostante», «sebbene», «tuttavia» = AI.
 - **PL:** «Spójrzmy na dane.» «Ale jest haczyk.» Unikać: «po pierwsze», «po drugie», «podsumowując».
 
-#### `case` — The Case Study
+#### `case` - The Case Study
 - **EN:** Context → Problem → Attempt 1 (failed) → Attempt 2 (worked) → Numbers → Lessons
-- **RU:** Include failures — builds massive trust. Specific technical details respected.
+- **RU:** Include failures - builds massive trust. Specific technical details respected.
 - **UK:** Same logic as RU. Ukrainian business appreciates directness. Numbers + honest narrative = trust.
 - **DE:** Ehrlichkeit baut Vertrauen. Zahlen, nicht Adjektive. «Der erste Ansatz scheiterte...»
 - **FR:** «La première approche a échoué.» Chiffres en contexte temporel. Pas de «solution miracle».
@@ -488,7 +492,7 @@ Tone profiles below contain per-language markers. The cultural matrix ensures th
 - **IT:** Onestà = credibilità. Dati con periodo. Mai «implementazione impeccabile». La lezione appresa è la parte più importante.
 - **PL:** «Pierwsze podejście nie zadziałało.» Polacy cenią konkret. Wnioski i nauczki są ważniejsze od suchych liczb.
 
-> **Full tone profiles (7 tones × 9 languages, 250 lines):** see GitHub URL at bottom.
+> **Full tone profiles (7 tones × 9 languages, 250 lines):** see `shared/tone-profiles.md`.
 
 ---
 
@@ -517,7 +521,7 @@ Break the machine rhythm. AI = metronome. Human = jazz.
 
 Fragment: ~1-5w. Short: ~4-12w. Medium: ~12-22w. Long: ~22-30w. Very Long: 30+w (split).
 
-### Opener variety — per language
+### Opener variety - per language
 
 **Rule:** No three consecutive sentences start with the same word or same grammatical structure.
 
@@ -584,7 +588,7 @@ Fragment: ~1-5w. Short: ~4-12w. Medium: ~12-22w. Long: ~22-30w. Very Long: 30+w 
 ## STAGE 5: FINAL PROOFREAD
 
 ### 5.1 Read-aloud test (internal simulation)
-Every sentence: would you say this to a colleague? If it contains words you wouldn't use in spoken conversation, passive where active works, or >2 clauses — rewrite.
+Every sentence: would you say this to a colleague? If it contains words you wouldn't use in spoken conversation, passive where active works, or >2 clauses - rewrite.
 
 ### 5.2 Re-check opener
 First 200 words: still starts with context-setting? Cut more.
@@ -596,7 +600,7 @@ Last sentence has actual information? Not summary? Good.
 
 **EN:** Em-dashes left? Replace. "Not only... but also..." → break into two. "Whether it's X or Y" → delete.
 
-**RU:** «следует отметить» survived? «осуществлять» → «делать». «посредством» → «через». «данный» → «этот». Em-dash → period/comma. No exceptions: long dashes are NOT Russian typography — they are an AI fingerprint.
+**RU:** «следует отметить» survived? «осуществлять» → «делать». «посредством» → «через». «данный» → «этот». Em-dash → period/comma. No exceptions: long dashes are NOT Russian typography - they are an AI fingerprint.
 
 **UK:** «являється» or «даний» survived? Replace. Russianisms: «із-за» → «через», «так як» → «бо»/«тому що». Em-dash → period/comma.
 
@@ -624,18 +628,18 @@ For the detected language, scan against the "Taboos & pitfalls" section in the c
 - **IT:** «Si passivante» eccessivo, «nonostante/sebbene/tuttavia» pileup
 - **PL:** English calques («dedykowany», «serwis»), «w ramach/w zakresie» chains
 
-### 5.5 Final scan — top 10 AI tells (must be 0 or near-zero)
+### 5.5 Final scan - top 10 AI tells (must be 0 or near-zero)
 
-1. "Seamless" / its translations — 0
-2. "Leverage" / its translations — 0
-3. "Robust" / its translations — 0
-4. "In today's" / its translations — 0
-5. "Moreover" / its translations — 0
-6. Symmetrical paragraph blocks (same weight 3x) — 0
-7. "In conclusion" / its translations — 0
-8. 3+ adjective pileups — 0
-9. Empty intensifiers — 1 or fewer
-10. Rhetorical question padding — 0
+1. "Seamless" / its translations - 0
+2. "Leverage" / its translations - 0
+3. "Robust" / its translations - 0
+4. "In today's" / its translations - 0
+5. "Moreover" / its translations - 0
+6. Symmetrical paragraph blocks (same weight 3x) - 0
+7. "In conclusion" / its translations - 0
+8. 3+ adjective pileups - 0
+9. Empty intensifiers - 1 or fewer
+10. Rhetorical question padding - 0
 
 ### 5.6 Self-Evaluation
 
@@ -679,13 +683,13 @@ Three independent layers beyond self-evaluation:
 
 | Layer | Tool | What it measures | How to run |
 |-------|------|-----------------|------------|
-| Readability | `readsight` (Python pkg) | Flesch, LIX, Fog — did text become more readable? | `scripts/readability-check.ps1` |
+| Readability | `readsight` (Python pkg) | Flesch, LIX, Fog - did text become more readable? | `scripts/readability-check.ps1` |
 | Morphology | `pymorphy3` / `spaCy` | Non-existent words in output | `scripts/morph-check.ps1 -Lang ru` |
 | AI detection | ZeroGPT API | Independent AI probability | `scripts/zerogpt-detect.ps1 -File output.md` |
 
 ---
 
-## WHEN NOT TO APPLY
+## WHEN NOT TO USE
 
 - **Pre-flight guard triggered** (AI Probability < 20 AND multiple conditions): output diagnostic only
 - Text is authored by a known human (attributed, signed)
@@ -698,7 +702,7 @@ Mixed-language text: detect primary language. Do not rewrite quoted foreign-lang
 
 ---
 
-## OUTPUT FORMAT
+## OUTPUT CONTRACT
 
 ```
 [LANG: en / ru / uk / de / fr / es / pt / it / pl]
@@ -722,7 +726,7 @@ Proofread: XX/100 (read-aloud naturalness, check 10)
 Re-loop: yes/no, stage(s) re-run, final score (if applicable)
 
 [FACTUAL NOTES]
-(Optional — flag inaccuracies, do not silently fix.)
+(Optional - flag inaccuracies, do not silently fix.)
 ```
 
 No preamble. No "here is your rewritten text." No "I hope this helps." Deliver text, changelog, stop.
@@ -781,11 +785,11 @@ ESTIMATED EFFORT: {N} critical + {N} high items
 ## INTEGRATION: RankWise + MindFluence
 
 ### With RankWise (SEO)
-**Rule:** RankWise handles SEO structure → HumanAI handles human voice. Do not break SEO.
+**Rule:** RankWise handles SEO structure → human-ai handles human voice. Do not break SEO.
 
 Preservation rules:
 - Do NOT delete or alter H2/H3 headings containing SEO keywords
-- Preserve keyword density 0.8%–1.5%
+- Preserve keyword density 0.8%-1.5%
 - Maintain min 600 words (unless user requests shorter)
 - Keep internal link anchors and placement
 - Skip deletion of keywords, internal links, schema-relevant elements during cleanup
@@ -794,14 +798,14 @@ Preservation rules:
 Recommended pipeline: `cleanup(skipped: SEO structure) → specificity → tone → rhythm → proofread`
 
 ### With MindFluence (Cognitive Bias)
-**Rule:** MindFluence engineers persuasion → HumanAI humanizes voice. Do not strip psychological structure.
+**Rule:** MindFluence engineers persuasion → human-ai humanizes voice. Do not strip psychological structure.
 
 Tone mapping: `bold-sell` → `landing` · `expert-calm` → `expert` · `rebel-edgy` → `social` · `warm-human` → `human` · `luxe-minimal` → `case`
 
 Preservation rules:
 - Do NOT strip bias markers: social proof numbers, anchoring prices, authority signals
-- Do NOT delete power words overlapping with burned-word lists — they serve psychological function
-- Do NOT break hook openings — deliberately patterned for System 1 capture
+- Do NOT delete power words overlapping with burned-word lists - they serve psychological function
+- Do NOT break hook openings - deliberately patterned for System 1 capture
 - Preserve social proof specificity: "14,327 users this week" is bias marker, not fluff
 
 Recommended pipeline: `cleanup(skipped: bias structure) → specificity → tone(skipped: MindFluence tone) → rhythm → proofread`
@@ -809,10 +813,10 @@ Recommended pipeline: `cleanup(skipped: bias structure) → specificity → tone
 ### Triple Pipeline
 1. RankWise Brief → SEO structure
 2. MindFluence → bias copy within SEO skeleton
-3. HumanAI → humanize voice, preserving BOTH SEO signals AND bias structure
+3. human-ai → humanize voice, preserving BOTH SEO signals AND bias structure
 4. RankWise Audit → final 49-factor verification
 
-HumanAI invocation: `cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread`
+human-ai invocation: `cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread`
 
 ---
 
@@ -820,7 +824,7 @@ HumanAI invocation: `cleanup(skipped: SEO+bias elements) → specificity → ton
 
 **Full pipeline:** "Rewrite this to sound human. Language: ru."
 
-**Specific task — load scenario:** "Rewrite this as a landing page. DE." → load `scenarios/landing-page.md`
+**Specific task - load scenario:** "Rewrite this as a landing page. DE." → load `scenarios/landing-page.md`
 
 **Audit only:** "Tell me what's wrong with this. Don't rewrite."
 
@@ -828,13 +832,13 @@ HumanAI invocation: `cleanup(skipped: SEO+bias elements) → specificity → ton
 
 ---
 
-## FILES & GITHUB URLS
+## FILES
 
-### This skill is self-contained — the SKILL.md above embeds all critical rules and top-15 per-language data. For deep processing, the following files are available:
+### This skill is self-contained - the SKILL.md above embeds all critical rules and top-15 per-language data. Paths below are relative to this `SKILL.md`. For deep processing, the following files are available:
 
 ```
-natural-skill/
-├── SKILL.md                        ← This file — self-contained orchestrator (v4.0)
+human-ai/
+├── SKILL.md                        ← This file - self-contained orchestrator (v4.0.0)
 ├── PLAN.md                         ← Improvement roadmap
 ├── README.md / README.ru.md        ← Documentation (bilingual)
 ├── EVAL.md                         ← External LLM evaluation framework
@@ -845,19 +849,19 @@ natural-skill/
 └── tests/benchmark/                ← Evaluation dataset
 ```
 
-### Deep data (GitHub raw URLs — fetch when task needs full lists):
+### Deep data (files in `shared/`, read when the task needs full lists):
 
-| File | URL |
+| File | Path |
 |------|-----|
-| Full burned words × 9 languages | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/burned-words.md |
-| Full AI markers × 9 languages | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/ai-markers.md |
-| Full tone profiles (7 × 9) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/tone-profiles.md |
-| Specificity ladder (all examples) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/specificity-ladder.md |
-| Rhythm tables (full parameters) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/rhythm-tables.md |
-| Cultural matrix (9 languages) | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/shared/cultural-matrix.md |
-| EVAL framework | https://raw.githubusercontent.com/MADEVAL/Natural-skill/main/EVAL.md |
+| Full burned words × 9 languages | shared/burned-words.md |
+| Full AI markers × 9 languages | shared/ai-markers.md |
+| Full tone profiles (7 × 9) | shared/tone-profiles.md |
+| Specificity ladder (all examples) | shared/specificity-ladder.md |
+| Rhythm tables (full parameters) | shared/rhythm-tables.md |
+| Cultural matrix (9 languages) | shared/cultural-matrix.md |
+| EVAL framework | EVAL.md |
 
-### External validation tools (run separately — not LLM tasks):
+### External validation tools (run separately - not LLM tasks):
 
 | Script | Purpose |
 |--------|---------|

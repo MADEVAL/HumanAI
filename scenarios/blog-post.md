@@ -4,11 +4,11 @@
 **Default tone:** `human`
 
 ## Key Priorities
-1. Kill the template structure — no "Introduction → Body → Conclusion" skeleton. Open with a specific observation, problem, or story - not context
-2. Opinion required — blog posts without an opinion are AI. State the writer's actual position. No fake balance
-3. Specificity over everything — every abstract claim gets a concrete example, number, or micro-story
-4. Natural flow — section transitions by topic logic, not "Firstly, Secondly, Thirdly"
-5. End on substance — no "In conclusion" restating what was just said. Last paragraph: a clear takeaway, a question, or a next step
+1. Kill the template structure - no "Introduction → Body → Conclusion" skeleton. Open with a specific observation, problem, or story - not context
+2. Opinion required - blog posts without an opinion are AI. State the writer's actual position. No fake balance
+3. Specificity over everything - every abstract claim gets a concrete example, number, or micro-story
+4. Natural flow - section transitions by topic logic, not "Firstly, Secondly, Thirdly"
+5. End on substance - no "In conclusion" restating what was just said. Last paragraph: a clear takeaway, a question, or a next step
 
 ## What to Cut
 - "In today's world..." openers
@@ -26,7 +26,7 @@
 ## Rhythm Targets
 | Parameter | Value |
 |----------|-------|
-| Fragment spacing | 1-2 per 100 words (qualitative — use feel, not counting) |
+| Fragment spacing | 1-2 per 100 words (qualitative - use feel, not counting) |
 | Conjunction spacing | 2-4 per 100 words (qualitative target) |
 | Max consecutive same category | 2 |
 

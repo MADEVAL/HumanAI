@@ -57,7 +57,7 @@ fi
 
 if [ "$SKIP_API" = true ]; then
     echo ""
-    echo "DRY RUN — would test:"
+    echo "DRY RUN - would test:"
     for entry in "${TESTS[@]}"; do
         id="$(echo "$entry" | cut -d'|' -f1)"
         echo "  $id"

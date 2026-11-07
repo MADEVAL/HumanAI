@@ -4,7 +4,7 @@
 
 Dans le contexte professionnel actuel, une communication efficace est plus cruciale que jamais. Il convient de noter que les équipes qui communiquent bien sont 25 % plus productives. En outre, une communication claire facilite la prise de décision et permet aux collaborateurs de s'approprier leurs missions. Par ailleurs, les organisations devraient investir dans des outils et des formations pour optimiser la collaboration. En définitive, la communication est la clé du succès.
 
-**Marqueurs IA:** «Dans le contexte professionnel actuel» · «Il convient de noter» · «En outre / Par ailleurs» · «facilite / optimiser» · «En définitive» · 13mots-15mots-12mots — longueurs quasi identiques · paragraphe parfaitement équilibré
+**Marqueurs IA:** «Dans le contexte professionnel actuel» · «Il convient de noter» · «En outre / Par ailleurs» · «facilite / optimiser» · «En définitive» · 13mots-15mots-12mots - longueurs quasi identiques · paragraphe parfaitement équilibré
 
 ---
 
@@ -32,6 +32,6 @@ L'outil n'avait aucune importance. La règle, si.
 - Hedging: «Il convient de noter» → supprimé
 - Conclusion: «En définitive» → remplacée par une punchline
 - Concret: 8 personnes, 4 heures, scénario réel [VÉRIFIER: illustratif]
-- Ton: social — accroche, micro-histoire, chute qui frappe
+- Ton: social - accroche, micro-histoire, chute qui frappe
 - Rythme: fragments, variation des longueurs, fin percutante
 ```

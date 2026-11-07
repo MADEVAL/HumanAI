@@ -45,7 +45,7 @@ if (Test-Path $blacklistFile) {
     }
 }
 
-# Python morph checker — writes results to stdout as JSON
+# Python morph checker - writes results to stdout as JSON
 $pythonScript = @"
 import sys, json, re
 sys.path.insert(0, r'$RepoRoot')
@@ -55,7 +55,7 @@ lang = '$Lang'
 whitelist = set($(if ($whitelist) { "'" + ($whitelist -join "','") + "'" } else { "" }))
 blacklist_lower = set($(if ($blacklist) { "'" + ($blacklist -join "','") + "'" } else { "" }))
 
-# Extract words — Cyrillic for ru/uk, Latin for others
+# Extract words - Cyrillic for ru/uk, Latin for others
 if lang in ('ru', 'uk'):
     words = re.findall(r'[а-яёіїєґА-ЯЁІЇЄҐ]+', text.lower())
 else:
@@ -97,7 +97,7 @@ elif lang == 'en':
         print(json.dumps({"error": "pymorphy3 not installed for EN. Skipping.", "total": total, "unknown": 0, "blacklist_hits": len(blacklist_hits)}))
         sys.exit(0)
 else:
-    # For DE/FR/ES/PT/IT/PL — spaCy-based (simple OOV check)
+    # For DE/FR/ES/PT/IT/PL - spaCy-based (simple OOV check)
     try:
         import spacy
         model_map = {'de': 'de_core_news_sm', 'fr': 'fr_core_news_sm', 'es': 'es_core_news_sm',
@@ -164,7 +164,7 @@ try {
 
     if ($json.unknown -gt 0) {
         foreach ($w in $json.unknown_words) {
-            Write-Host "  «$w» — не найдено" -ForegroundColor Yellow
+            Write-Host "  «$w» - не найдено" -ForegroundColor Yellow
         }
     }
 

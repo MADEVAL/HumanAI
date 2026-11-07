@@ -27,7 +27,7 @@ Die 23 % hatten kein grösseres Budget. Keine besseren Data Scientists. Sie habe
 
 So sieht das aus.
 
-Ein Kundenservice-Team mit 12 Leuten. 400 Tickets am Tag. Vor KI: durchschnittliche Antwortzeit — 7 Stunden. Teamleiter haben täglich 3 Stunden damit verbracht, Tickets manuell zuzuweisen. Nachher: Die KI liest die Anfrage, schreibt einen Antwortentwurf und leitet ihn an die richtige Person weiter. Teamleiter hören auf zuzuweisen. Agenten tippen nicht mehr 40-mal dieselbe Antwort. Antwortzeit fällt auf 90 Minuten.
+Ein Kundenservice-Team mit 12 Leuten. 400 Tickets am Tag. Vor KI: durchschnittliche Antwortzeit - 7 Stunden. Teamleiter haben täglich 3 Stunden damit verbracht, Tickets manuell zuzuweisen. Nachher: Die KI liest die Anfrage, schreibt einen Antwortentwurf und leitet ihn an die richtige Person weiter. Teamleiter hören auf zuzuweisen. Agenten tippen nicht mehr 40-mal dieselbe Antwort. Antwortzeit fällt auf 90 Minuten.
 
 Die Technik war nicht das Schwierige. Schwierig war: nicht alles auf einmal umkrempeln zu wollen.
 
@@ -38,6 +38,6 @@ Die Technik war nicht das Schwierige. Schwierig war: nicht alles auf einmal umkr
 - Übergänge getötet: Darüber hinaus, Zudem, Zusammenfassend
 - «Es ist wichtig zu betonen» gestrichen
 - Konkretheit: 200 Teams, 23/41/36 %, 12 Personen, 400 Tickets/Tag, 7h→90min [PRÜFEN: Zahlen illustrativ]
-- Ton: human — direkt, datenbasiert, konkretes Beispiel
+- Ton: human - direkt, datenbasiert, konkretes Beispiel
 - Rhythmus: Satz-Mix aus Fragmenten und variablen Längen, keine gleichlangen Folgen
 ```

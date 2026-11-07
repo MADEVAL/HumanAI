@@ -171,7 +171,7 @@ The evaluator must have access to `shared/tone-profiles.md` and `shared/rhythm-t
 
 ---
 
-## External Validation — ZeroGPT API
+## External Validation - ZeroGPT API
 
 For **independent** validation (not LLM self-assessment), use ZeroGPT's external AI detection API.
 
@@ -214,7 +214,7 @@ Results are saved to `tests/benchmark/zerogpt-results.json`.
 | 10-25% | Mostly human | Acceptable output |
 | 25-50% | Mixed signals | Some AI patterns remain |
 | 50-80% | Likely AI | Re-run pipeline with aggressive cleanup |
-| 80-100% | Heavy AI | Pipeline did not work — adjust parameters |
+| 80-100% | Heavy AI | Pipeline did not work - adjust parameters |
 
 ### Combined Evaluation Flow
 

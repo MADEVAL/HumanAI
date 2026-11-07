@@ -4,11 +4,11 @@
 **Default tone:** `human`
 
 ## Key Priorities
-1. Subject line = the hook — under 40 chars. Not "Your weekly update" but "The feature you asked for ships tomorrow"
-2. One idea per email — if there are 3 topics, send 3 emails
-3. First sentence = why you're writing — not "I hope this email finds you well"
-4. Personal where possible — "You signed up for X" not "Our valued subscribers"
-5. CTA is one action — not 3 links, 2 buttons, and a PS. One thing
+1. Subject line = the hook - under 40 chars. Not "Your weekly update" but "The feature you asked for ships tomorrow"
+2. One idea per email - if there are 3 topics, send 3 emails
+3. First sentence = why you're writing - not "I hope this email finds you well"
+4. Personal where possible - "You signed up for X" not "Our valued subscribers"
+5. CTA is one action - not 3 links, 2 buttons, and a PS. One thing
 
 ## What to Cut
 - "I hope this email finds you well"
@@ -27,11 +27,11 @@
 ## Rhythm Targets
 | Parameter | Value |
 |----------|-------|
-| Fragment spacing | Same as human tone — high variance |
+| Fragment spacing | Same as human tone - high variance |
 | Conjunction spacing | Natural connectors |
 | Max consecutive same category | 2 |
 
-Additional targets: read aloud test — would you say this to the recipient in person? Email preview text (first line visible in inbox): make it count, not "Having trouble viewing this email?"
+Additional targets: read aloud test - would you say this to the recipient in person? Email preview text (first line visible in inbox): make it count, not "Having trouble viewing this email?"
 
 ## By email type
 - Welcome: Deliver the thing you promised. No 5-paragraph intro. "Here's the guide. Next email: how to set it up"

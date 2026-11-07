@@ -4,11 +4,11 @@
 **Default tone:** `case`
 
 ## Key Priorities
-1. Numbers are non-negotiable — before/after specifics. "Cut deployment time by 60%" not "significantly improved"
-2. The failed attempt is mandatory — even if minor. "We tried X first. It didn't work because..."
-3. Client voice where real — if source has actual quotes, use them. Never fabricate
-4. Lessons, not boasts — end with what was learned, not how great the result was
-5. Kill all case-study clichés — no: "seamless implementation", "exceeded expectations", "delighted the client", "a pleasure to work with"
+1. Numbers are non-negotiable - before/after specifics. "Cut deployment time by 60%" not "significantly improved"
+2. The failed attempt is mandatory - even if minor. "We tried X first. It didn't work because..."
+3. Client voice where real - if source has actual quotes, use them. Never fabricate
+4. Lessons, not boasts - end with what was learned, not how great the result was
+5. Kill all case-study clichés - no: "seamless implementation", "exceeded expectations", "delighted the client", "a pleasure to work with"
 
 ## Required structure
 Context → Problem → Attempt 1 (failed) → Attempt 2 (worked) → Numbers → Lessons
@@ -39,7 +39,7 @@ Honesty is the differentiator. Include what went wrong. Readers trust a case stu
 Additional targets: short sentences every 4-5 sentences.
 
 ## Language Notes
-- RU: Russian case studies tend to skip failures — include them. Builds massive trust. Specific technical details are respected. Keep client quotes real
+- RU: Russian case studies tend to skip failures - include them. Builds massive trust. Specific technical details are respected. Keep client quotes real
 - UK: Ukrainian business culture appreciates directness. Include failures. Numbers + honest narrative = trust
 - All languages: A flawless case study reads as fake. Authenticity > polish
 

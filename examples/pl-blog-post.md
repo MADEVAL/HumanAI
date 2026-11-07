@@ -27,7 +27,7 @@ Te 23 % nie miały większego budżetu. Ani lepszych data scientistów. Zrobiły
 
 Tak to wygląda w praktyce.
 
-Zespół wsparcia, 12 osób. 400 zgłoszeń dziennie. Przed AI: średni czas odpowiedzi — 7 godzin. Kierownicy spędzali 3 godziny dziennie na ręcznym przydzielaniu zgłoszeń. Po wdrożeniu: AI czyta zgłoszenie, pisze szkic odpowiedzi i przekazuje je właściwej osobie. Kierownicy przestają przydzielać. Agenci przestają pisać to samo 40 razy. Czas odpowiedzi spada do 90 minut.
+Zespół wsparcia, 12 osób. 400 zgłoszeń dziennie. Przed AI: średni czas odpowiedzi - 7 godzin. Kierownicy spędzali 3 godziny dziennie na ręcznym przydzielaniu zgłoszeń. Po wdrożeniu: AI czyta zgłoszenie, pisze szkic odpowiedzi i przekazuje je właściwej osobie. Kierownicy przestają przydzielać. Agenci przestają pisać to samo 40 razy. Czas odpowiedzi spada do 90 minut.
 
 Najtrudniejsza nie była technologia. Najtrudniejsze było powstrzymanie się od chęci «zrewolucjonizowania wszystkiego» w pierwszym tygodniu.
 
@@ -38,6 +38,6 @@ Najtrudniejsza nie była technologia. Najtrudniejsze było powstrzymanie się od
 - Przejścia wycięte: Ponadto, Co więcej, Dodatkowo, Należy zauważyć
 - «Podsumowując» usunięte
 - Konkrety: 200 zespołów, 23/41/36 %, 12 osób, 400 zgłoszeń/dzień, 7h→90min [SPRAWDZIĆ: liczby ilustracyjne]
-- Ton: human — bezpośredni, oparty na danych, konkretny przykład
+- Ton: human - bezpośredni, oparty na danych, konkretny przykład
 - Rytm: fragmenty + zdania o zmiennej długości, celowe łamanie rytmu
 ```

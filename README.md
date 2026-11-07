@@ -1,8 +1,9 @@
-# HUMAN-AI — Text Humanization Engine
+# HUMAN-AI - Text Humanization Engine
 
-[![Version](https://img.shields.io/badge/version-4.0-blue)]()
+[![Version](https://img.shields.io/badge/version-4.0.0-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Compatibility](https://img.shields.io/badge/compatibility-any%20LLM-purple)]()
+[![Compatibility](https://img.shields.io/badge/compatibility-plain%20markdown-purple)]()
+[![skills.sh](https://img.shields.io/badge/skills.sh-listed-2ea44f)](https://www.skills.sh/madeval/humanai)
 
 \[ **English** | [Русский](README.ru.md) \]
 
@@ -85,7 +86,7 @@ Each tone has per-language markers: fragment frequencies, conjunction rules, for
 ## Architecture
 
 ```
-natural-skill/
+human-ai/
 ├── SKILL.md                        ← Main orchestrator (full pipeline)
 ├── README.md / README.ru.md        ← This documentation
 ├── shared/
@@ -212,7 +213,7 @@ Here's what the four good ones have in common. And why the other eight failed.
 - Any capable LLM with a system prompt / custom instructions field
 - For full skill functionality: a skill system that loads files from a folder (OpenCode, Claude Code)
 - For standalone: copy `SKILL.md` as system prompt - contains complete pipeline
-- **External validation:** ZeroGPT API key (optional) — for independent AI detection scoring via `scripts/run-benchmark.ps1`
+- **External validation:** ZeroGPT API key (optional) - for independent AI detection scoring via `scripts/run-benchmark.ps1`
 
 ## Quality Validation
 
@@ -248,13 +249,13 @@ Results saved to `tests/benchmark/zerogpt-results.json`.
 
 ### OpenCode
 ```
-natural-skill/ → .opencode/skills/          (project)
-               → ~/.config/opencode/skills/  (global)
+human-ai/ → .opencode/skills/          (project)
+              → ~/.config/opencode/skills/  (global)
 ```
 
 ### Claude Code
 ```
-natural-skill/ → ~/.claude/skills/
+human-ai/ → ~/.claude/skills/
 ```
 
 ### Any LLM (standalone)
@@ -278,39 +279,39 @@ Copy contents of `SKILL.md` as system prompt. Add `shared/` files for richer per
 
 ## Integration
 
-HUMAN-AI is designed to work with two other skills — [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
+HUMAN-AI is designed to work with two other skills - [RankWise](https://github.com/MADEVAL/RankWise) (SEO content engine) and [MindFluence](https://github.com/MADEVAL/MindFluence) (cognitive bias marketing). Together they form a complete content production pipeline.
 
 ### Joint Prompt Triggers
 
 HUMAN-AI recognizes these joint prompts and activates preservation rules automatically:
 
-- "SEO-rewrite this (RankWise), then humanize it (HumanAI)"
+- "SEO-rewrite this (RankWise), then humanize it (human-ai)"
 - "Humanize the RankWise output below"
-- "HumanAI pass on RankWise content"
-- "MindFluence generated this. Now humanize it with HumanAI."
-- "Triple pipeline: RankWise → MindFluence → HumanAI"
+- "human-ai pass on RankWise content"
+- "MindFluence generated this. Now humanize it with human-ai."
+- "Triple pipeline: RankWise → MindFluence → human-ai"
 
 ### With RankWise (SEO)
 
-**The rule:** RankWise handles SEO structure → HumanAI handles human voice. Do not break SEO.
+**The rule:** RankWise handles SEO structure → human-ai handles human voice. Do not break SEO.
 
 **Preservation rules when processing RankWise content:**
 
 - **Do NOT delete or alter H2/H3 headings** that contain SEO keywords. Only rewrite the sentences surrounding them.
-- **Preserve keyword density of 0.8%–1.5%.** If keyword instances are removed during cleanup, add equivalent keyword-adjacent language elsewhere.
+- **Preserve keyword density of 0.8%-1.5%.** If keyword instances are removed during cleanup, add equivalent keyword-adjacent language elsewhere.
 - **Maintain minimum 600 words** (unless user explicitly requests shorter).
-- **Keep internal link anchors and placement** — they are deliberately positioned for SEO.
+- **Keep internal link anchors and placement** - they are deliberately positioned for SEO.
 - **During Stage 1 (cleanup):** skip deletion of keywords, internal links, and schema-relevant elements.
 - **Meta title/description:** already SEO-optimized. Do not humanize them.
 
-**Conflict resolution (RankWise vs HumanAI instincts):**
-1. Preserve keyword placement (K2, K4, K6, K8) — highest priority
-2. Preserve heading structure (C13) — second priority
+**Conflict resolution (RankWise vs human-ai instincts):**
+1. Preserve keyword placement (K2, K4, K6, K8) - highest priority
+2. Preserve heading structure (C13) - second priority
 3. Then apply human voice cleanup
 4. Accept ≤5% density fluctuation as acceptable trade-off
 
-**SEO-safe markers — do NOT delete during cleanup:**
-- Keywords in the first 100–150 words
+**SEO-safe markers - do NOT delete during cleanup:**
+- Keywords in the first 100-150 words
 - Keywords in H2 headings
 - Keywords in image alt texts (if present)
 - Internal link anchor text variety (exact-match ≤2)
@@ -323,11 +324,11 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 
 ### With MindFluence (Cognitive Bias Marketing)
 
-**The rule:** MindFluence engineers persuasion → HumanAI humanizes the voice. Do not strip psychological structure.
+**The rule:** MindFluence engineers persuasion → human-ai humanizes the voice. Do not strip psychological structure.
 
-**Tone mapping (MindFluence → HumanAI):**
+**Tone mapping (MindFluence → human-ai):**
 
-| MindFluence Tone | HumanAI Tone |
+| MindFluence Tone | human-ai Tone |
 |-----------------|-------------|
 | `bold-sell` | `landing` |
 | `expert-calm` | `expert` |
@@ -338,8 +339,8 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 **Preservation rules when processing MindFluence content:**
 
 - **Do NOT strip bias markers:** social proof numbers, anchoring prices, authority signals, scarcity cues, confirmation hooks.
-- **Do NOT delete power words** that overlap with burned-word lists — they serve a psychological function.
-- **Do NOT break "hook" openings** — they are deliberately patterned for System 1 capture.
+- **Do NOT delete power words** that overlap with burned-word lists - they serve a psychological function.
+- **Do NOT break "hook" openings** - they are deliberately patterned for System 1 capture.
 - **Preserve social proof specificity:** "14,327 users this week" is a bias marker, not fluff.
 - **During Stage 1 (cleanup):** skip cleanup of persuasion elements. Only remove generic AI patterns (throat-clearing, hedging, fake transitions).
 
@@ -348,23 +349,23 @@ PIPELINE: cleanup(skipped: SEO structure) → specificity → tone → rhythm �
 PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: MindFluence tone) → rhythm → proofread
 ```
 
-### Triple Pipeline (RankWise → MindFluence → HumanAI)
+### Triple Pipeline (RankWise → MindFluence → human-ai)
 
 **Recommended order and protocol:**
 
 1. **RankWise Brief** → SEO structure, keyword placement, heading hierarchy, link plan
 2. **MindFluence** → Cognitive bias copy within the SEO skeleton, section-by-section bias annotations
-3. **HumanAI** → Humanize the voice while preserving BOTH SEO signals AND bias structure
+3. **human-ai** → Humanize the voice while preserving BOTH SEO signals AND bias structure
 4. **RankWise Audit** → Final 49-factor verification
 
-**Triple-pipeline preservation checklist for HumanAI:**
+**Triple-pipeline preservation checklist for human-ai:**
 
 | Preserve | From | Why |
 |---------|------|-----|
 | Keyword-containing H2/H3 headings | RankWise | SEO hierarchy breaks if altered |
 | Internal link anchors | RankWise | Deliberate link-juice structure |
-| Keyword density 0.8%–1.5% | RankWise | Under/over triggers ranking penalties |
-| Social proof numbers | MindFluence | "14,327 users" — bias, not fluff |
+| Keyword density 0.8%-1.5% | RankWise | Under/over triggers ranking penalties |
+| Social proof numbers | MindFluence | "14,327 users" - bias, not fluff |
 | Anchoring / pricing figures | MindFluence | Reference points for value perception |
 | Authority signals | MindFluence | Named sources, credentials, media logos |
 | Scarcity / urgency cues | MindFluence | Genuine time/quantity limits |
@@ -376,11 +377,11 @@ PIPELINE: cleanup(skipped: bias structure) → specificity → tone(skipped: Min
 Triple pipeline:
 1) RankWise SEO brief for [topic]. Keyword: [kw]. Language: [xx].
 2) MindFluence generate from that brief. Tone: [expert-calm/warm-human/bold-sell].
-3) HumanAI humanize the MindFluence output. Preserve SEO structure + bias markers.
+3) human-ai humanize the MindFluence output. Preserve SEO structure + bias markers.
 4) RankWise audit the final result.
 ```
 
-**HumanAI invocation for triple pipeline:**
+**human-ai invocation for triple pipeline:**
 ```
 PIPELINE: cleanup(skipped: SEO+bias elements) → specificity → tone(skipped: from MindFluence) → rhythm → proofread
 ```

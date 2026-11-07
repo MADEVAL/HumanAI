@@ -4,11 +4,11 @@
 **Default tone:** `biz`
 
 ## Key Priorities
-1. Lead paragraph = everything — who, what, when, where, why. 40 words max. If the editor cuts everything after paragraph 1, the story still makes sense
-2. Quotes must be preserved verbatim — if a real person is quoted: do NOT change their words. Only fix grammar if it's clearly a transcription error. If no real quote exists: delete the fake quote block entirely
-3. No corporate enthusiasm — "We are thrilled to announce" is an AI tell and a press release cliche. "We are announcing" is enough
-4. Boilerplate at the end is fine — the "About Company X" paragraph is expected and doesn't need humanization. Light cleanup only
-5. Dateline format: preserve — "CITY, State/Country, Month Day, Year" is standard. Don't touch it
+1. Lead paragraph = everything - who, what, when, where, why. 40 words max. If the editor cuts everything after paragraph 1, the story still makes sense
+2. Quotes must be preserved verbatim - if a real person is quoted: do NOT change their words. Only fix grammar if it's clearly a transcription error. If no real quote exists: delete the fake quote block entirely
+3. No corporate enthusiasm - "We are thrilled to announce" is an AI tell and a press release cliche. "We are announcing" is enough
+4. Boilerplate at the end is fine - the "About Company X" paragraph is expected and doesn't need humanization. Light cleanup only
+5. Dateline format: preserve - "CITY, State/Country, Month Day, Year" is standard. Don't touch it
 
 ## What to Cut
 - "We are excited/thrilled/proud to announce"

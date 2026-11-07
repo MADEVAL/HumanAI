@@ -1,6 +1,32 @@
 # Changelog
 
-## v3.0 - 2025-06-21
+## [Unreleased]
+
+### Changed
+- Version normalized to three-part semver (4.0.0).
+- Frontmatter normalized: environment-based `compatibility`, `metadata.author`, `phases: 6`; the validation scripts that use ReadSightPy now declare Python 3.10+.
+- Reference files are read by relative path from the skill folder instead of GitHub raw URLs.
+- Long dashes replaced with hyphens across all documentation.
+- Section canon: `WHEN NOT TO USE`, `OUTPUT CONTRACT`; pre-flight and language detection no longer use negative stage numbers.
+- Canonical placeholder vocabulary documented: `[VERIFY: ...]`, `[DATA NEEDED: ...]`, `[N]`, `[illustrative]`.
+- Install folder documented as `human-ai/` to match the skill name.
+
+## [4.0.0] - 2026-07-12
+
+### Added
+- Self-contained `SKILL.md`: every critical rule is embedded, deep data lives in `shared/`.
+- Morphological validator, ReadSightPy readability check, ZeroGPT detection script.
+- Clause-based rhythm system replacing word-count rhythm.
+- Pre-flight check with an already-human guard.
+- Self-evaluation loop: Quality Score out of 100 plus a single re-loop.
+- `cultural-matrix.md`: per-language cultural norms wired into the pipeline.
+- Five new scenarios (15 total), `CONTRIBUTING.md`, `KNOWN_LIMITATIONS.md`, `EVAL.md`, CI.
+
+### Changed
+- Scenario files unified under one naming scheme.
+- Preservation mode removed from `SKILL.md` and kept in the README only.
+
+## [3.0.0] - 2025-06-21
 
 ### Architecture Overhaul
 - Complete repository restructure: MindFluence-style architecture

@@ -4,11 +4,11 @@
 **Default tone:** `human`
 
 ## Key Priorities
-1. Lead with the decision, not the reasoning — "We're changing our remote work policy. Here's why." Not: "After careful consideration of various factors..."
-2. One voice, not a committee — internal memos written by committee sound like AI. Pick a person and write as them
-3. Action items at the top if there are any — don't bury "what you need to do" in paragraph 7
-4. Honesty about bad news — if it's a layoff announcement or budget cut: be direct. Corporate euphemisms read as AI
-5. No "We're excited to share" — internal readers see through this instantly
+1. Lead with the decision, not the reasoning - "We're changing our remote work policy. Here's why." Not: "After careful consideration of various factors..."
+2. One voice, not a committee - internal memos written by committee sound like AI. Pick a person and write as them
+3. Action items at the top if there are any - don't bury "what you need to do" in paragraph 7
+4. Honesty about bad news - if it's a layoff announcement or budget cut: be direct. Corporate euphemisms read as AI
+5. No "We're excited to share" - internal readers see through this instantly
 
 ## What to Cut
 - "As we continue to navigate these unprecedented times"

@@ -4,11 +4,11 @@
 **Default tone:** `social`
 
 ## Key Priorities
-1. Opening line = HOOK — not a headline, not context. A statement that forces reading line 2
-2. 1-3 sentences per paragraph — white space is part of rhythm. Short paragraphs force scrolling
-3. Opinion stated as fact — no hedging, no "in my opinion," no "some people say"
-4. End with a punch, not a summary — call to action, counterintuitive takeaway, or open question
-5. No emoji overload — max 1-2. No "thread 🧵". No "link in bio"
+1. Opening line = HOOK - not a headline, not context. A statement that forces reading line 2
+2. 1-3 sentences per paragraph - white space is part of rhythm. Short paragraphs force scrolling
+3. Opinion stated as fact - no hedging, no "in my opinion," no "some people say"
+4. End with a punch, not a summary - call to action, counterintuitive takeaway, or open question
+5. No emoji overload - max 1-2. No "thread 🧵". No "link in bio"
 
 ## What to Cut
 - Hedging language ("in my opinion", "some people say")

@@ -27,7 +27,7 @@ El 23 % no tenía más presupuesto. Ni mejores científicos de datos. Hicieron u
 
 Así se ve en la práctica.
 
-Un equipo de soporte de 12 personas. 400 tickets al día. Antes de la IA: tiempo medio de respuesta — 7 horas. Los jefes pasaban 3 horas al día asignando tickets. Después: la IA lee la consulta, redacta un borrador de respuesta y lo envía a la persona adecuada. Los jefes dejan de asignar. Los agentes dejan de escribir lo mismo 40 veces al día. El tiempo de respuesta baja a 90 minutos.
+Un equipo de soporte de 12 personas. 400 tickets al día. Antes de la IA: tiempo medio de respuesta - 7 horas. Los jefes pasaban 3 horas al día asignando tickets. Después: la IA lee la consulta, redacta un borrador de respuesta y lo envía a la persona adecuada. Los jefes dejan de asignar. Los agentes dejan de escribir lo mismo 40 veces al día. El tiempo de respuesta baja a 90 minutos.
 
 La tecnología no fue lo más difícil. Lo difícil fue resistirse a querer «transformarlo todo» la primera semana.
 
@@ -38,6 +38,6 @@ La tecnología no fue lo más difícil. Lo difícil fue resistirse a querer «tr
 - Transiciones eliminadas: Además, Asimismo, Por otro lado, Es importante señalar
 - «En conclusión» eliminado
 - Especificidad: 200 equipos, 23/41/36 %, 12 personas, 400 tickets/día, 7h→90min [VERIFICAR: cifras ilustrativas]
-- Tono: human — directo, con datos, ejemplo concreto
+- Tono: human - directo, con datos, ejemplo concreto
 - Ritmo: mezcla de fragmentos y oraciones variables, sin secuencias monótonas
 ```

@@ -7,15 +7,15 @@
 A good translation doesn't sound translated. It sounds like the author wrote it in your language.
 
 ## Key Priorities
-1. Identify the ghost language — detect source-language patterns haunting the text
-2. Extract meaning, discard phrasing — ask what is this actually saying, then express it as a native speaker would
-3. Fix paragraph structure — restructure to target-language norms (EN: topic→development→conclusion, RU: longer/digressive, UK: European brevity, DE: longer tolerated, FR: structured but not formulaic)
-4. Clean punctuation — kill semicolons (EN→RU/UA), replace em-dashes (all→all flag), add contractions (RU/UA→EN)
-5. Read aloud in target language — would a native speaker ever say these words in this order? If no, go back
+1. Identify the ghost language - detect source-language patterns haunting the text
+2. Extract meaning, discard phrasing - ask what is this actually saying, then express it as a native speaker would
+3. Fix paragraph structure - restructure to target-language norms (EN: topic→development→conclusion, RU: longer/digressive, UK: European brevity, DE: longer tolerated, FR: structured but not formulaic)
+4. Clean punctuation - kill semicolons (EN→RU/UA), replace em-dashes (all→all flag), add contractions (RU/UA→EN)
+5. Read aloud in target language - would a native speaker ever say these words in this order? If no, go back
 
 ## What to Cut
 - Source-language ghost patterns (Slavic passives, noun chains, clause stacking)
-- Em-dashes (replace always — an AI tell)
+- Em-dashes (replace always - an AI tell)
 - Semicolons in RU/UA target texts
 - Forced subjects and article artifacts (EN→other)
 - Double-translation artifacts (EN→RU→UA)

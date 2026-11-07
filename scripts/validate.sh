@@ -50,7 +50,7 @@ check "1. SKILL.md YAML Frontmatter"
 SKILL_CONTENT=$(cat "$REPO_ROOT/SKILL.md")
 
 echo "$SKILL_CONTENT" | grep -q "name: human-ai" && pass "name: human-ai" || fail "name field missing"
-echo "$SKILL_CONTENT" | grep -q 'version: "4.0"' && pass "version: 4.0" || fail "version missing or incorrect"
+echo "$SKILL_CONTENT" | grep -q 'version: "4.0.0"' && pass "version: 4.0.0" || fail "version missing or incorrect"
 echo "$SKILL_CONTENT" | grep -q "languages:" && pass "languages field present" || fail "languages missing"
 echo "$SKILL_CONTENT" | grep -q "pipeline_stages: 5" && pass "pipeline_stages: 5" || fail "pipeline_stages missing"
 

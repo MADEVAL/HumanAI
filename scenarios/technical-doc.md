@@ -4,11 +4,11 @@
 **Default tone:** `expert`
 
 ## Key Priorities
-1. Clarity over brevity — technical text can be longer if every word adds precision. But cut filler
-2. Jargon where appropriate — use correct terms, don't dumb down. Define implicitly through use, not with a glossary
-3. Active voice — "The function returns an array" not "An array is returned by the function"
-4. Code blocks stay — never modify code, commands, or config examples. Only edit surrounding explanation
-5. Assumed audience is smart — don't explain what a variable is. Do explain why this architecture choice matters
+1. Clarity over brevity - technical text can be longer if every word adds precision. But cut filler
+2. Jargon where appropriate - use correct terms, don't dumb down. Define implicitly through use, not with a glossary
+3. Active voice - "The function returns an array" not "An array is returned by the function"
+4. Code blocks stay - never modify code, commands, or config examples. Only edit surrounding explanation
+5. Assumed audience is smart - don't explain what a variable is. Do explain why this architecture choice matters
 
 ## What to Cut
 - "In this document we will..."

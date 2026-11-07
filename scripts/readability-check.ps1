@@ -141,7 +141,7 @@ try {
             exit 1
         }
     } else {
-        Write-Host "[INFO] No output file provided — baseline metrics only" -ForegroundColor Yellow
+        Write-Host "[INFO] No output file provided - baseline metrics only" -ForegroundColor Yellow
     }
 }
 finally {

@@ -4,11 +4,11 @@
 **Default tone:** `expert`
 
 ## Key Priorities
-1. Numbers are sacred — budget figures, timelines, sample sizes: preserve exactly. Flag any you're unsure about with [VERIFY]
-2. Methodology preserved — the "how we'll do it" section is the core. Don't simplify it. Make it readable, not dumbed down
-3. Impact stated without adjectives — "This will help 12,000 patients" not "This will have a transformative impact on healthcare"
-4. No false modesty, no false confidence — grant reviewers detect both. State what you'll do and what you need. No more, no less
-5. Jargon where the reviewer expects it — if the grant is for molecular biology, use molecular biology terms. Define only genuinely obscure ones
+1. Numbers are sacred - budget figures, timelines, sample sizes: preserve exactly. Flag any you're unsure about with [VERIFY]
+2. Methodology preserved - the "how we'll do it" section is the core. Don't simplify it. Make it readable, not dumbed down
+3. Impact stated without adjectives - "This will help 12,000 patients" not "This will have a transformative impact on healthcare"
+4. No false modesty, no false confidence - grant reviewers detect both. State what you'll do and what you need. No more, no less
+5. Jargon where the reviewer expects it - if the grant is for molecular biology, use molecular biology terms. Define only genuinely obscure ones
 
 ## What to Cut
 - "This groundbreaking research will revolutionize..."

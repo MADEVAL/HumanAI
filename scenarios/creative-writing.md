@@ -4,11 +4,11 @@
 **Default tone:** `human`
 
 ## Key Priorities
-1. Lightest possible touch — creative writing's value is in the author's voice. You are removing AI residue, not rewriting the piece
-2. Preserve stylistic choices — unusual word order, sentence fragments, dialect, repetition for effect: these are features, not bugs
-3. Only fix what's clearly AI — burned words, fake transitions, template structures. Leave everything else
-4. No tone override — if the piece is melancholic, don't make it warm. If it's angry, don't make it professional
-5. If unsure, don't touch — false positive damage is worse than missing an AI tell in creative text
+1. Lightest possible touch - creative writing's value is in the author's voice. You are removing AI residue, not rewriting the piece
+2. Preserve stylistic choices - unusual word order, sentence fragments, dialect, repetition for effect: these are features, not bugs
+3. Only fix what's clearly AI - burned words, fake transitions, template structures. Leave everything else
+4. No tone override - if the piece is melancholic, don't make it warm. If it's angry, don't make it professional
+5. If unsure, don't touch - false positive damage is worse than missing an AI tell in creative text
 
 ## What to Cut
 - Burned words that slipped in
@@ -27,7 +27,7 @@
 | Parameter | Value |
 |----------|-------|
 | Fragment spacing | Do NOT enforce rhythm rules on creative text |
-| Conjunction spacing | Author's rhythm is intentional — skip rules |
+| Conjunction spacing | Author's rhythm is intentional - skip rules |
 | Max consecutive same category | Only flag metronome-like identical sentence lengths (clear AI pattern) |
 
 ## Language Notes

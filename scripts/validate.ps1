@@ -33,7 +33,7 @@ Write-Check "1. SKILL.md YAML Frontmatter"
 $skillContent = Get-Content (Join-Path $RepoRoot "SKILL.md") -Raw -Encoding UTF8
 
 if ($skillContent -match "name:\s+human-ai") { Write-Pass "name: human-ai" } else { Write-Fail "name field missing or incorrect" }
-if ($skillContent -match 'version:\s+"4\.0"') { Write-Pass "version: 4.0" } else { Write-Fail "version field missing or incorrect" }
+if ($skillContent -match 'version:\s+"4\.0\.0"') { Write-Pass "version: 4.0.0" } else { Write-Fail "version field missing or incorrect" }
 if ($skillContent -match "languages:") { Write-Pass "languages field present" } else { Write-Fail "languages field missing" }
 if ($skillContent -match "pipeline_stages:\s+5") { Write-Pass "pipeline_stages: 5" } else { Write-Fail "pipeline_stages field missing or incorrect" }
 
@@ -402,12 +402,12 @@ if (Test-Path $annotationsPath) {
 
 # ============================================
 Write-Host ""
-Write-Check "15. SKILL.md self-containment — embedded data vs shared/ links"
+Write-Check "15. SKILL.md self-containment - embedded data vs shared/ links"
 
-if ($skillContent -match "raw.githubusercontent.com") {
-    Write-Pass "SKILL.md contains GitHub raw URLs for deep data"
+if ($skillContent -match "Shared data paths|shared/") {
+    Write-Pass "SKILL.md points to relative shared/ paths for deep data"
 } else {
-    Write-Warn "SKILL.md missing GitHub raw URLs for deep data"
+    Write-Warn "SKILL.md missing relative paths for deep data"
 }
 if ($skillContent -match "Top burned words") {
     Write-Pass "SKILL.md has embedded burned-words table"

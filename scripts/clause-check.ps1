@@ -28,7 +28,7 @@ text = r'''$($text -replace "'", "''")'''
 sentences = re.split(r'(?<=[.!?])\s+', text)
 sentences = [s.strip() for s in sentences if s.strip()]
 
-# Very rough clause counting — count finite verbs and coordinating conjunctions as proxy
+# Very rough clause counting - count finite verbs and coordinating conjunctions as proxy
 def estimate_clauses(sentence):
     words = sentence.split()
     # Count subject+predicate pairs via verb patterns

@@ -1,4 +1,4 @@
-# Cultural Matrix — Per-Language Communication Norms
+# Cultural Matrix - Per-Language Communication Norms
 
 > **Purpose:** Humanization that respects cultural expectations. Ignoring these norms produces text that is grammatically correct but culturally synthetic.
 > **Usage:** Load at Stage 0 (language detection) to inform tone selection. Reference at Stage 3 (tone) and Stage 4 (rhythm) for per-language decisions.
@@ -12,8 +12,8 @@
 | **Communication baseline** | Opinionated, direct | Direct but measured | Warmer than RU, melodic | Direkt, sachlich | Précision sans enthousiasme | Directo, sin adornos | Direto, auto-depreciação | Preciso, senza entusiasmo | Precyzja ponad entuzjazm |
 | **Trust builder** | Specifics + failures | Technical detail + self-irony | Numbers + honest narrative | Fakten + Ehrlichkeit | Preuves + transparence | Hechos + honestidad | Transparência + jeitinho | Onestà + dati | Konkret + dane |
 | **Trust killer** | Hedge language, fake balance | Enthusiasm, «рады предложить» | Russianisms, Soviet residue | Begeisterung, «unsere Mission» | Superlatifs vides, enthousiasme forcé | «nos complace», gerund overuse | «temos o prazer», superlativos | Superlativi, «siamo lieti» | Lukrowanie, «z przyjemnością» |
-| **Formal address (biz)** | — (not distinguished) | Вы (default) | Ви (default) | Sie | Vous | Usted | Você/Senhor(a) | Lei | Pan/Pani |
-| **Informal address** | — | ты (very informal only) | ти | du | tu | tú | você/a gente | tu | Ty |
+| **Formal address (biz)** | - (not distinguished) | Вы (default) | Ви (default) | Sie | Vous | Usted | Você/Senhor(a) | Lei | Pan/Pani |
+| **Informal address** | - | ты (very informal only) | ти | du | tu | tú | você/a gente | tu | Ty |
 | **Humor norm** | Dry, self-aware | Self-irony (informal) | Natural warmth, melodic | Trocken, direkt | Wit, not slapstick | Ironía (ES), más emoción (LATAM) | Auto-depreciação leve | Osservazione personale leggera | Ironia i sarkazm |
 | **Academic residue** | Fight balanced-survey tone | Fight pseudo-academic tone | Less Soviet baggage | Kein Nominalstil | Pas de plan en 3 parties | Evitar ensayo académico | PT-BR: conversa inteligente, não monografia | Troppi «nonostante/sebbene/tuttavia» = AI | Unikać strony biernej i nominalizacji |
 | **LinkedIn** | Professional, conversational | Measured confidence | Emotional, community-oriented | Direkt, professionell | Formel mais pas rigide | Más formal que Twitter | Informal até no LinkedIn | Più formale di Twitter | Profesjonalny ale nie sztywny |
@@ -41,22 +41,22 @@
 - Instagram: Visual-first. Text supports image. Shorter. Emotional resonance over data.
 
 **Taboos & pitfalls:**
-- "In today's fast-paced digital landscape..." — delete always
-- "It is important to note..." — delete, state directly
-- "Not only... but also..." — break into two sentences
-- Fake balance ("On one hand... on the other hand") — pick a side
-- "Learn more" / "Get started today" — replaced with action-verb CTAs
+- "In today's fast-paced digital landscape..." - delete always
+- "It is important to note..." - delete, state directly
+- "Not only... but also..." - break into two sentences
+- Fake balance ("On one hand... on the other hand") - pick a side
+- "Learn more" / "Get started today" - replaced with action-verb CTAs
 
-**SEO context:** Featured snippets reward clear, concise answers. E-E-A-T is real — signal experience through specifics.
+**SEO context:** Featured snippets reward clear, concise answers. E-E-A-T is real - signal experience through specifics.
 
 
 ### Russian (ru) / Русский
 
 **Communication style:** Directness without rudeness. Mix of коротких (2-4 words) and длинных (15-25 words) sentences. Self-irony in informal contexts. Прямота без грубости.
 
-**Trust mechanics:** Specific technical details are respected. Including failures builds massive trust (Russian case studies tend to skip failures — this is a mistake). Client quotes: keep them real or don't use them.
+**Trust mechanics:** Specific technical details are respected. Including failures builds massive trust (Russian case studies tend to skip failures - this is a mistake). Client quotes: keep them real or don't use them.
 
-**Formality & address:** Вы is default. ты only for very informal social. The line between warm and unprofessional is thinner than in English — stay slightly more formal.
+**Formality & address:** Вы is default. ты only for very informal social. The line between warm and unprofessional is thinner than in English - stay slightly more formal.
 
 **Humor & self-deprecation:** Самоирония в неформальном контексте works well. Slightly self-deprecating humor in informal contexts.
 
@@ -66,24 +66,24 @@
 - Twitter: Short lines, big claims, sharp transitions. Self-irony works.
 
 **Taboos & pitfalls:**
-- «В современном/сегодняшнем/эпоху...» — delete the entire first sentence
-- «рады предложить», «с удовольствием», «наша миссия» — never
+- «В современном/сегодняшнем/эпоху...» - delete the entire first sentence
+- «рады предложить», «с удовольствием», «наша миссия» - never
 - «осуществлять» → «делать», «посредством» → «через», «данный» → «этот»
 - Russian landing pages suffer from over-explanation. Cut 30%, then cut 30% more.
 - Fight academic tone. Write like explaining to a smart colleague.
 - Pseudo-academic tone: excessive reflexive verbs, abstract nouns.
-- Russian corporate texts often open with «В современных условиях...» as legitimate канцелярит — not always AI.
+- Russian corporate texts often open with «В современных условиях...» as legitimate канцелярит - not always AI.
 
 **SEO context:** Yandex (~35% share) penalizes over-optimization harder than Google. Human-sounding text is even MORE important. Queries often phrased as questions.
 
 
 ### Ukrainian (uk) / Українська
 
-**Communication style:** Чиста технічна українська — жодних русизмів. Warmer than Russian at baseline but without excessive sweetness. Melodic flow: shorter phrases, rhythmic variation. Тепліша за російську, але без солодкуватості.
+**Communication style:** Чиста технічна українська - жодних русизмів. Warmer than Russian at baseline but without excessive sweetness. Melodic flow: shorter phrases, rhythmic variation. Тепліша за російську, але без солодкуватості.
 
-**Trust mechanics:** Numbers + honest narrative = trust. Ukrainian business culture appreciates directness. Include failures — same logic as Russian. Не приховуйте невдачі — це будує довіру.
+**Trust mechanics:** Numbers + honest narrative = trust. Ukrainian business culture appreciates directness. Include failures - same logic as Russian. Не приховуйте невдачі - це будує довіру.
 
-**Formality & address:** Ви always in business. European business style — cleaner, less bureaucratic than post-Soviet norms.
+**Formality & address:** Ви always in business. European business style - cleaner, less bureaucratic than post-Soviet norms.
 
 **Humor & self-deprecation:** Natural warmth. Emotional connection works without losing credibility.
 
@@ -91,11 +91,11 @@
 
 **Taboos & pitfalls:**
 - Russianisms: «із-за» → «через», «так як» → «бо»/«тому що», «приймати участь» → «брати участь»
-- «даний» / «являтися» / «здійснювати» — immediate AI markers
+- «даний» / «являтися» / «здійснювати» - immediate AI markers
 - Surzhyk-like constructions from Russian or English templates
 - Bureaucratic Soviet residue: «у зв'язку з», «з метою», «на виконання»
 - Over-translated English idioms (word-for-word)
-- Missing natural conversational rhythm — too formal, too «written»
+- Missing natural conversational rhythm - too formal, too «written»
 
 **SEO context:** Google dominates (~95%). Ukrainian queries longer and more conversational. Avoid RU SEO patterns leaking into Ukrainian content.
 
@@ -104,7 +104,7 @@
 
 **Communication style:** Direkte Sprache. Fakten tragen Gewicht, nicht Adjektive. Kurze Sätze: «Wir haben getestet. Es funktioniert.» Active voice preferred. Kein Nominalstil (nominalization is the #1 AI tell in German).
 
-**Trust mechanics:** Ehrlichkeit baut Vertrauen. Zahlen, nicht Adjektive. «Der erste Ansatz scheiterte...» — admitting failure builds trust.
+**Trust mechanics:** Ehrlichkeit baut Vertrauen. Zahlen, nicht Adjektive. «Der erste Ansatz scheiterte...» - admitting failure builds trust.
 
 **Formality & address:** Sie in business (always). du in informal contexts. Never mix. Modalpartikeln in Maßen: «doch», «ja», «halt». «Man sollte» → direkt formulieren.
 
@@ -139,13 +139,13 @@
 - Social media: Percutant, rythmé. Accroche en première ligne, pas de contexte. Phrases de 3-8 mots dominantes.
 
 **Taboos & pitfalls:**
-- «En termes de», «dans le cadre de», «en matière de» — reformuler avec verbe actif
-- «Il convient de noter que», «Force est de constater que» — delete immediately
+- «En termes de», «dans le cadre de», «en matière de» - reformuler avec verbe actif
+- «Il convient de noter que», «Force est de constater que» - delete immediately
 - Jargon marketing anglicisé: «scalable», «disruptif», «holistique»
 - English quotation marks instead of French guillemets (« »)
-- Le français écrit formel aime les phrases longues — résister activement
-- Structure académique en trois parties — casser délibérément
-- «N'hésitez pas à», «dans cet article nous allons» — supprimer
+- Le français écrit formel aime les phrases longues - résister activement
+- Structure académique en trois parties - casser délibérément
+- «N'hésitez pas à», «dans cet article nous allons» - supprimer
 
 
 ### Spanish (es) / Español
@@ -166,15 +166,15 @@
 **Taboos & pitfalls:**
 - Gerundio excesivo: «estamos transformando» → presente simple: «transformamos»
 - «El mismo» / «la misma» as pronoun (calco del inglés «the same»)
-- «En primer lugar», «en segundo lugar», «finalmente» — avoid template structure
-- «Cabe destacar» — delete
-- «Nos complace», «nuestra misión» — never
+- «En primer lugar», «en segundo lugar», «finalmente» - avoid template structure
+- «Cabe destacar» - delete
+- «Nos complace», «nuestra misión» - never
 - Semicolons in series: Spanish prefers periods or commas
 
 
 ### Portuguese (pt) / Português
 
-**Communication style:** Direto, sem firulas. Key regional: PT-BR vs PT-EU differ significantly. PT-BR: «A gente testou. Rodou. Tá funcionando.» PT-EU: «Testámos. Funcionou. Está estável.» — mais contido.
+**Communication style:** Direto, sem firulas. Key regional: PT-BR vs PT-EU differ significantly. PT-BR: «A gente testou. Rodou. Tá funcionando.» PT-EU: «Testámos. Funcionou. Está estável.» - mais contido.
 
 **Trust mechanics:** Transparência + jeitinho. Brasileiros valorizam transparência e a solução criativa depois do fracasso. Portugueses: fatos e números falam mais que narrativa. O que aprendemos é mais valioso que o resultado.
 
@@ -183,16 +183,16 @@
 **Humor & self-deprecation:** Auto-depreciação leve é sinal humano, não falta de profissionalismo. Um toque de humor auto-depreciativo é sinal humano em ambas as variantes.
 
 **Platform behavior:**
-- LinkedIn: Brasileiro de internet é informal até no LinkedIn — «você» e contrações («pra», «tá») são naturais.
+- LinkedIn: Brasileiro de internet é informal até no LinkedIn - «você» e contrações («pra», «tá») são naturais.
 - Social: «Olha só.» «O problema é esse.» Frases curtas (3-10 palavras). Terminar com pergunta ou provocação, não com resumo.
 - Landing: Cortar 40-60% do texto original. Cada frase deve responder: «o que eu ganho com isso?»
 
 **Taboos & pitfalls:**
 - «Através de» quando «com» basta
 - «O mesmo» / «a mesma» as pronoun (calque from English)
-- Gerúndio brasileiro («estamos testando») é NATURAL — NÃO é AI tell
+- Gerúndio brasileiro («estamos testando») é NATURAL - NÃO é AI tell
 - Gerúndio europeu («estamos a testar») idem
-- «Temos o prazer», «nossa missão» — never
+- «Temos o prazer», «nossa missão» - never
 
 
 ### Italian (it) / Italiano
@@ -206,16 +206,16 @@
 **Humor & self-deprecation:** Una battuta o osservazione personale leggera distingue l'umano dall'AI. Il ritmo italiano parlato è più veloce e frammentato dello scritto formale.
 
 **Platform behavior:**
-- LinkedIn: Più formale di Twitter/Instagram — «Lei» può restare ma il tono è più diretto del testo aziendale.
+- LinkedIn: Più formale di Twitter/Instagram - «Lei» può restare ma il tono è più diretto del testo aziendale.
 - Social: «Guarda.» «Il punto è questo.» Frasi 3-10 parole. Chiudere con osservazione, non riassunto.
-- Landing: Italiani diffidano dei superlativi — più dati, meno aggettivi. Tagliare il 40-60%.
+- Landing: Italiani diffidano dei superlativi - più dati, meno aggettivi. Tagliare il 40-60%.
 
 **Taboos & pitfalls:**
 - «Si passivante» eccessivo: «si rende necessario» → voce attiva
 - «Lo stesso» / «la stessa» as pronoun (translated from English)
 - Troppi «nonostante», «sebbene», «tuttavia» = AI
-- «Siamo lieti», «la nostra missione» — never
-- «È doveroso sottolineare», «Si evidenzia come» — delete
+- «Siamo lieti», «la nostra missione» - never
+- «È doveroso sottolineare», «Si evidenzia come» - delete
 - Mai «implementazione impeccabile»
 
 
@@ -223,7 +223,7 @@
 
 **Communication style:** Precyzja ponad entuzjazm. «Przetestowaliśmy. Działa. Oto dlaczego.» Naturalne wtrącenia: «no wiesz», «szczerze mówiąc», «w sumie», «po prostu». Końcówki -ować nie są automatycznie AI, ale ich nagromadzenie tak.
 
-**Trust mechanics:** Polacy cenią konkret i nie lubią lukrowania. Polak sprawdza konkrety zanim kupi — dane, certyfikaty, referencje. Dane z datą: «wzrost o 35% r/r (dane za Q1-Q3 2025)». Wnioski i nauczki są ważniejsze od suchych liczb.
+**Trust mechanics:** Polacy cenią konkret i nie lubią lukrowania. Polak sprawdza konkrety zanim kupi - dane, certyfikaty, referencje. Dane z datą: «wzrost o 35% r/r (dane za Q1-Q3 2025)». Wnioski i nauczki są ważniejsze od suchych liczb.
 
 **Formality & address:** Pan/Pani in business (always). Ty in informal. «Szanowni Państwo» tylko w pierwszym kontakcie, potem przejść do rzeczy. Polski B2B ceni konkret ponad wszystko.
 
@@ -235,12 +235,12 @@
 - Landing: Polskie strony często cierpią na nadmiar tekstu. Ciąć bezlitośnie.
 
 **Taboos & pitfalls:**
-- «W ramach», «w zakresie», «w odniesieniu do» — zastąpić konkretnym czasownikiem
+- «W ramach», «w zakresie», «w odniesieniu do» - zastąpić konkretnym czasownikiem
 - Nadmierna nominalizacja: «przeprowadzenie optymalizacji» → «optymalizujemy»
 - English calques: «dedykowany» (dedicated), «serwis» (service)
-- Polski tekst akademicki używa strony biernej i nominalizacji — unikać
-- «Po pierwsze», «po drugie», «podsumowując» — unikać szablonu
-- «Z przyjemnością», «naszą misją jest» — never
+- Polski tekst akademicki używa strony biernej i nominalizacji - unikać
+- «Po pierwsze», «po drugie», «podsumowując» - unikać szablonu
+- «Z przyjemnością», «naszą misją jest» - never
 - Naturalne przejścia: «No i co z tego?», «I teraz uwaga», «A właśnie» zamiast «ponadto», «należy zauważyć»
 - Osobista refleksja autora («zauważyłem, że...») odróżnia człowieka od AI
 
@@ -250,7 +250,7 @@
 
 | Language | Formal (biz default) | Informal | Key nuance |
 |----------|---------------------|----------|------------|
-| EN | — (not applicable) | — | Contractions signal naturalness |
+| EN | - (not applicable) | - | Contractions signal naturalness |
 | RU | Вы | ты (very informal social only) | Thinner warm/unprofessional line than EN |
 | UK | Ви | ти | Warmer baseline than RU |
 | DE | Sie | du | Modalpartikeln: «doch», «ja», «halt» |
@@ -269,4 +269,4 @@
 | **Stage 0 (Language Detection)** | Match detected language to communication baseline. Use "Taboos & pitfalls" to inform pre-flight AI probability scoring. |
 | **Stage 3 (Tone Naturalizer)** | Use per-language "Trust mechanics" to calibrate tone. Use "Platform behavior" to adjust for content type. Use "Formality & address" to set correct you-form. |
 | **Stage 4 (Rhythm Editor)** | Apply "Communication style" rhythmic norms (e.g., RU: mix 2-4w + 15-25w; FR: résister aux phrases longues; IT: periodi lunghi tollerati ma variare). |
-| **Stage 5 (Proofread)** | Final scan against "Taboos & pitfalls" — these are per-language AI tells not covered by universal burned-word lists. |
+| **Stage 5 (Proofread)** | Final scan against "Taboos & pitfalls" - these are per-language AI tells not covered by universal burned-word lists. |

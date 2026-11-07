@@ -5,18 +5,18 @@
 
 ## Key Priorities
 1. Run the full pipeline: Stage 0 (anti-AI cleanup) → Stage 1 (keyword audit) → Stage 2 (structure rebuild) → Stage 3 (specificity) → Stage 4 (human voice) → Stage 5 (SEO polish)
-2. Keyword preservation overrides humanization — never sacrifice SEO structure for voice
+2. Keyword preservation overrides humanization - never sacrifice SEO structure for voice
 3. Fix the six SEO smells (see below)
 4. Apply keyword rules: Title/H1 once naturally, first 100 words once if it fits, at least one H2, 4-6 instances per 2000 words total
 5. Include output extras: META RECOMMENDATIONS (title ≤60 chars, description ≤155 chars, slug), INTERNAL LINKS opportunities, SCHEMA opportunities
 
 ## What to Cut
-- Keyword stuffing (same phrase unnaturally repeated — max 2% density, use synonyms/pronouns/natural language)
-- Fake FAQ sections (generic Q&A, 50-word answers, no real questions — delete if FAQ wouldn't exist without the article)
-- Template skeleton (What is X / Why important / Top 10 / FAQ / Conclusion — break the template, earn structure from content)
+- Keyword stuffing (same phrase unnaturally repeated - max 2% density, use synonyms/pronouns/natural language)
+- Fake FAQ sections (generic Q&A, 50-word answers, no real questions - delete if FAQ wouldn't exist without the article)
+- Template skeleton (What is X / Why important / Top 10 / FAQ / Conclusion - break the template, earn structure from content)
 - "Comprehensive guide" sections with no new information
-- Uniform "Here are the" lists with 2-3 sentence items — vary item length, include surprising entries
-- Conclusions that regurgitate — replace with clear recommendation, specific next action, or open question
+- Uniform "Here are the" lists with 2-3 sentence items - vary item length, include surprising entries
+- Conclusions that regurgitate - replace with clear recommendation, specific next action, or open question
 
 ## What to Preserve
 - Primary keywords in title/H1 and first 100 words

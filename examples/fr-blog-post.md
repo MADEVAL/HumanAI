@@ -27,7 +27,7 @@ Les 23 % n'avaient pas un plus gros budget. Ni de meilleurs data scientists. Ils
 
 Voilà ce que ça donne.
 
-Une équipe support de 12 personnes. 400 tickets par jour. Avant l'IA: temps de réponse moyen — 7 heures. Les managers passaient 3 heures par jour à attribuer les tickets. Après: l'IA lit la demande, rédige un brouillon de réponse et l'envoie à la bonne personne. Les managers arrêtent d'attribuer. Les agents arrêtent de taper 40 fois la même réponse. Le temps de réponse tombe à 90 minutes.
+Une équipe support de 12 personnes. 400 tickets par jour. Avant l'IA: temps de réponse moyen - 7 heures. Les managers passaient 3 heures par jour à attribuer les tickets. Après: l'IA lit la demande, rédige un brouillon de réponse et l'envoie à la bonne personne. Les managers arrêtent d'attribuer. Les agents arrêtent de taper 40 fois la même réponse. Le temps de réponse tombe à 90 minutes.
 
 La technologie n'était pas le plus dur. Le plus dur, c'était de ne pas vouloir tout changer d'un coup.
 
@@ -38,6 +38,6 @@ La technologie n'était pas le plus dur. Le plus dur, c'était de ne pas vouloir
 - Transitions tuées: En outre, Par ailleurs, De plus, Il convient de noter
 - «En conclusion» supprimé
 - Concret ajouté: 200 équipes, 23/41/36 %, 12 personnes, 400 tickets/jour, 7h→90min [VÉRIFIER: chiffres illustratifs]
-- Ton: human — direct, chiffré, exemple concret
+- Ton: human - direct, chiffré, exemple concret
 - Rythme: fragments + phrases variables, ruptures de rythme volontaires
 ```

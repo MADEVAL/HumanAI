@@ -28,7 +28,7 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 3+ adjectives before a noun = AI. Keep the strongest one, show the rest through description.
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.** Use periods, commas, colons.
+- **Em-dash**: **AI tell. Replace always.** Use periods, commas, colons.
 - **Semicolons in series**: overuse = AI. Use periods or rephrase.
 - **Not only... but also...**: break into two sentences.
 
@@ -63,12 +63,12 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 Что это значит для вас?, Звучит хорошо правда?, Хотите узнать самое интересное?, Но как это работает?, Готовы начать?
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.** Use periods, commas, or restructure.
+- **Em-dash**: **AI tell. Replace always.** Use periods, commas, or restructure.
 - Semicolons: not native to Russian. Replace with periods.
 - Over-hyphenation from English compounds: break into separate words.
 
 ### Structure tells
-- Adverbial participle stacking (-ая, -ясь in one sentence)
+- Adverbial participle stacking (-ая, - ясь in one sentence)
 - Pseudo-academic tone: excessive reflexive verbs, abstract nouns
 - «Данный» / «являться» / «осуществлять» - see burned-words.md
 
@@ -102,7 +102,7 @@ What does this mean for you?, Sounds good right?, Want to know the best part?, B
 Що це означає для вас?, Звучить добре правда?, Хочете дізнатися найцікавіше?, Але як це працює?, Готові почати?
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.** Use periods, commas, or restructure.
+- **Em-dash**: **AI tell. Replace always.** Use periods, commas, or restructure.
 - Semicolons: not native. Replace.
 - Over-hyphenation from English: break into separate words.
 
@@ -141,7 +141,7 @@ Einerseits... andererseits, Während einige argumentieren... behaupten andere, E
 Man könnte argumentieren dass, Einige schlagen vor, Es gibt Hinweise darauf, Es ist möglich dass, Im Allgemeinen, In den meisten Fällen, Tendenziell
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - English quotation marks («») used instead of German („“ or »«): AI tell.
 
 ### Human German sounds like
@@ -170,7 +170,7 @@ D'un côté... de l'autre, Certains disent... d'autres affirment, Il y a des ava
 On pourrait dire que, Certains suggèrent, Il est possible que, Généralement parlant, Dans la plupart des cas, Il semblerait que, Apparemment
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - English quotation marks: AI tell. Use French guillemets (« ») or keep neutral.
 - Semicolons in series: reduce.
 
@@ -200,7 +200,7 @@ Por un lado... por otro lado, Mientras unos dicen... otros afirman, Hay pros y c
 Se podría decir que, Algunos sugieren, Es posible que, Por lo general, En la mayoría de los casos, Cabe la posibilidad, Presuntamente
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - Semicolons in series: reduce. Spanish prefers periods or commas.
 
 ### Human Spanish sounds like
@@ -229,7 +229,7 @@ Por um lado... por outro lado, Enquanto uns dizem... outros afirmam, Há prós e
 Pode-se dizer que, Alguns sugerem, É possível que, Em geral, Na maioria dos casos, Supostamente, Aparentemente
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - Semicolons in series: reduce.
 
 ### Human Portuguese sounds like
@@ -258,7 +258,7 @@ Da un lato... dall'altro, Mentre alcuni dicono... altri sostengono, Ci sono pro 
 Si potrebbe dire che, Alcuni suggeriscono, È possibile che, In generale, Nella maggior parte dei casi, Presumibilmente, Apparentemente
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - Semicolons: reduce. Italian prefers periods or commas.
 
 ### Human Italian sounds like
@@ -287,7 +287,7 @@ Z jednej strony... z drugiej strony, Podczas gdy jedni twierdzą... inni uważaj
 Można powiedzieć że, Niektórzy sugerują, Jest możliwe że, Ogólnie rzecz biorąc, W większości przypadków, Przypuszczalnie, Podobno
 
 ### Punctuation tells
-- **Em-dash (—)**: **AI tell. Replace always.**
+- **Em-dash**: **AI tell. Replace always.**
 - Semicolons: reduce.
 - English quotation marks: AI tell. Polish uses „ ” or « ».
 
